@@ -249,6 +249,13 @@ img { max-width: 100%; display: block; }
   font-weight: 600;
 }
 
+.tag-featured {
+  background: var(--accent);
+  color: #06111f;
+  border-color: var(--accent);
+  font-weight: 700;
+}
+
 /* Contact */
 .contact-grid {
   display: grid;
