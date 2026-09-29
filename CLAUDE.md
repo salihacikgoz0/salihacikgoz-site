@@ -41,4 +41,10 @@ Genel bilgi için `README.md`.
   **sağa** alıp 130-140px'e büyütmek; solda unvan + isim, açıklama ve butonlar altta tam
   genişlik. Fotoğrafı tüm girişin (paragraf dahil) yanına koymak önerilmedi: ~350px
   ekranda metne ~195px kalıyor, paragraf 12-14 satıra sıkışıyor.
-- SEO: Open Graph etiketleri (paylaşım önizlemesi için `profile.jpg`/logo).
+- Google Search Console'a siteyi ekleyip `sitemap.xml` göndermek (kullanıcı yapmalı).
+
+## SEO notları
+
+- Paylaşım önizlemesi `images/og-image.jpg` (1200×630). Head'de og/twitter etiketleri ve
+  schema.org Person JSON-LD var; eğitim/iş değişince JSON-LD'yi de güncelle.
+- İçerik değişince `sitemap.xml` içindeki `<lastmod>` tarihini güncelle.
