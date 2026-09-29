@@ -17,16 +17,28 @@ jobs:
       - name: Cache busting
         run: sed -i "s/?v=dev/?v=${GITHUB_SHA::7}/g" index.html
 
-      - name: FTP Deploy
+      # Önce CSS/JS/görsel/PDF yüklenir, index.html en son. Aksi halde yükleme sürerken
+      # gelen istek yeni ?v= adresiyle eski/yarım dosyayı Cloudflare'e 7 günlüğüne önbelleğe alır.
+      # index.html ayrı durum dosyasıyla hariç tutulur ki bu adım onu sunucudan silmesin.
+      - name: FTP Deploy (dosyalar)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: /public_html/
+          state-name: .ftp-deploy-assets-state.json
           exclude: |
             **/.git*
             **/.git*/**
             **/.github/**
             **/*.md
             cv/**
+            index.html
+
+      - name: FTP Deploy (index.html en son)
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: curl -sS --fail -T index.html --user "$FTP_USERNAME:$FTP_PASSWORD" "ftp://$FTP_SERVER/public_html/index.html"
