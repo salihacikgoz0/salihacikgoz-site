@@ -30,6 +30,9 @@ Genel bilgi için `README.md`.
 
 - `images/salihacikgoz.JPG` (orijinal foto) `.gitignore`'da; repoya/sunucuya gitmemeli.
 - `*.md` dosyaları deploy'da hariç tutulur (sunucuda herkese açık olmasın).
+- Site Cloudflare arkasında; CSS/JS/görseller 7 gün önbellekleniyor. `index.html`'deki her
+  yerel dosya adresi `?v=dev` ile bitmeli (ör. `images/yeni.png?v=dev`). Deploy sırasında
+  `?v=dev` commit kodu ile değiştirilir, böylece her yayında önbellek atlanır.
 
 ## Yapılabilecekler
 
