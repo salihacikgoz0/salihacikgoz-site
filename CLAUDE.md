@@ -34,4 +34,8 @@ Genel bilgi için `README.md`.
 ## Yapılabilecekler
 
 - Öne çıkan projelere görsel eklemek.
+- Mobil hero (kullanıcı "şimdilik dursun" dedi, 2026-09-28): fotoğrafı masaüstündeki gibi
+  **sağa** alıp 130-140px'e büyütmek; solda unvan + isim, açıklama ve butonlar altta tam
+  genişlik. Fotoğrafı tüm girişin (paragraf dahil) yanına koymak önerilmedi: ~350px
+  ekranda metne ~195px kalıyor, paragraf 12-14 satıra sıkışıyor.
 - SEO: Open Graph etiketleri (paylaşım önizlemesi için `profile.jpg`/logo).
