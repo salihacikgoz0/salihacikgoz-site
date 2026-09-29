@@ -20,3 +20,11 @@ document.querySelectorAll('a[href^="mailto:"], a[href^="tel:"], a[href*="linkedi
     gtag("event", "contact_click", { method });
   });
 });
+
+// GA4: CV indirmelerini ölç
+document.querySelectorAll('a[href^="salih-acikgoz-cv.pdf"]').forEach((link) => {
+  link.addEventListener("click", () => {
+    if (typeof gtag !== "function") return;
+    gtag("event", "cv_download");
+  });
+});

@@ -12,10 +12,14 @@ Son güncelleme: 2026-09-29 (son commit: SEO — og etiketleri, JSON-LD, robots,
   "pushla" deyince commit + push yap. Push'tan sonra `gh run watch` ile FTP yayınını
   bekle, sonra `curl https://salihacikgoz.com/...` ile canlıda doğrula ve sonucu bildir.
 - Commit mesajları: `feat:` / `fix:` / `docs:` + Türkçe açıklama.
-- Bu ortamda headless tarayıcıyla ekran görüntüsü alınamıyor (Chrome yok, Brave headless
-  çalışmıyor). Görsel sonuçtan emin olmak için kullanıcıdan ekran görüntüsü iste.
-  Mobil kontrol için kullanıcıya Safari > Duyarlı Tasarım Modu (Opt+Cmd+R) öner.
-- Görsel kırpma için `sips` kullan (Pillow yüklü değil); kırptıktan sonra Read ile bak.
+- Proje iki bilgisayarda çalışılıyor:
+  - **Mac:** sayfayı `open -a Safari index.html` ile aç. Headless ekran görüntüsü alınamıyor
+    (Chrome yok, Brave headless çalışmıyor); kullanıcıdan ekran görüntüsü iste, mobil için
+    Safari > Duyarlı Tasarım Modu (Opt+Cmd+R) öner. Görsel kırpma için `sips` kullan.
+  - **Windows:** sayfayı `start index.html` ile aç. Chrome headless çalışıyor:
+    `chrome.exe --headless=new --hide-scrollbars --window-size=1280,760 --screenshot=<png> file:///...`
+    (dar genişlikte headless mobil görüntü güvenilir değil, taşma varmış gibi görünür).
+    Kırpma için Python + Pillow var. `gh` kurulu: `/c/Program Files/GitHub CLI/gh.exe`.
 
 ## Sayfa yapısı (index.html, sırayla)
 
@@ -32,9 +36,20 @@ Son güncelleme: 2026-09-29 (son commit: SEO — og etiketleri, JSON-LD, robots,
 8. Öne Çıkan Projeler: Hazume, CPAS Türkiye, E-Ticaret Marka Danışmanlıkları,
    Web & Mobil Geliştirme (Deep Cafe, FBSM).
 9. Araçlar & Teknolojiler: 3 grup — Reklam & Analitik, Tasarım & Kreatif, Web & Yazılım.
-10. İletişim
+10. İletişim (4 kart + altında sade "Özgeçmiş (PDF) ↓" bağlantısı)
 
 Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı koru.
+
+## CV (PDF)
+
+- Kaynak `cv/kaynak.html` (tek sayfa A4, açık tema, ATS dostu, fotoğrafsız). `cv/` deploy'a gitmez.
+- Sitede bilgi değişince CV'yi de güncelle ve PDF'i yeniden üret; **tek sayfa kalmalı**
+  (`/Count 1` ile kontrol et, taşarsa madde metinlerini kısalt):
+  `"/c/Program Files/Google/Chrome/Application/chrome.exe" --headless=new --no-pdf-header-footer
+  --print-to-pdf="<repo>\salih-acikgoz-cv.pdf" "file:///<repo>/cv/kaynak.html"`
+- İndirmeler GA4'e `cv_download` olayı olarak gider.
+- Kullanıcı CV'yi hero'da **istemedi** ve iddialı kart/buton sevmedi ("çok arayıştaymışım
+  gibi"); sadece iletişimde sade, küçük bir bağlantı olarak kalmalı.
 
 ## Kişisel bilgiler (kaynak: kullanıcı + LinkedIn PDF)
 
@@ -90,7 +105,7 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
 - Deneyim/projelere somut rakamlar (ROAS, CPL vb.) ve projeleri vaka çalışmasına çevirmek
   (sorun → yapılan → sonuç + görsel). Kullanıcıdan veri gerekiyor.
 - Öne çıkan projelere görsel eklemek.
-- PDF CV indirme butonu; referans/müşteri yorumları; çalışılan marka logoları.
+- Referans/müşteri yorumları; çalışılan marka logoları.
 - İngilizce sürüm (TR/EN geçişi).
 - Mobil hero (kullanıcı "şimdilik dursun" dedi, 2026-09-28): fotoğrafı masaüstündeki gibi
   **sağa** alıp 130-140px'e büyütmek; solda unvan + isim, açıklama ve butonlar altta tam

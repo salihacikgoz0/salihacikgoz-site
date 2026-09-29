@@ -396,6 +396,15 @@ img { max-width: 100%; display: block; }
 
 .contact-card:hover { border-color: var(--accent); transform: translateY(-2px); }
 
+.cv-link {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+.cv-link:hover { color: var(--accent); }
+
 .contact-label {
   color: var(--text-muted);
   font-size: 0.8rem;
