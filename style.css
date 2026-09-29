@@ -359,20 +359,13 @@ img { max-width: 100%; display: block; }
 .info-list span { color: var(--text-muted); font-size: 0.9rem; }
 
 .tag {
-  background: var(--accent-soft);
-  color: var(--accent);
+  background: var(--surface);
+  color: var(--text);
   border: 1px solid var(--border);
-  padding: 8px 16px;
-  border-radius: 999px;
+  padding: 7px 14px;
+  border-radius: 8px;
   font-size: 0.88rem;
-  font-weight: 600;
-}
-
-.tag-featured {
-  background: var(--accent);
-  color: #06111f;
-  border-color: var(--accent);
-  font-weight: 700;
+  font-weight: 500;
 }
 
 /* Contact */

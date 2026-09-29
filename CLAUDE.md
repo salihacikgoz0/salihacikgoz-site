@@ -58,8 +58,8 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
 - Eğitim:
   - İstanbul Topkapı Üniversitesi — Yapay Zeka, Tezli Yüksek Lisans (2026 – devam)
   - Anadolu Üniversitesi Açıköğretim — Yapay Zeka Destekli Kodlama, Ön Lisans (2026 – devam)
-  - Akdeniz Üniversitesi — İşletme Enformatiği, Lisans (2018 – 2022), 3.70, bölüm birincisi,
-    Yüksek Onur Belgesi
+  - Akdeniz Üniversitesi — İşletme Enformatiği, Lisans (2018 – 2022), 3.70, bölüm birincisi
+    (Yüksek Onur Belgesi de var ama kullanıcı sitede/CV'de **istemedi**)
 - Sertifika: Makine Öğrenmesi Operasyonları 101. Diller: Türkçe (ana dil), İngilizce
   (profesyonel çalışma).
 - Deniz Egece: LinkedIn özetinde "Yönetim Bilişim Sistemi Uzmanı" da geçiyor; sitede
@@ -76,7 +76,9 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
   - Tam daire foto ve fotoğraf üstünde rozet/yazı **istenmiyor**.
 - Farklı türde bilgileri (okul / sertifika / dil) aynı kart ızgarasına **koyma**;
   kullanıcı bunu sevmedi, ayrı bloklar istiyor.
-- Meta CPAS en önemli uzmanlık; Araçlar'da öne çıkarılmış (`tag-featured`).
+- Meta CPAS en önemli uzmanlık ama Araçlar'da **ayrıca işaretlenmiyor** (kullanıcı istemedi);
+  tüm etiketler aynı, sade/koyu. Dolgulu mavi etiket "seçili buton/filtre" gibi duruyordu.
+- "Araçlar & Teknolojiler" başlığı kalsın (alternatifler önerildi, kullanıcı değiştirmedi).
 - Öne çıkan projelerde "CPAS Türkiye" başlığı (cpasturkiye.com değil).
 - Hazume kullanıcının kendi projesi: ev hanımlarının evde yaptığı yemekleri satabildiği
   sipariş platformu. Reklam/pazarlama projesi gibi anlatma; rakip marka adı (Yemeksepeti
