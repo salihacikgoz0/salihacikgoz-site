@@ -63,6 +63,9 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
   kullanıcı bunu sevmedi, ayrı bloklar istiyor.
 - Meta CPAS en önemli uzmanlık; Araçlar'da öne çıkarılmış (`tag-featured`).
 - Öne çıkan projelerde "CPAS Türkiye" başlığı (cpasturkiye.com değil).
+- Hazume kullanıcının kendi projesi: ev hanımlarının evde yaptığı yemekleri satabildiği
+  sipariş platformu. Reklam/pazarlama projesi gibi anlatma; rakip marka adı (Yemeksepeti
+  vb.) geçirme. "Kendi girişimim" gibi ifadeler de istenmiyor.
 
 ## Dikkat
 
