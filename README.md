@@ -10,8 +10,10 @@ Framework ya da build adımı olmayan, tek sayfalık statik bir site.
 | `index.html` | Tüm sayfa içeriği (hero, özet, yetkinlikler, deneyim, projeler, araçlar, iletişim) |
 | `style.css` | Tüm stiller; renkler `:root` değişkenlerinde, mobil kurallar `@media (max-width: 780px)` altında |
 | `script.js` | Mobil menü aç/kapa |
-| `images/` | `logo.png` (orijinal logo), `logo-mark.png` (header amblemi), `favicon.png`, `profile.jpg` (profil fotoğrafı) |
-| `.github/workflows/deploy.yml` | `main`'e her push'ta Natro'ya FTP ile otomatik yayın |
+| `images/` | `logo.png` (orijinal logo), `logo-mark.png` (header amblemi), `favicon.png`, `profile.jpg` (profil fotoğrafı), `og-image.jpg` (paylaşım önizlemesi, 1200×630) |
+| `robots.txt`, `sitemap.xml` | Arama motorları için tarama izni ve site haritası |
+| `.github/workflows/deploy.yml` | `main`'e her push'ta Natro'ya FTP ile otomatik yayın (önce `?v=dev` → commit kodu) |
+| `CLAUDE.md` | Claude Code için proje notları, tasarım kararları ve yapılacaklar |
 
 ## Yerelde bakmak
 
@@ -38,5 +40,14 @@ git clone https://github.com/salihacikgoz0/salihacikgoz-site.git
 cd salihacikgoz-site
 ```
 
-Not: Orijinal kişisel fotoğraf (`images/salihacikgoz.JPG`) bilerek repoya konmadı;
-sadece ilk bilgisayarda durur. Sitede kırpılmış `images/profile.jpg` kullanılır.
+Sonra klasörde `claude` çalıştırmak yeterli; `CLAUDE.md` otomatik okunur.
+
+Not: Orijinal kişisel fotoğraf (`images/salihacikgoz.JPG`) ve LinkedIn PDF'i (`Profile.pdf`)
+bilerek repoya konmadı; sadece ilk bilgisayarda durur. Sitede kırpılmış görseller kullanılır.
+Yeni cihazda fotoğrafla ilgili bir kırpma gerekirse orijinal fotoğrafı klasöre tekrar koyun.
+
+## Önbellek (Cloudflare)
+
+Site Cloudflare arkasında. `index.html` içindeki her yerel dosya adresi `?v=dev` ile
+bitmeli (ör. `images/yeni.png?v=dev`); yayında bu otomatik olarak commit koduna çevrilir
+ve ziyaretçiler her zaman güncel dosyayı alır.
