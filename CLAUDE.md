@@ -80,18 +80,18 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
 
 - Head'de og/twitter etiketleri (görsel `images/og-image.jpg`, 1200×630), canonical ve
   schema.org Person JSON-LD var. İş/eğitim değişince **JSON-LD'yi de güncelle**.
+- Site Google Search Console'a eklendi, `sitemap.xml` gönderildi (2026-09-30).
+- GA4 kurulu (`G-B23FWT14V4`, head'de gtag). `script.js` e-posta/telefon/LinkedIn tıklamalarını
+  `contact_click` olayı (`method` parametresi) olarak gönderir.
 - İçerik değişince `sitemap.xml` içindeki `<lastmod>` tarihini güncelle.
 
 ## Yapılabilecekler
 
-- Google Search Console'a siteyi ekleyip `sitemap.xml` göndermek (kullanıcı yapmalı;
-  Cloudflare ile alan adı doğrulaması).
 - Deneyim/projelere somut rakamlar (ROAS, CPL vb.) ve projeleri vaka çalışmasına çevirmek
   (sorun → yapılan → sonuç + görsel). Kullanıcıdan veri gerekiyor.
 - Öne çıkan projelere görsel eklemek.
 - PDF CV indirme butonu; referans/müşteri yorumları; çalışılan marka logoları.
 - İngilizce sürüm (TR/EN geçişi).
-- GA4 ile ziyaretçi ölçümü.
 - Mobil hero (kullanıcı "şimdilik dursun" dedi, 2026-09-28): fotoğrafı masaüstündeki gibi
   **sağa** alıp 130-140px'e büyütmek; solda unvan + isim, açıklama ve butonlar altta tam
   genişlik. Fotoğrafı tüm girişin (paragraf dahil) yanına koymak önerilmedi: ~350px
