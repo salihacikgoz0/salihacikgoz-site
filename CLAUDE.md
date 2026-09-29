@@ -109,12 +109,25 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
   `contact_click` olayı (`method` parametresi) olarak gönderir.
 - İçerik değişince `sitemap.xml` içindeki `<lastmod>` tarihini güncelle.
 
+## Kaldığımız yer (2026-09-30)
+
+Son oturumda yapılanlar hepsi yayında (son commit `1b9f9f3`). Açık kalanlar:
+- **Kullanıcıya sor:** Google dizine ekleme tamamlandı mı? (`site:salihacikgoz.com`; hafızada
+  hatırlatma notu da var.)
+- **Kullanıcı yapacak (GA4):** `contact_click`'i önemli etkinlik olarak işaretlemek ve `method`
+  için "İletişim yöntemi" özel boyutu oluşturmak (Yönetici > Etkinlikler / Özel tanımlar).
+- **Windows'ta `gh` girişi yapılmadı:** `"/c/Program Files/GitHub CLI/gh.exe" auth login --web`
+  (kullanıcı `!` ile çalıştırmalı). O zamana kadar yayını canlı siteyi yoklayarak doğrula.
+- Mobil görünüm son değişikliklerden sonra gerçek cihazda kontrol edilmedi (Araçlar'daki yeni
+  Yapay Zeka grubu, iletişimdeki CV bağlantısı); fırsat olunca kullanıcıdan ekran görüntüsü iste.
+
 ## Yapılabilecekler
 
 - Deneyim/projelere somut rakamlar (ROAS, CPL vb.) ve projeleri vaka çalışmasına çevirmek
   (sorun → yapılan → sonuç + görsel). Kullanıcıdan veri gerekiyor.
 - Öne çıkan projelere görsel eklemek.
-- Referans/müşteri yorumları; çalışılan marka logoları.
+- Referans/müşteri yorumları; çalışılan marka logoları (kullanıcı projede marka adı istemedi,
+  logolar için önce sor).
 - İngilizce sürüm (TR/EN geçişi).
 - Mobil hero (kullanıcı "şimdilik dursun" dedi, 2026-09-28): fotoğrafı masaüstündeki gibi
   **sağa** alıp 130-140px'e büyütmek; solda unvan + isim, açıklama ve butonlar altta tam
