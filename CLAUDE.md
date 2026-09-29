@@ -3,7 +3,8 @@
 Salih Açıkgöz'ün kişisel sitesi (CV + portfolyo): https://salihacikgoz.com
 Statik HTML/CSS/JS, framework yok. Genel bilgi ve dosya listesi için `README.md`.
 
-Son güncelleme: 2026-09-29 (son commit: SEO — og etiketleri, JSON-LD, robots, sitemap).
+Son güncelleme: 2026-09-30 (GA4, CV PDF, sade Araçlar etiketleri + Yapay Zeka grubu,
+deploy sırası düzeltmesi, marka adları ve yüksek onur belgesi kaldırıldı).
 
 ## Çalışma şekli
 
@@ -35,7 +36,9 @@ Son güncelleme: 2026-09-29 (son commit: SEO — og etiketleri, JSON-LD, robots,
    ayrı "Sertifikalar" ve "Diller" blokları (`.info-cols`).
 8. Öne Çıkan Projeler: Hazume, CPAS Türkiye, E-Ticaret Marka Danışmanlıkları,
    Web & Mobil Geliştirme (Deep Cafe, FBSM).
-9. Araçlar & Teknolojiler: 3 grup — Reklam & Analitik, Tasarım & Kreatif, Web & Yazılım.
+9. Araçlar & Teknolojiler: 4 grup — Reklam & Analitik, Yapay Zeka (metin, görsel, video,
+   müzik, kodlama), Tasarım & Kreatif, Web & Yazılım. AI araçları kullanıcının seçtikleri; ChatGPT,
+   Cursor, Copilot kullanmıyor, ekleme.
 10. İletişim (4 kart + altında sade "Özgeçmiş (PDF) ↓" bağlantısı)
 
 Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı koru.
@@ -80,6 +83,7 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
   tüm etiketler aynı, sade/koyu. Dolgulu mavi etiket "seçili buton/filtre" gibi duruyordu.
 - "Araçlar & Teknolojiler" başlığı kalsın (alternatifler önerildi, kullanıcı değiştirmedi).
 - Öne çıkan projelerde "CPAS Türkiye" başlığı (cpasturkiye.com değil).
+- E-Ticaret Marka Danışmanlıkları'nda müşteri marka adı (asfamoda, Kozagen vb.) **yazma**.
 - Hazume kullanıcının kendi projesi: ev hanımlarının evde yaptığı yemekleri satabildiği
   sipariş platformu. Reklam/pazarlama projesi gibi anlatma; rakip marka adı (Yemeksepeti
   vb.) geçirme. "Kendi girişimim" gibi ifadeler de istenmiyor.
