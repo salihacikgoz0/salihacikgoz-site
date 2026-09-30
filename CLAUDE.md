@@ -39,9 +39,25 @@ bölüm geçişlerine degrade, Araçlar gruplarına ayrı renkler).
 9. Araçlar & Teknolojiler: 4 grup — Reklam & Analitik, Yapay Zeka (metin, görsel, video,
    müzik, kodlama), Tasarım & Kreatif, Web & Yazılım. AI araçları kullanıcının seçtikleri; ChatGPT,
    Cursor, Copilot kullanmıyor, ekleme.
-10. İletişim (4 kart + altında sade "Özgeçmiş (PDF) ↓" bağlantısı)
+10. Yazılar (`#writing`): Projeler'le aynı stilde görselsiz `.card.post-card` kartları, `grid-2`.
+11. İletişim (`alt`; 4 kart + altında sade "Özgeçmiş (PDF) ↓" bağlantısı)
 
 Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı koru.
+
+## Yazılar (makaleler)
+
+- Her makale `yazilar/<slug>/index.html` (temiz adres: `/yazilar/<slug>/`). Ortak `style.css` ve
+  `script.js` kullanır; yerel adresler `../../` ile başlar ve `?v=dev` ile biter. Görseller
+  `images/yazilar/` altında, JPEG'e sıkıştırılmış (~1200px, kalite 80).
+- İlk makale: "Şikayetvar'ın Satışlara Etkisi" (Medium'dan taşındı, 10 Nisan 2025). Medium RSS'i
+  (`medium.com/feed/@salihacikgoz`) tam metni verir; Medium sayfası doğrudan 403 döner.
+- Kullanıcının tercihi: ana sayfada makale kartı **görselsiz** (büyük krem çizimli kart sitenin
+  havasını bozdu). Makale içinde çizimler koyu çerçevede, hafif kısık (`brightness .88`) duruyor.
+  Tablolar resim değil gerçek HTML tablo.
+- Yeni makale eklerken: sayfa + ana sayfaya kart + `sitemap.xml` + BlogPosting JSON-LD + og görseli
+  (1200×630). Medium'da da yayınlıysa kullanıcıya Medium'un canonical ayarını siteye çevirmesini söyle.
+- Makale sayfalarını yerelde `open` ile açınca Safari üst klasördeki görselleri yüklemez;
+  önizleme için `python3 -m http.server 8765` çalıştırıp `http://127.0.0.1:8765/` aç.
 
 ## CV (PDF)
 

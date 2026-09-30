@@ -15,11 +15,11 @@ jobs:
       # CSS/JS/görsel adreslerine commit kodunu ekle (?v=dev -> ?v=abc1234),
       # böylece Cloudflare ve tarayıcılar her yayında yeni dosyaları indirir
       - name: Cache busting
-        run: sed -i "s/?v=dev/?v=${GITHUB_SHA::7}/g" index.html
+        run: find . -name "*.html" -not -path "./cv/*" -not -path "./.git/*" -exec sed -i "s/?v=dev/?v=${GITHUB_SHA::7}/g" {} +
 
-      # Önce CSS/JS/görsel/PDF yüklenir, index.html en son. Aksi halde yükleme sürerken
+      # Önce CSS/JS/görsel/PDF yüklenir, HTML sayfaları en son. Aksi halde yükleme sürerken
       # gelen istek yeni ?v= adresiyle eski/yarım dosyayı Cloudflare'e 7 günlüğüne önbelleğe alır.
-      # index.html ayrı durum dosyasıyla hariç tutulur ki bu adım onu sunucudan silmesin.
+      # HTML'ler ayrı durum dosyasıyla hariç tutulur ki bu adım onları sunucudan silmesin.
       - name: FTP Deploy (dosyalar)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -34,11 +34,17 @@ jobs:
             **/.github/**
             **/*.md
             cv/**
-            index.html
+            **/*.html
 
-      - name: FTP Deploy (index.html en son)
+      - name: FTP Deploy (HTML sayfaları en son)
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-        run: curl -sS --fail -T index.html --user "$FTP_USERNAME:$FTP_PASSWORD" "ftp://$FTP_SERVER/public_html/index.html"
+        # Alt sayfalar önce, index.html en son; yeni klasörleri curl kendisi açar
+        run: |
+          find . -name "*.html" -not -path "./cv/*" -not -path "./.git/*" -not -path "./index.html" -print0 |
+            while IFS= read -r -d '' f; do
+              curl -sS --fail --ftp-create-dirs -T "$f" --user "$FTP_USERNAME:$FTP_PASSWORD" "ftp://$FTP_SERVER/public_html/${f#./}"
+            done
+          curl -sS --fail -T index.html --user "$FTP_USERNAME:$FTP_PASSWORD" "ftp://$FTP_SERVER/public_html/index.html"
