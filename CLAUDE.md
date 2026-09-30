@@ -3,8 +3,8 @@
 Salih Açıkgöz'ün kişisel sitesi (CV + portfolyo): https://salihacikgoz.com
 Statik HTML/CSS/JS, framework yok. Genel bilgi ve dosya listesi için `README.md`.
 
-Son güncelleme: 2026-09-30 (GA4, CV PDF, Yapay Zeka grubu, deploy sırası düzeltmesi;
-bölüm geçişlerine degrade, Araçlar gruplarına ayrı renkler).
+Son güncelleme: 2026-09-30 (Google ikonları, özel 404, www yönlendirmesi, theme-color,
+hareket azaltma, Yazılar bölümü + ilk makale).
 
 ## Çalışma şekli
 
@@ -53,7 +53,7 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
   (`medium.com/feed/@salihacikgoz`) tam metni verir; Medium sayfası doğrudan 403 döner.
 - Kullanıcının tercihi: ana sayfada makale kartı **görselsiz** (büyük krem çizimli kart sitenin
   havasını bozdu). Makale içinde çizimler koyu çerçevede, hafif kısık (`brightness .88`) duruyor.
-  Tablolar resim değil gerçek HTML tablo.
+  Tablolar resim değil gerçek HTML tablo. Okuma süresi ("4 dk") kaldırıldı, kullanıcı istemedi — ekleme.
 - Yeni makale eklerken: sayfa + ana sayfaya kart + `sitemap.xml` + BlogPosting JSON-LD + og görseli
   (1200×630). Medium'da da yayınlıysa kullanıcıya Medium'un canonical ayarını siteye çevirmesini söyle.
 - Makale sayfalarını yerelde `open` ile açınca Safari üst klasördeki görselleri yüklemez;
@@ -145,7 +145,18 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
 
 ## Kaldığımız yer (2026-09-30)
 
-Son oturumda yapılanlar hepsi yayında (bölüm geçişleri + renkli Araçlar grupları). Açık kalanlar:
+Son oturumda yapılanlar hepsi yayında (ikonlar, 404, www yönlendirmesi, Yazılar + Şikayetvar makalesi).
+Açık kalanlar:
+- **Hatırlat — vaka çalışması (kullanıcı istedi, 2026-09-30):** oturum başında kullanıcıya "vaka
+  çalışmasını yapalım mı?" diye sor. Konsept anlatıldı ve beğenildi, "şimdi yapmayalım" dedi.
+  Format: sorun → yaptıkların → sonuç (rakamla); marka adı yok ("bir kadın giyim markası" gibi).
+  Kullanıcıdan gerekenler: hangi iş (sektör), başlangıç durumu, yapılanlar, 2-3 rakam (ROAS, satış
+  artışı, CPL, maliyet düşüşü; yaklaşık da olur). Yeri: Projeler bölümü (kartı genişletmek ya da
+  `yazilar/` gibi ayrı sayfa — o zaman kullanıcıya sor).
+- **Kullanıcı yapacak (Medium):** Şikayetvar yazısının Medium canonical ayarını site adresine
+  çevirmek (Story settings > Advanced > Customize canonical link). Yapıldı mı sor.
+- **Kullanıcı yapacak (Search Console):** makale adresi için "Dizine eklenmesini iste".
+- Kullanıcı yeni makale yazdıkça gönderecek; düzen için "Yazılar (makaleler)" bölümüne bak.
 - **Google arama ikonu:** sonuçta logo yerine dünya simgesi çıkıyordu; 2026-09-30'da kare ikonlar +
   `favicon.ico` yayına alındı. Google güncelleyene kadar dünya görünmesi normal. ~2026-10-14'te
   kullanıcıya sor, hâlâ dünyaysa canlıdaki ikon adreslerini ve Search Console'u kontrol et.
@@ -160,8 +171,7 @@ Son oturumda yapılanlar hepsi yayında (bölüm geçişleri + renkli Araçlar g
 
 ## Yapılabilecekler
 
-- Deneyim/projelere somut rakamlar (ROAS, CPL vb.) ve projeleri vaka çalışmasına çevirmek
-  (sorun → yapılan → sonuç + görsel). Kullanıcıdan veri gerekiyor.
+- Vaka çalışması → yukarıda "Kaldığımız yer"de hatırlatma olarak duruyor.
 - Öne çıkan projelere görsel eklemek.
 - Referans/müşteri yorumları; çalışılan marka logoları (kullanıcı projede marka adı istemedi,
   logolar için önce sor).
