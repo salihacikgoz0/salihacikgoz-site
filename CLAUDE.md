@@ -99,6 +99,7 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
 
 - `404.html` bağımsız bir sayfa: stil içinde gömülü, tüm adresler tam (`https://salihacikgoz.com/...`)
   çünkü her derinlikte açılabilir; `?v=dev` kullanmaz. `.htaccess` ile bağlı (`ErrorDocument`).
+  `.htaccess` ayrıca `www.` adresini 301 ile `salihacikgoz.com`'a yönlendirir (HTTPS'i Cloudflare yapar).
   `noindex`, GA4'e `page_not_found` olayı gönderir. Kullanıcı "havalı" istedi, beğendi (2026-09-30).
 - `images/salihacikgoz.JPG` (orijinal foto) ve `Profile.pdf` (LinkedIn dışa aktarımı)
   `.gitignore`'da; sadece ilk bilgisayarda var, repoya/sunucuya gitmemeli.
@@ -109,7 +110,8 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
   **İstisna:** site ikonları (`favicon.ico`, `images/icon-192.png`, `images/apple-touch-icon.png`)
   sabit adreste, `?v=` yok — Google arama sonucundaki logo sabit adres ve 48'in katı kare ikon
   ister. Koyu zemin (#0b0f14) üzerine SA amblemi, `favicon.ico` ve `icon-192.png` yuvarlak köşeli
-  (%22, köşe dışı şeffaf; apple-touch-icon kare çünkü iOS kendi yuvarlar); `logo.png`'den Pillow ile üretildi (2026-09-30).
+  (%22, köşe dışı şeffaf; apple-touch-icon kare çünkü iOS kendi yuvarlar);
+  ikonu değiştirince Cloudflare'de Purge Cache > Custom Purge ile bu adresleri temizlet (yoksa 7 gün eskisi); `logo.png`'den Pillow ile üretildi (2026-09-30).
 - Deploy önce diğer dosyaları, `index.html`'i **en son** yükler (ayrı adım, curl ile). Yayın
   sırasında yeni `?v=` adresli CSS/PDF'e istek atma: yarım dosya Cloudflare'de 7 gün kalır
   (2026-09-30'da oldu). Canlı kontrolü `index.html` yeni `?v=` kodunu gösterdikten sonra yap.

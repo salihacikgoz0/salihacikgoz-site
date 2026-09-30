@@ -1,2 +1,7 @@
 # Olmayan adreslerde sitenin kendi 404 sayfası (404.html) gösterilir
 ErrorDocument 404 /404.html
+
+# www.salihacikgoz.com -> salihacikgoz.com (Google aynı içeriği iki adreste görmesin)
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://salihacikgoz.com%{REQUEST_URI} [R=301,L]

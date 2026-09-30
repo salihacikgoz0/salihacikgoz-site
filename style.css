@@ -543,3 +543,10 @@ img { max-width: 100%; display: block; }
   .nav-toggle { display: block; }
   .grid-3, .grid-2, .contact-grid, .info-cols { grid-template-columns: 1fr; }
 }
+
+/* "Hareketi azalt" açık olanlarda kaydırma ve hover hareketleri kapalı */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  .btn:hover, .card:hover, .contact-card:hover { transform: none; }
+}
