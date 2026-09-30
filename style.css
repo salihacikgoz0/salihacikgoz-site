@@ -1,6 +1,6 @@
 :root {
   --bg: #0b0f14;
-  --bg-alt: #10161d;
+  --bg-alt: #121a24;
   --surface: #161e27;
   --border: #23303c;
   --text: #eef2f6;
@@ -222,14 +222,36 @@ img { max-width: 100%; display: block; }
   padding: 72px 24px;
 }
 
-.section.alt { background: var(--bg-alt); max-width: 100%; }
-.section.alt > * { max-width: var(--max-width); margin-left: auto; margin-right: auto; }
+/* Alternatif bölümler: köşelerden hafif mavi/mor ışık, kenarlarda ortası parlayan degrade çizgi */
+.section.alt {
+  background:
+    radial-gradient(ellipse 60% 70% at 0% 0%, rgba(47, 123, 255, 0.09), transparent 70%),
+    radial-gradient(ellipse 60% 70% at 100% 100%, rgba(106, 44, 255, 0.08), transparent 70%),
+    var(--bg-alt);
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-image: linear-gradient(90deg, transparent, rgba(47, 123, 255, 0.5), rgba(106, 44, 255, 0.5), transparent) 1;
+  max-width: 100%;
+}
+/* İçerik düz bölümlerle aynı hizada kalsın (onlarda 1080px'e yan boşluk dahil) */
+.section.alt > * { max-width: calc(var(--max-width) - 48px); margin-left: auto; margin-right: auto; }
 
 .section-title {
   font-size: 1.7rem;
   font-weight: 700;
   letter-spacing: -0.01em;
   margin-bottom: 28px;
+}
+
+/* Başlık altında logo degradesiyle kısa çizgi */
+.section-title::after {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 3px;
+  margin-top: 12px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #2f7bff, #6a2cff);
 }
 
 .section-text {
@@ -325,7 +347,31 @@ img { max-width: 100%; display: block; }
 /* Tags */
 .tags { display: flex; flex-wrap: wrap; gap: 10px; }
 
-.tags + .tags-title { margin-top: 28px; }
+/* Araçlar grupları: her grubun kendi rengi (--c, RGB), soldan sağa sönen degrade zemin */
+.tool-group {
+  --c: 79, 157, 255;
+  position: relative;
+  padding: 20px 22px 22px;
+  border: 1px solid rgba(var(--c), 0.22);
+  border-radius: var(--radius);
+  background: linear-gradient(100deg, rgba(var(--c), 0.10), rgba(var(--c), 0.02) 55%, transparent);
+  overflow: hidden;
+}
+.tool-group::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: linear-gradient(180deg, rgb(var(--c)), rgba(var(--c), 0.2));
+}
+.tool-group + .tool-group { margin-top: 16px; }
+.tool-group .tags-title { color: rgb(var(--c)); }
+.tool-group .tag { border-color: rgba(var(--c), 0.28); }
+
+.tg-ads    { --c: 79, 157, 255; }
+.tg-ai     { --c: 155, 107, 255; }
+.tg-design { --c: 255, 107, 181; }
+.tg-web    { --c: 63, 209, 193; }
 
 .tags-title {
   color: var(--text-muted);

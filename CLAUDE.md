@@ -3,8 +3,8 @@
 Salih Açıkgöz'ün kişisel sitesi (CV + portfolyo): https://salihacikgoz.com
 Statik HTML/CSS/JS, framework yok. Genel bilgi ve dosya listesi için `README.md`.
 
-Son güncelleme: 2026-09-30 (GA4, CV PDF, sade Araçlar etiketleri + Yapay Zeka grubu,
-deploy sırası düzeltmesi, marka adları ve yüksek onur belgesi kaldırıldı).
+Son güncelleme: 2026-09-30 (GA4, CV PDF, Yapay Zeka grubu, deploy sırası düzeltmesi;
+bölüm geçişlerine degrade, Araçlar gruplarına ayrı renkler).
 
 ## Çalışma şekli
 
@@ -82,6 +82,13 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
 - Meta CPAS en önemli uzmanlık ama Araçlar'da **ayrıca işaretlenmiyor** (kullanıcı istemedi);
   tüm etiketler aynı, sade/koyu. Dolgulu mavi etiket "seçili buton/filtre" gibi duruyordu.
 - "Araçlar & Teknolojiler" başlığı kalsın (alternatifler önerildi, kullanıcı değiştirmedi).
+- Bölüm geçişleri net olsun (kullanıcı "her yer aynı, sıkıcı" dedi, 2026-09-30): `alt` bölümlerde
+  köşelerden mavi/mor radial ışık + üst/alt kenarda degrade çizgi (`border-image`); her
+  `.section-title` altında logo degradesiyle 44px çizgi. `alt` bölümlerin içeriği düz
+  bölümlerle aynı hizada (`calc(var(--max-width) - 48px)`).
+- Araçlar grupları `.tool-group` kutularında, her grubun rengi `--c` (RGB) ile: `tg-ads` mavi,
+  `tg-ai` mor, `tg-design` pembe, `tg-web` turkuaz. Sol şerit + soldan sönen degrade zemin;
+  etiketlerin içi koyu kalır, sadece kenarlık renk alır. Yeni grup eklerken yeni `tg-*` rengi ver.
 - Öne çıkan projelerde "CPAS Türkiye" başlığı (cpasturkiye.com değil).
 - E-Ticaret Marka Danışmanlıkları'nda müşteri marka adı (asfamoda, Kozagen vb.) **yazma**.
 - Hazume kullanıcının kendi projesi: ev hanımlarının evde yaptığı yemekleri satabildiği
@@ -111,15 +118,18 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
 
 ## Kaldığımız yer (2026-09-30)
 
-Son oturumda yapılanlar hepsi yayında (son commit `1b9f9f3`). Açık kalanlar:
+Son oturumda yapılanlar hepsi yayında (bölüm geçişleri + renkli Araçlar grupları). Açık kalanlar:
 - **Kullanıcıya sor:** Google dizine ekleme tamamlandı mı? (`site:salihacikgoz.com`; hafızada
-  hatırlatma notu da var.)
+  hatırlatma notu da var.) 2026-09-30 itibarıyla henüz çıkmıyordu; canlıda engel yok. Kullanıcı
+  site linkini LinkedIn'e ekledi. ~2026-10-14'e kadar çıkmazsa URL Denetimi'ne bakın.
 - **Kullanıcı yapacak (GA4):** `contact_click`'i önemli etkinlik olarak işaretlemek ve `method`
   için "İletişim yöntemi" özel boyutu oluşturmak (Yönetici > Etkinlikler / Özel tanımlar).
 - **Windows'ta `gh` girişi yapılmadı:** `"/c/Program Files/GitHub CLI/gh.exe" auth login --web`
   (kullanıcı `!` ile çalıştırmalı). O zamana kadar yayını canlı siteyi yoklayarak doğrula.
-- Mobil görünüm son değişikliklerden sonra gerçek cihazda kontrol edilmedi (Araçlar'daki yeni
-  Yapay Zeka grubu, iletişimdeki CV bağlantısı); fırsat olunca kullanıcıdan ekran görüntüsü iste.
+- Mobil görünüm son değişikliklerden sonra gerçek cihazda kontrol edilmedi (renkli Araçlar
+  kutuları, bölüm degradeleri, iletişimdeki CV bağlantısı); fırsat olunca ekran görüntüsü iste.
+- Headless dar ekran ipucu: sayfayı 390/360px `iframe` içeren bir çerçeve HTML'inde çekince
+  (`--allow-file-access-from-files`) mobil görüntü doğru çıkıyor.
 
 ## Yapılabilecekler
 
@@ -129,7 +139,10 @@ Son oturumda yapılanlar hepsi yayında (son commit `1b9f9f3`). Açık kalanlar:
 - Referans/müşteri yorumları; çalışılan marka logoları (kullanıcı projede marka adı istemedi,
   logolar için önce sor).
 - İngilizce sürüm (TR/EN geçişi).
-- Mobil hero (kullanıcı "şimdilik dursun" dedi, 2026-09-28): fotoğrafı masaüstündeki gibi
-  **sağa** alıp 130-140px'e büyütmek; solda unvan + isim, açıklama ve butonlar altta tam
-  genişlik. Fotoğrafı tüm girişin (paragraf dahil) yanına koymak önerilmedi: ~350px
-  ekranda metne ~195px kalıyor, paragraf 12-14 satıra sıkışıyor.
+
+## Denenip beğenilmeyenler
+
+- Mobil hero'da fotoğrafı sağa almak (136px, butonlar alt alta tam genişlik): 2026-09-30'da
+  denendi, kullanıcı "şu anki hali daha iyi" dedi → mevcut düzen (foto solda 120px) kalıyor,
+  tekrar önerme.
+- Bölüm başlıklarının üstüne sıra numarası (01, 02 …): 2026-09-30'da denendi, "sarmadı".
