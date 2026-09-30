@@ -103,6 +103,9 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
 - Site Cloudflare arkasında; CSS/JS/görseller 7 gün önbellekleniyor. `index.html`'deki her
   yerel dosya adresi `?v=dev` ile bitmeli (ör. `images/yeni.png?v=dev`). Deploy sırasında
   `?v=dev` commit kodu ile değiştirilir, böylece her yayında önbellek atlanır.
+  **İstisna:** site ikonları (`favicon.ico`, `images/icon-192.png`, `images/apple-touch-icon.png`)
+  sabit adreste, `?v=` yok — Google arama sonucundaki logo sabit adres ve 48'in katı kare ikon
+  ister. Koyu zemin (#0b0f14) üzerine SA amblemi; `logo.png`'den Pillow ile üretildi (2026-09-30).
 - Deploy önce diğer dosyaları, `index.html`'i **en son** yükler (ayrı adım, curl ile). Yayın
   sırasında yeni `?v=` adresli CSS/PDF'e istek atma: yarım dosya Cloudflare'de 7 gün kalır
   (2026-09-30'da oldu). Canlı kontrolü `index.html` yeni `?v=` kodunu gösterdikten sonra yap.
@@ -112,6 +115,8 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
 - Head'de og/twitter etiketleri (görsel `images/og-image.jpg`, 1200×630), canonical ve
   schema.org Person JSON-LD var. İş/eğitim değişince **JSON-LD'yi de güncelle**.
 - Site Google Search Console'a eklendi, `sitemap.xml` gönderildi (2026-09-30).
+  Google dizininde (`site:salihacikgoz.com` ile çıkıyor, kullanıcı doğruladı 2026-09-30).
+  Windows'taki hafızada dizin hatırlatma notu varsa artık gereksiz, silinebilir.
 - GA4 kurulu (`G-B23FWT14V4`, head'de gtag). `script.js` e-posta/telefon/LinkedIn tıklamalarını
   `contact_click` olayı (`method` parametresi) olarak gönderir.
 - İçerik değişince `sitemap.xml` içindeki `<lastmod>` tarihini güncelle.
@@ -119,9 +124,6 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
 ## Kaldığımız yer (2026-09-30)
 
 Son oturumda yapılanlar hepsi yayında (bölüm geçişleri + renkli Araçlar grupları). Açık kalanlar:
-- **Kullanıcıya sor:** Google dizine ekleme tamamlandı mı? (`site:salihacikgoz.com`; hafızada
-  hatırlatma notu da var.) 2026-09-30 itibarıyla henüz çıkmıyordu; canlıda engel yok. Kullanıcı
-  site linkini LinkedIn'e ekledi. ~2026-10-14'e kadar çıkmazsa URL Denetimi'ne bakın.
 - **Kullanıcı yapacak (GA4):** `contact_click`'i önemli etkinlik olarak işaretlemek ve `method`
   için "İletişim yöntemi" özel boyutu oluşturmak (Yönetici > Etkinlikler / Özel tanımlar).
 - **Windows'ta `gh` girişi yapılmadı:** `"/c/Program Files/GitHub CLI/gh.exe" auth login --web`
