@@ -108,7 +108,8 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
   `?v=dev` commit kodu ile değiştirilir, böylece her yayında önbellek atlanır.
   **İstisna:** site ikonları (`favicon.ico`, `images/icon-192.png`, `images/apple-touch-icon.png`)
   sabit adreste, `?v=` yok — Google arama sonucundaki logo sabit adres ve 48'in katı kare ikon
-  ister. Koyu zemin (#0b0f14) üzerine SA amblemi; `logo.png`'den Pillow ile üretildi (2026-09-30).
+  ister. Koyu zemin (#0b0f14) üzerine SA amblemi, `favicon.ico` ve `icon-192.png` yuvarlak köşeli
+  (%22, köşe dışı şeffaf; apple-touch-icon kare çünkü iOS kendi yuvarlar); `logo.png`'den Pillow ile üretildi (2026-09-30).
 - Deploy önce diğer dosyaları, `index.html`'i **en son** yükler (ayrı adım, curl ile). Yayın
   sırasında yeni `?v=` adresli CSS/PDF'e istek atma: yarım dosya Cloudflare'de 7 gün kalır
   (2026-09-30'da oldu). Canlı kontrolü `index.html` yeni `?v=` kodunu gösterdikten sonra yap.
