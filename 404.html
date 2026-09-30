@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sayfa bulunamadı | Salih Açıkgöz</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0b0f14">
+<!-- 404 her adreste (/a/b/c) açılabildiği için tüm adresler tam yazıldı; stil de bu yüzden sayfanın içinde -->
+<link rel="icon" href="https://salihacikgoz.com/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" href="https://salihacikgoz.com/images/icon-192.png" sizes="192x192">
+<style>
+  :root {
+    --bg: #0b0f14;
+    --surface: rgba(22, 30, 39, 0.72);
+    --border: #23303c;
+    --text: #eef2f6;
+    --text-muted: #9fb0bf;
+    --accent: #4f9dff;
+    --grad: linear-gradient(90deg, #2f7bff, #6a2cff);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+    padding: 32px 16px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* Arka plan: yavaşça dolaşan mavi/mor ışıklar + ince ızgara */
+  .glow {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.45;
+    pointer-events: none;
+    z-index: -1;
+  }
+  .glow-blue {
+    width: 420px; height: 420px;
+    background: #2f7bff;
+    top: -120px; left: -100px;
+    animation: drift 16s ease-in-out infinite alternate;
+  }
+  .glow-purple {
+    width: 460px; height: 460px;
+    background: #6a2cff;
+    bottom: -160px; right: -120px;
+    animation: drift 19s ease-in-out infinite alternate-reverse;
+  }
+  .grid-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+  }
+
+  @keyframes drift {
+    to { transform: translate(120px, 80px) scale(1.15); }
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 560px;
+    text-align: center;
+  }
+
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    transition: color 0.2s;
+  }
+  .logo:hover { color: var(--text); }
+  .logo img { width: 52px; height: 32px; }
+
+  /* Dev 404: logo degradesi + ara sıra kısa bir "glitch" */
+  .code {
+    position: relative;
+    display: inline-block;
+    font-size: clamp(7rem, 30vw, 11rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: float 6s ease-in-out infinite;
+  }
+  .code::before,
+  .code::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    -webkit-background-clip: text;
+    background-clip: text;
+    opacity: 0;
+  }
+  .code::before { animation: glitch-a 5s steps(1) infinite; }
+  .code::after { animation: glitch-b 5s steps(1) infinite; }
+
+  @keyframes float {
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes glitch-a {
+    0%, 91%, 100% { opacity: 0; transform: none; }
+    92% { opacity: 0.8; transform: translate(-6px, 2px); clip-path: inset(10% 0 55% 0); }
+    94% { opacity: 0.8; transform: translate(5px, -2px); clip-path: inset(60% 0 8% 0); }
+    96% { opacity: 0; }
+  }
+  @keyframes glitch-b {
+    0%, 92%, 100% { opacity: 0; transform: none; }
+    93% { opacity: 0.7; transform: translate(6px, -1px); clip-path: inset(40% 0 30% 0); filter: hue-rotate(60deg); }
+    95% { opacity: 0.7; transform: translate(-4px, 1px); clip-path: inset(5% 0 75% 0); filter: hue-rotate(60deg); }
+    97% { opacity: 0; }
+  }
+
+  h1 {
+    font-size: clamp(1.4rem, 5vw, 1.9rem);
+    margin: 18px 0 8px;
+  }
+  .lead { color: var(--text-muted); }
+
+  /* Reklam yöneticisi satırı gibi duran sonuç kartı */
+  .report {
+    margin: 32px 0;
+    padding: 18px 20px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    text-align: left;
+  }
+  .report-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .report-head code {
+    color: var(--text);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .status {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #ff8a8a;
+  }
+  .status::before {
+    content: "";
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #ff5c5c;
+    box-shadow: 0 0 0 0 rgba(255, 92, 92, 0.6);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    70% { box-shadow: 0 0 0 8px rgba(255, 92, 92, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 92, 92, 0); }
+  }
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding-top: 14px;
+  }
+  .metric span {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+  .metric strong {
+    font-size: 1.35rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .metric small {
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  .btn {
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .btn-primary {
+    background: var(--grad);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(79, 70, 255, 0.35);
+  }
+  .btn-primary:hover { box-shadow: 0 12px 32px rgba(79, 70, 255, 0.5); }
+  .btn-ghost { border: 1px solid var(--border); }
+  .btn-ghost:hover { border-color: var(--accent); }
+
+  @media (max-width: 420px) {
+    .actions .btn { flex: 1 1 100%; text-align: center; }
+    .metric strong { font-size: 1.15rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B23FWT14V4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-B23FWT14V4');
+  // Kırık bağlantıları GA4'te görebilmek için
+  gtag('event', 'page_not_found', { page_path: location.pathname });
+</script>
+</head>
+<body>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="glow glow-blue" aria-hidden="true"></div>
+  <div class="glow glow-purple" aria-hidden="true"></div>
+
+  <main class="wrap">
+    <a href="https://salihacikgoz.com/" class="logo">
+      <img src="https://salihacikgoz.com/images/logo-mark.png" alt="" width="52" height="32">
+      <span>Salih Açıkgöz</span>
+    </a>
+
+    <div class="code" data-text="404" aria-hidden="true">404</div>
+    <h1>Bu sayfa yayında değil</h1>
+    <p class="lead">Aradığın sayfa taşınmış, silinmiş ya da hiç var olmamış olabilir.</p>
+
+    <div class="report" role="img" aria-label="Kampanya raporu: gösterim 0, tıklama 1, dönüşüm yüzde 0">
+      <div class="report-head">
+        <code id="path">/bu-sayfa</code>
+        <span class="status">Reklam seti durduruldu</span>
+      </div>
+      <div class="metrics">
+        <div class="metric"><span>Gösterim</span><strong>0</strong></div>
+        <div class="metric"><span>Tıklama</span><strong>1</strong> <small>sen 👋</small></div>
+        <div class="metric"><span>Dönüşüm</span><strong>%0</strong></div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <a href="https://salihacikgoz.com/" class="btn btn-primary">Ana sayfaya dön</a>
+      <a href="https://salihacikgoz.com/#contact" class="btn btn-ghost">İletişime geç</a>
+    </div>
+  </main>
+
+  <script>
+    // Ziyaretçinin yazdığı adresi kartta göster (bozuk % kodlu adreste ham hali kalır)
+    var path = location.pathname;
+    try { path = decodeURIComponent(path); } catch (e) {}
+    if (location.protocol !== 'file:') document.getElementById('path').textContent = path;
+  </script>
+</body>
+</html>

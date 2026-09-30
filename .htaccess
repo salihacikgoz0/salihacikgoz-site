@@ -1,0 +1,2 @@
+# Olmayan adreslerde sitenin kendi 404 sayfası (404.html) gösterilir
+ErrorDocument 404 /404.html

@@ -14,6 +14,7 @@ Framework ya da build adımı olmayan, tek sayfalık statik bir site.
 | `cv/kaynak.html` | CV'nin kaynağı; PDF buradan Chrome ile üretilir (sunucuya yüklenmez) |
 | `images/` | `logo.png` (orijinal logo), `logo-mark.png` (header amblemi), `icon-192.png` + `apple-touch-icon.png` (site ikonu; kökte `favicon.ico`), `profile.jpg` (profil fotoğrafı), `og-image.jpg` (paylaşım önizlemesi, 1200×630) |
 | `robots.txt`, `sitemap.xml` | Arama motorları için tarama izni ve site haritası |
+| `404.html`, `.htaccess` | Olmayan adreslerde gösterilen özel 404 sayfası (reklam raporu esprili) ve sunucu yönlendirmesi |
 | `.github/workflows/deploy.yml` | `main`'e her push'ta Natro'ya FTP ile otomatik yayın (`?v=dev` → commit kodu; `index.html` en son yüklenir) |
 | `CLAUDE.md` | Claude Code için proje notları, tasarım kararları ve yapılacaklar |
 

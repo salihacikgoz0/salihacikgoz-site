@@ -97,6 +97,9 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
 
 ## Dikkat
 
+- `404.html` bağımsız bir sayfa: stil içinde gömülü, tüm adresler tam (`https://salihacikgoz.com/...`)
+  çünkü her derinlikte açılabilir; `?v=dev` kullanmaz. `.htaccess` ile bağlı (`ErrorDocument`).
+  `noindex`, GA4'e `page_not_found` olayı gönderir. Kullanıcı "havalı" istedi, beğendi (2026-09-30).
 - `images/salihacikgoz.JPG` (orijinal foto) ve `Profile.pdf` (LinkedIn dışa aktarımı)
   `.gitignore`'da; sadece ilk bilgisayarda var, repoya/sunucuya gitmemeli.
 - `*.md` dosyaları deploy'da hariç tutulur (sunucuda herkese açık olmasın).
@@ -124,6 +127,9 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
 ## Kaldığımız yer (2026-09-30)
 
 Son oturumda yapılanlar hepsi yayında (bölüm geçişleri + renkli Araçlar grupları). Açık kalanlar:
+- **Google arama ikonu:** sonuçta logo yerine dünya simgesi çıkıyordu; 2026-09-30'da kare ikonlar +
+  `favicon.ico` yayına alındı. Google güncelleyene kadar dünya görünmesi normal. ~2026-10-14'te
+  kullanıcıya sor, hâlâ dünyaysa canlıdaki ikon adreslerini ve Search Console'u kontrol et.
 - **Kullanıcı yapacak (GA4):** `contact_click`'i önemli etkinlik olarak işaretlemek ve `method`
   için "İletişim yöntemi" özel boyutu oluşturmak (Yönetici > Etkinlikler / Özel tanımlar).
 - **Windows'ta `gh` girişi yapılmadı:** `"/c/Program Files/GitHub CLI/gh.exe" auth login --web`
