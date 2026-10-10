@@ -123,11 +123,15 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
 - Site Cloudflare arkasında; CSS/JS/görseller 7 gün önbellekleniyor. `index.html`'deki her
   yerel dosya adresi `?v=dev` ile bitmeli (ör. `images/yeni.png?v=dev`). Deploy sırasında
   `?v=dev` commit kodu ile değiştirilir, böylece her yayında önbellek atlanır.
-  **İstisna:** site ikonları (`favicon.ico`, `images/icon-192.png`, `images/apple-touch-icon.png`)
-  sabit adreste, `?v=` yok — Google arama sonucundaki logo sabit adres ve 48'in katı kare ikon
-  ister. Koyu zemin (#0b0f14) üzerine SA amblemi, `favicon.ico` ve `icon-192.png` yuvarlak köşeli
-  (%22, köşe dışı şeffaf; apple-touch-icon kare çünkü iOS kendi yuvarlar);
-  ikonu değiştirince Cloudflare'de Purge Cache > Custom Purge ile bu adresleri temizlet (yoksa 7 gün eskisi); `logo.png`'den Pillow ile üretildi (2026-09-30).
+  **İstisna:** site ikonları (`images/site-icon-48.png`, `images/site-icon-192.png`,
+  `images/apple-touch-icon.png`, kökte yedek `favicon.ico`) sabit adreste, `?v=` yok — Google arama
+  sonucundaki logo sabit adres ve 48'in katı kare ikon ister. Koyu zemin (#0b0f14) üzerine SA
+  amblemi, 48/192 ve `favicon.ico` yuvarlak köşeli (%22, köşe dışı şeffaf; apple-touch-icon kare
+  çünkü iOS kendi yuvarlar); `logo.png`'den Pillow ile üretildi (2026-09-30).
+  İkonu değiştirince **dosya adını da değiştir** (HTML'deki 3 sayfada: index, 404, makale): Google
+  ikonu adrese göre önbellekliyor; 2026-10-10'da eski `favicon.ico`/`icon-192.png` adreslerinde
+  Google hâlâ eski (şeffaf zeminli, beyaz harfli) ikonu gösteriyordu, bu yüzden `site-icon-*` adlarına
+  geçildi. Cloudflare'de de Purge Cache > Custom Purge ile eski adresleri temizlet.
 - Deploy önce diğer dosyaları, `index.html`'i **en son** yükler (ayrı adım, curl ile). Yayın
   sırasında yeni `?v=` adresli CSS/PDF'e istek atma: yarım dosya Cloudflare'de 7 gün kalır
   (2026-09-30'da oldu). Canlı kontrolü `index.html` yeni `?v=` kodunu gösterdikten sonra yap.
@@ -155,17 +159,18 @@ Açık kalanlar:
   `yazilar/` gibi ayrı sayfa — o zaman kullanıcıya sor).
 - **Kullanıcı yapacak (Medium):** Şikayetvar yazısının Medium canonical ayarını site adresine
   çevirmek (Story settings > Advanced > Customize canonical link). Yapıldı mı sor.
-- **Kullanıcı yapacak (Search Console):** makale adresi için "Dizine eklenmesini iste".
+- **Kullanıcı yapacak (Search Console):** makale adresi için "Dizine eklenmesini iste"
+  (ana sayfa için 2026-10-10'da yapıldı).
 - Kullanıcı yeni makale yazdıkça gönderecek; düzen için "Yazılar (makaleler)" bölümüne bak.
-- **Google arama ikonu:** sonuçta logo yerine dünya simgesi çıkıyordu; 2026-09-30'da kare ikonlar +
-  `favicon.ico` yayına alındı. Google güncelleyene kadar dünya görünmesi normal. ~2026-10-14'te
-  kullanıcıya sor, hâlâ dünyaysa canlıdaki ikon adreslerini ve Search Console'u kontrol et.
+- **Google arama ikonu:** 2026-10-10'da sonuçta hâlâ eski ikon (beyaz dairede kaybolan beyaz "S")
+  çıkıyordu; canlı ikonlar doğruydu, Google önbelleği eskiydi. İkonlar `site-icon-*` adlarına taşındı,
+  kullanıcı ana sayfa için yeniden dizine ekleme istedi. ~2026-10-24'te kullanıcıya sor; kontrol için
+  `https://www.google.com/s2/favicons?domain=salihacikgoz.com&sz=64` koyu zeminli mi bak.
 - **Kullanıcı yapacak (GA4):** `contact_click`'i önemli etkinlik olarak işaretlemek ve `method`
   için "İletişim yöntemi" özel boyutu oluşturmak (Yönetici > Etkinlikler / Özel tanımlar).
 - **Windows'ta `gh` girişi yapılmadı:** `"/c/Program Files/GitHub CLI/gh.exe" auth login --web`
   (kullanıcı `!` ile çalıştırmalı). O zamana kadar yayını canlı siteyi yoklayarak doğrula.
-- Mobil görünüm son değişikliklerden sonra gerçek cihazda kontrol edilmedi (renkli Araçlar
-  kutuları, bölüm degradeleri, iletişimdeki CV bağlantısı); fırsat olunca ekran görüntüsü iste.
+- Mobil görünüm 2026-09-30'da kullanıcı tarafından telefonda kontrol edildi, sorun yok.
 - Headless dar ekran ipucu: sayfayı 390/360px `iframe` içeren bir çerçeve HTML'inde çekince
   (`--allow-file-access-from-files`) mobil görüntü doğru çıkıyor.
 
