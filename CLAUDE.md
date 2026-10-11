@@ -57,7 +57,8 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
   havasını bozdu). Makale içinde çizimler koyu çerçevede, hafif kısık (`brightness .88`) duruyor.
   Tablolar resim değil gerçek HTML tablo. Okuma süresi ("4 dk") kaldırıldı, kullanıcı istemedi — ekleme.
 - Yeni makale eklerken: sayfa + ana sayfaya kart + `sitemap.xml` + BlogPosting JSON-LD + og görseli
-  (1200×630). Medium'da da yayınlıysa kullanıcıya Medium'un canonical ayarını siteye çevirmesini söyle.
+  (1200×630). Medium'da da yayınlıysa canonical konusunu hatırlat (kullanıcı şimdilik Medium'da
+  bırakmayı seçti, aşağıda "Kaldığımız yer"e bak; zorlama).
 - Makale sayfalarını yerelde `open` ile açınca Safari üst klasördeki görselleri yüklemez;
   önizleme için `python3 -m http.server 8765` çalıştırıp `http://127.0.0.1:8765/` aç.
 
@@ -159,8 +160,11 @@ Açık kalanlar:
   Kullanıcıdan gerekenler: hangi iş (sektör), başlangıç durumu, yapılanlar, 2-3 rakam (ROAS, satış
   artışı, CPL, maliyet düşüşü; yaklaşık da olur). Yeri: Projeler bölümü (kartı genişletmek ya da
   `yazilar/` gibi ayrı sayfa — o zaman kullanıcıya sor).
-- **Kullanıcı yapacak (Medium):** Şikayetvar yazısının Medium canonical ayarını site adresine
-  çevirmek (Story settings > Advanced > Customize canonical link). Yapıldı mı sor.
+- **Ara ara hatırlat — Medium canonical (2026-10-11 kararı):** Kullanıcı artıları/eksileri dinledi,
+  "şimdilik Medium'da kalsın" dedi; Medium canonical'ı Medium'da bırakıyor. Her oturumda **sorma**;
+  ~ayda bir ya da yeni makale eklenirken tek cümleyle hatırlat ("Medium canonical'ı siteye çevirmeyi
+  düşündün mü?"). Kullanıcı açıkça "artık hatırlatma" demeden bu maddeyi silme. Yol: yazıda ⋯ >
+  Edit story > ⋯ > More settings > Advanced > Customize canonical link. Son hatırlatma: 2026-10-11.
 - **Kullanıcı yapacak (Search Console):** makale adresi için "Dizine eklenmesini iste"
   (ana sayfa için 2026-10-10'da yapıldı).
 - Kullanıcı yeni makale yazdıkça gönderecek; düzen için "Yazılar (makaleler)" bölümüne bak.
