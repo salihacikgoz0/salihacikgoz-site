@@ -253,6 +253,7 @@ img { max-width: 100%; display: block; }
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums; /* sayarken rakamlar zıplamasın */
   background: linear-gradient(135deg, #4f9dff, #7a4dff);
   -webkit-background-clip: text;
   background-clip: text;
