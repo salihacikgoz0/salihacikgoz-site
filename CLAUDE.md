@@ -32,6 +32,9 @@ hareket azaltma, Yazılar bölümü + ilk makale).
 4. Profesyonel Özet
 5. Temel Yetkinlikler (6 kart)
 6. İş Deneyimi: BrotherHustle (Ara 2024 – Halen), Deniz Egece Enstitü (Eyl 2022 – Eyl 2024).
+   İş Deneyimi ve Eğitim zaman çizelgesinde nokta yerine kurum logosu (`.timeline-logo`, 44px beyaz kutu,
+   mobilde 36px; `images/kurumlar/`): BrotherHustle ve Deniz Egece kendi sitelerinden, üniversiteler
+   Vikipedi/Commons'tan; Topkapı ve Anadolu'nun sadece amblemi kesildi (2026-10-11, kullanıcı beğendi).
 6b. Çalıştığım Markalar (`#brands`, `alt`, 2026-10-11): 20 Trendyol mağazası logosu, sabit ızgara
    (`.brands-grid`, masaüstü 10×2, mobil 5×4), baştan renkli, hover'da kalkar; tıklayınca Trendyol
    mağazası açılır, GA4'e `brand_click` (`brand`). Liste cpasturkiye.com'daki "Reklamlarını CPAS
@@ -204,6 +207,11 @@ Açık kalanlar:
   TikTok → Yandex; gösterişli, sevmeyebilir), vaka çalışması, İletişim'e sade WhatsApp bağlantısı,
   LinkedIn tavsiyelerinden 2-3 referans. Uygun bir anda "kenara aldıklarımıza dönelim mi?" diye sor.
 
+- **Hatırlat — markaları kategorize etmek (2026-10-11, kullanıcı ileride yapmak istiyor):**
+  "Çalıştığım Markalar" iki katmanlı gruplansın: önce iş türü (CPAS reklamları, site reklamları
+  vb.), altında sektör (kadın giyim, ev tekstili, kozmetik vb.). Kullanıcı yeni markalar da
+  ekleyecek; hangi markanın hangi gruba girdiğini kullanıcıdan al. Ara ara (birkaç oturumda bir)
+  "markaları kategorize etmeye başlayalım mı?" diye sor.
 - Vaka çalışması → yukarıda "Kaldığımız yer"de hatırlatma olarak duruyor.
 - Öne çıkan projelere görsel eklemek.
 - Referans/müşteri yorumları. (Marka logoları yapıldı → "Çalıştığım Markalar". Proje kartlarında

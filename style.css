@@ -360,6 +360,30 @@ img { max-width: 100%; display: block; }
   background: var(--accent);
 }
 
+/* Nokta yerine firma / okul logosu (çizginin üstüne ortalı küçük kutu) */
+.timeline-item.has-logo { padding-left: 44px; }
+.timeline-item.has-logo::before { display: none; }
+.timeline-logo {
+  position: absolute;
+  left: -23px;
+  top: -8px;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: 2px solid var(--bg);
+  outline: 1px solid var(--border);
+  background: #fff;
+  object-fit: cover;
+}
+/* Açık zeminli bölümde kenar o zemine karışsın */
+.alt .timeline-logo { border-color: var(--bg-alt); }
+
+/* Telefonda logo ekran kenarına yapışmasın: çizgiyi biraz içeri al, logoyu küçült */
+@media (max-width: 780px) {
+  .timeline-item.has-logo { margin-left: 18px; padding-left: 34px; }
+  .timeline-logo { width: 36px; height: 36px; left: -19px; top: -6px; border-radius: 9px; }
+}
+
 .timeline-head {
   display: flex;
   flex-wrap: wrap;
