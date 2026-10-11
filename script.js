@@ -63,3 +63,45 @@ if (!reduceMotion && "IntersectionObserver" in window) {
     statObserver.observe(el);
   });
 }
+
+// Bölümler kaydırdıkça hafifçe aşağıdan belirir; ızgaralardaki kartlar sırayla gelir
+if (!reduceMotion && "IntersectionObserver" in window) {
+  const groups = ".grid, .timeline, .info-cols, .contact-grid";
+  const targets = [];
+  document.querySelectorAll(".section").forEach((section) => {
+    [...section.children].forEach((child) => {
+      if (child.matches(groups)) {
+        [...child.children].forEach((item, i) => {
+          item.style.transitionDelay = `${Math.min(i, 5) * 90}ms`;
+          targets.push(item);
+        });
+      } else {
+        targets.push(child);
+      }
+    });
+  });
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      el.classList.add("in");
+      revealObserver.unobserve(el);
+      // Bitince sınıfları kaldır: kartların kendi hover geçişleri bozulmasın
+      // (başlıkta çizginin bitmesini bekle)
+      const last = el.matches(".section-title") ? "::after" : "";
+      const done = (e) => {
+        if (e.target !== el || e.propertyName !== "transform" || e.pseudoElement !== last) return;
+        el.classList.remove("reveal", "in");
+        el.style.transitionDelay = "";
+        el.removeEventListener("transitionend", done);
+      };
+      el.addEventListener("transitionend", done);
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+
+  targets.forEach((el) => {
+    el.classList.add("reveal");
+    revealObserver.observe(el);
+  });
+}

@@ -108,6 +108,13 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
 - Araçlar grupları `.tool-group` kutularında, her grubun rengi `--c` (RGB) ile: `tg-ads` mavi,
   `tg-ai` mor, `tg-design` pembe, `tg-web` turkuaz. Sol şerit + soldan sönen degrade zemin;
   etiketlerin içi koyu kalır, sadece kenarlık renk alır. Yeni grup eklerken yeni `tg-*` rengi ver.
+- Hareketler (2026-10-11, kullanıcı 404'teki havayı istedi, hepsini beğendi): hero'da dolaşan mavi/mor
+  ışık + sönen ızgara (`.hero-bg`; ilk sürüm fazla yavaştı, fark edilmedi → 9-11 sn), rakam şeridi
+  0'dan sayar (tam görününce, ~2.5 sn; ilk sürüm sayfa açılırken bitip görünmüyordu), güncel işte
+  nabız atan yeşil `.live` nokta ("Halen"), bölümler kaydırınca belirir + başlık çizgisi çizilir
+  (`.reveal`, script.js bitince sınıfı kaldırır ki kart hover'ı bozulmasın). Hepsi
+  `prefers-reduced-motion`'da kapalı. Hareketleri belirgin yap; çok sakin olunca kullanıcı göremiyor.
+- İş Deneyimi'nde **firma üstte** (h3), pozisyon altta — iki işte unvan aynı olduğu için. CV'de de aynı.
 - Öne çıkan projelerde "CPAS Türkiye" başlığı (cpasturkiye.com değil).
 - E-Ticaret Marka Danışmanlıkları'nda müşteri marka adı (asfamoda, Kozagen vb.) **yazma**.
 - Hazume kullanıcının kendi projesi: ev hanımlarının evde yaptığı yemekleri satabildiği
