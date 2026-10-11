@@ -25,13 +25,21 @@ hareket azaltma, Yazılar bölümü + ilk makale).
 ## Sayfa yapısı (index.html, sırayla)
 
 1. Header: `logo-mark.png` (SA amblemi) + isim; menü: Hakkımda, Yetkinlikler, Deneyim,
-   Eğitim, Projeler, Araçlar, İletişim.
+   Markalar, Eğitim, Projeler, Araçlar, Yazılar, İletişim.
 2. Hero: unvan, isim, açıklama, butonlar, iletişim satırı + profil fotoğrafı.
 3. Rakam şeridi (`.stats`): 100+ Firmaya Reklam Çalışması · 22+ Sektörde Reklam Deneyimi ·
    %76 Reklam Başarı Oranı (kullanıcının verdiği rakamlar; "reklam çalışması" olarak geçmeli).
 4. Profesyonel Özet
 5. Temel Yetkinlikler (6 kart)
 6. İş Deneyimi: BrotherHustle (Ara 2024 – Halen), Deniz Egece Enstitü (Eyl 2022 – Eyl 2024).
+6b. Çalıştığım Markalar (`#brands`, `alt`, 2026-10-11): 20 Trendyol mağazası logosu, sabit ızgara
+   (`.brands-grid`, masaüstü 10×2, mobil 5×4), baştan renkli, hover'da kalkar; tıklayınca Trendyol
+   mağazası açılır, GA4'e `brand_click` (`brand`). Liste cpasturkiye.com'daki "Reklamlarını CPAS
+   Türkiye'nin yönettiği mağazalardan bazıları"ndan; logolar `images/markalar/<slug>.jpg` (160px).
+   Sıra: Trendyol takipçi sayısı (çoktan aza; API `apigw.trendyol.com/discovery-sellerstore-gateway-service/api/follow/?sellerId=<id>`,
+   sadece trendyol.com sayfasından fetch edilebilir), **istisna: Diversey her zaman 2. sırada**
+   (büyük marka, kullanıcı istedi). Kayan şerit (marquee) denendi, kullanıcı sevmedi; gri/kısık logolar
+   da istenmedi. Toplam takipçi (~4,96M) cümlesi önerildi, eklenmedi.
 7. Eğitim: zaman çizelgesi (Topkapı YL → Anadolu AÖF ön lisans → Akdeniz lisans), altında
    ayrı "Sertifikalar" ve "Diller" blokları (`.info-cols`).
 8. Öne Çıkan Projeler: Hazume, CPAS Türkiye, E-Ticaret Marka Danışmanlıkları,
@@ -40,11 +48,12 @@ hareket azaltma, Yazılar bölümü + ilk makale).
    müzik, kodlama), Tasarım & Kreatif, Web & Yazılım. AI araçları kullanıcının seçtikleri; ChatGPT,
    Cursor, Copilot kullanmıyor, ekleme.
 10. Yazılar (`#writing`): Projeler'le aynı stilde görselsiz `.card.post-card` kartları, `grid-2`.
-11. İletişim (`alt`; 4 kart + altında `.contact-extra` satırı: solda küçük sosyal ikonlar
+11. İletişim (düz zemin; 4 kart + altında `.contact-extra` satırı: solda küçük sosyal ikonlar
     (`.social-links`: Instagram `salihacikgoz0`, X `SalihAcikgoz0`, Medium `@salihacikgoz`, LinkedIn en sonda — kullanıcı sosyal medyalar başta olsun dedi), sağda sade "Özgeçmiş (PDF) ↓").
     Sosyal hesap eklerken ikon + JSON-LD `sameAs`'e de ekle; tıklamalar `contact_click` (`method`).
 
-Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı koru.
+Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı koru. Markalar eklenince
+(2026-10-11) sonrakiler kaydı: Eğitim düz, Projeler `alt`, Araçlar düz, Yazılar `alt`, İletişim düz.
 
 ## Yazılar (makaleler)
 
@@ -189,10 +198,15 @@ Açık kalanlar:
 
 ## Yapılabilecekler
 
+- **Hatırlat — kenara alınan fikirler (2026-10-11, kullanıcı "sonra dönelim" dedi):** kartlarda fareyi
+  takip eden ışık (önerilen), üstte kaydırma ilerleme çubuğu, hero'da dönen kelime (Meta → Google →
+  TikTok → Yandex; gösterişli, sevmeyebilir), vaka çalışması, İletişim'e sade WhatsApp bağlantısı,
+  LinkedIn tavsiyelerinden 2-3 referans. Uygun bir anda "kenara aldıklarımıza dönelim mi?" diye sor.
+
 - Vaka çalışması → yukarıda "Kaldığımız yer"de hatırlatma olarak duruyor.
 - Öne çıkan projelere görsel eklemek.
-- Referans/müşteri yorumları; çalışılan marka logoları (kullanıcı projede marka adı istemedi,
-  logolar için önce sor).
+- Referans/müşteri yorumları. (Marka logoları yapıldı → "Çalıştığım Markalar". Proje kartlarında
+  marka adı yazmama kuralı hâlâ geçerli.)
 - İngilizce sürüm (TR/EN geçişi).
 
 ## Denenip beğenilmeyenler

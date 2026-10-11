@@ -66,7 +66,7 @@ if (!reduceMotion && "IntersectionObserver" in window) {
 
 // Bölümler kaydırdıkça hafifçe aşağıdan belirir; ızgaralardaki kartlar sırayla gelir
 if (!reduceMotion && "IntersectionObserver" in window) {
-  const groups = ".grid, .timeline, .info-cols, .contact-grid";
+  const groups = ".grid, .timeline, .info-cols, .contact-grid, .brands-grid";
   const targets = [];
   document.querySelectorAll(".section").forEach((section) => {
     [...section.children].forEach((child) => {
@@ -105,3 +105,11 @@ if (!reduceMotion && "IntersectionObserver" in window) {
     revealObserver.observe(el);
   });
 }
+
+// GA4: marka logolarına tıklamaları ölç
+document.querySelectorAll(".brand").forEach((link) => {
+  link.addEventListener("click", () => {
+    if (typeof gtag !== "function") return;
+    gtag("event", "brand_click", { brand: link.textContent.trim() });
+  });
+});
