@@ -36,7 +36,7 @@ if (!reduceMotion && "IntersectionObserver" in window) {
   const countUp = (el) => {
     const { prefix, target, suffix } = el.dataset;
     const duration = 2500;
-    const start = performance.now() + 400; // kısa bekleme: göz rakamlara gelsin
+    const start = performance.now();
     const tick = (now) => {
       const t = Math.max(0, Math.min((now - start) / duration, 1));
       const eased = 1 - Math.pow(1 - t, 3);
@@ -52,7 +52,7 @@ if (!reduceMotion && "IntersectionObserver" in window) {
       countUp(entry.target);
       statObserver.unobserve(entry.target);
     });
-  }, { threshold: 1 });
+  }, { threshold: 0 }); // rakamın bir kısmı görünür görünmez başla, 0+ hiç beklemesin
 
   // Sayfa açılınca 0'dan başlasın; son değer data-* içinde saklanır
   document.querySelectorAll(".stat-value").forEach((el) => {
