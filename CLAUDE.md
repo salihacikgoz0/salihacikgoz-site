@@ -40,7 +40,9 @@ hareket azaltma, Yazılar bölümü + ilk makale).
    müzik, kodlama), Tasarım & Kreatif, Web & Yazılım. AI araçları kullanıcının seçtikleri; ChatGPT,
    Cursor, Copilot kullanmıyor, ekleme.
 10. Yazılar (`#writing`): Projeler'le aynı stilde görselsiz `.card.post-card` kartları, `grid-2`.
-11. İletişim (`alt`; 4 kart + altında sade "Özgeçmiş (PDF) ↓" bağlantısı)
+11. İletişim (`alt`; 4 kart + altında `.contact-extra` satırı: solda küçük sosyal ikonlar
+    (`.social-links`: Instagram `salihacikgoz0`, X `SalihAcikgoz0`, Medium `@salihacikgoz`, LinkedIn en sonda — kullanıcı sosyal medyalar başta olsun dedi), sağda sade "Özgeçmiş (PDF) ↓").
+    Sosyal hesap eklerken ikon + JSON-LD `sameAs`'e de ekle; tıklamalar `contact_click` (`method`).
 
 Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı koru.
 
@@ -187,4 +189,6 @@ Açık kalanlar:
 - Mobil hero'da fotoğrafı sağa almak (136px, butonlar alt alta tam genişlik): 2026-09-30'da
   denendi, kullanıcı "şu anki hali daha iyi" dedi → mevcut düzen (foto solda 120px) kalıyor,
   tekrar önerme.
+- Zemini bir ton açmak (`#131a23`, "site çok mu dark" sorusu üzerine): 2026-10-11'de karşılaştırma
+  gösterildi, kullanıcı "böyle kalsın" dedi → `#0b0f14` kalıyor, tekrar önerme.
 - Bölüm başlıklarının üstüne sıra numarası (01, 02 …): 2026-09-30'da denendi, "sarmadı".

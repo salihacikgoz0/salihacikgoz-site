@@ -12,11 +12,12 @@ navLinks.querySelectorAll("a").forEach((link) => {
 });
 
 // GA4: iletişim tıklamalarını ayrı olay olarak ölç
-document.querySelectorAll('a[href^="mailto:"], a[href^="tel:"], a[href*="linkedin.com"]').forEach((link) => {
+document.querySelectorAll('a[href^="mailto:"], a[href^="tel:"], a[href*="linkedin.com"], .social-links a').forEach((link) => {
   link.addEventListener("click", () => {
     if (typeof gtag !== "function") return;
     const href = link.getAttribute("href");
-    const method = href.startsWith("mailto:") ? "email" : href.startsWith("tel:") ? "phone" : "linkedin";
+    const method = href.startsWith("mailto:") ? "email" : href.startsWith("tel:") ? "phone"
+      : href.includes("instagram.com") ? "instagram" : href.includes("x.com") ? "x" :href.includes("medium.com") ? "medium" : "linkedin";
     gtag("event", "contact_click", { method });
   });
 });
