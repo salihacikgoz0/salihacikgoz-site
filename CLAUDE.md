@@ -3,8 +3,8 @@
 Salih Açıkgöz'ün kişisel sitesi (CV + portfolyo): https://salihacikgoz.com
 Statik HTML/CSS/JS, framework yok. Genel bilgi ve dosya listesi için `README.md`.
 
-Son güncelleme: 2026-09-30 (Google ikonları, özel 404, www yönlendirmesi, theme-color,
-hareket azaltma, Yazılar bölümü + ilk makale).
+Son güncelleme: 2026-10-11 (sosyal medya ikonları, hareketler, firma/okul logoları, Çalıştığım
+Markalar bölümü, WebP görseller).
 
 ## Çalışma şekli
 
@@ -38,7 +38,7 @@ hareket azaltma, Yazılar bölümü + ilk makale).
 6b. Çalıştığım Markalar (`#brands`, `alt`, 2026-10-11): 20 Trendyol mağazası logosu, sabit ızgara
    (`.brands-grid`, masaüstü 10×2, mobil 5×4), baştan renkli, hover'da kalkar; tıklayınca Trendyol
    mağazası açılır, GA4'e `brand_click` (`brand`). Liste cpasturkiye.com'daki "Reklamlarını CPAS
-   Türkiye'nin yönettiği mağazalardan bazıları"ndan; logolar `images/markalar/<slug>.jpg` (160px).
+   Türkiye'nin yönettiği mağazalardan bazıları"ndan; logolar `images/markalar/<slug>.webp` (160px).
    Sıra: Trendyol takipçi sayısı (çoktan aza; API `apigw.trendyol.com/discovery-sellerstore-gateway-service/api/follow/?sellerId=<id>`,
    sadece trendyol.com sayfasından fetch edilebilir), **istisna: Diversey her zaman 2. sırada**
    (büyük marka, kullanıcı istedi). Kayan şerit (marquee) denendi, kullanıcı sevmedi; gri/kısık logolar
@@ -62,7 +62,7 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
 
 - Her makale `yazilar/<slug>/index.html` (temiz adres: `/yazilar/<slug>/`). Ortak `style.css` ve
   `script.js` kullanır; yerel adresler `../../` ile başlar ve `?v=dev` ile biter. Görseller
-  `images/yazilar/` altında, JPEG'e sıkıştırılmış (~1200px, kalite 80).
+  `images/yazilar/` altında, WebP (~1200px, kalite 82); og görseli JPEG kalır.
 - İlk makale: "Şikayetvar'ın Satışlara Etkisi" (Medium'dan taşındı, 10 Nisan 2025). Medium RSS'i
   (`medium.com/feed/@salihacikgoz`) tam metni verir; Medium sayfası doğrudan 403 döner.
 - Kullanıcının tercihi: ana sayfada makale kartı **görselsiz** (büyük krem çizimli kart sitenin
@@ -137,6 +137,12 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
 
 ## Dikkat
 
+- **Görsel formatı (2026-10-11):** sayfadaki `<img>` görselleri **WebP** (Pillow: `quality=82, method=6`;
+  şeffaf logolar `lossless=True`). JPEG/PNG kalanlar bilerek: og görselleri (`og-image.jpg`,
+  `yazilar/*-og.jpg`; bazı uygulamalar WebP önizleme göstermiyor), JSON-LD `image`'daki `profile.jpg`,
+  site ikonları (PNG/ICO), `logo-mark.png` ve `logo.png` (kaynak dosyalar). Yeni görsel eklerken WebP yap.
+  Site Cloudflare arkasında = zaten CDN; ayrıca CDN kurma (kullanıcı sordu, gerek yok dendi).
+
 - `404.html` bağımsız bir sayfa: stil içinde gömülü, tüm adresler tam (`https://salihacikgoz.com/...`)
   çünkü her derinlikte açılabilir; `?v=dev` kullanmaz. `.htaccess` ile bağlı (`ErrorDocument`).
   `.htaccess` ayrıca `www.` adresini 301 ile `salihacikgoz.com`'a yönlendirir (HTTPS'i Cloudflare yapar).
@@ -171,9 +177,15 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
   `contact_click` olayı (`method` parametresi) olarak gönderir.
 - İçerik değişince `sitemap.xml` içindeki `<lastmod>` tarihini güncelle.
 
-## Kaldığımız yer (2026-09-30)
+## Kaldığımız yer (2026-10-11)
 
-Son oturumda yapılanlar hepsi yayında (ikonlar, 404, www yönlendirmesi, Yazılar + Şikayetvar makalesi).
+2026-10-11 oturumunda yapılanlar hepsi yayında (Windows'ta yapıldı, ertesi gün laptopta devam):
+İletişim'e sosyal ikonlar (Instagram, X, Medium, LinkedIn), hero'da dolaşan ışık + ızgara, rakam
+şeridinde hızlı sayaç, bölümlerin kayarak belirmesi, "Halen"de canlı nokta, deneyimde firma üstte
+(CV dahil), zaman çizelgesinde firma/okul logoları, "Çalıştığım Markalar" bölümü (20 Trendyol
+mağazası), görseller WebP'ye çevrildi. Ayrıntılar ilgili bölümlerde.
+**Oturum başında:** kısa bir "nerede kalmıştık" özeti ver; aşağıdaki hatırlatmalardan uygun
+olan 1-2 tanesini sor (hepsini birden değil).
 Açık kalanlar:
 - **Hatırlat — vaka çalışması (kullanıcı istedi, 2026-09-30):** oturum başında kullanıcıya "vaka
   çalışmasını yapalım mı?" diye sor. Konsept anlatıldı ve beğenildi, "şimdi yapmayalım" dedi.
@@ -198,6 +210,13 @@ Açık kalanlar:
 - **Windows'ta `gh` girişi yapılmadı:** `"/c/Program Files/GitHub CLI/gh.exe" auth login --web`
   (kullanıcı `!` ile çalıştırmalı). O zamana kadar yayını canlı siteyi yoklayarak doğrula.
 - Mobil görünüm 2026-09-30'da kullanıcı tarafından telefonda kontrol edildi, sorun yok.
+  2026-10-11 değişiklikleri (Markalar 5×4 ızgara, mobil zaman çizelgesi logoları) 390px öykünmede
+  kontrol edildi; kullanıcı telefonda tam bakmadı → "telefonda her şey yerinde mi?" diye sor.
+- **Chrome DevTools MCP** (Windows'ta çalışıyor): gerçek tarayıcıda ölçüm/ekran görüntüsü için
+  `new_page` / `evaluate_script` / `emulate` (mobil: `390x844x3,mobile,touch`). Headless
+  `--virtual-time-budget` animasyon zamanlamasında güvenilmez, kullanma.
+- E-postayı hiçbir dış servise (User-Agent dahil) gönderme; 2026-10-11'de Vikipedi sorgusunda
+  yanlışlıkla gönderildi, kullanıcıya söylendi.
 - Headless dar ekran ipucu: sayfayı 390/360px `iframe` içeren bir çerçeve HTML'inde çekince
   (`--allow-file-access-from-files`) mobil görüntü doğru çıkıyor.
 
