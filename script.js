@@ -34,13 +34,11 @@ document.querySelectorAll('a[href^="salih-acikgoz-cv.pdf"]').forEach((link) => {
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 if (!reduceMotion && "IntersectionObserver" in window) {
   const countUp = (el) => {
-    const [, prefix, num, suffix] = el.textContent.match(/^(\D*)(\d+)(\D*)$/) || [];
-    if (!num) return;
-    const target = Number(num);
-    const duration = 1400;
-    const start = performance.now();
+    const { prefix, target, suffix } = el.dataset;
+    const duration = 2500;
+    const start = performance.now() + 400; // kısa bekleme: göz rakamlara gelsin
     const tick = (now) => {
-      const t = Math.min((now - start) / duration, 1);
+      const t = Math.max(0, Math.min((now - start) / duration, 1));
       const eased = 1 - Math.pow(1 - t, 3);
       el.textContent = prefix + Math.round(target * eased) + suffix;
       if (t < 1) requestAnimationFrame(tick);
@@ -54,7 +52,14 @@ if (!reduceMotion && "IntersectionObserver" in window) {
       countUp(entry.target);
       statObserver.unobserve(entry.target);
     });
-  }, { threshold: 0.6 });
+  }, { threshold: 1 });
 
-  document.querySelectorAll(".stat-value").forEach((el) => statObserver.observe(el));
+  // Sayfa açılınca 0'dan başlasın; son değer data-* içinde saklanır
+  document.querySelectorAll(".stat-value").forEach((el) => {
+    const [, prefix, num, suffix] = el.textContent.match(/^(\D*)(\d+)(\D*)$/) || [];
+    if (!num) return;
+    Object.assign(el.dataset, { prefix, target: num, suffix });
+    el.textContent = prefix + 0 + suffix;
+    statObserver.observe(el);
+  });
 }
