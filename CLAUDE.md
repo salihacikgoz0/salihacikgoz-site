@@ -122,8 +122,9 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
   etiketlerin içi koyu kalır, sadece kenarlık renk alır. Yeni grup eklerken yeni `tg-*` rengi ver.
 - Hareketler (2026-10-11, kullanıcı 404'teki havayı istedi, hepsini beğendi): hero'da dolaşan mavi/mor
   ışık + sönen ızgara (`.hero-bg`; ilk sürüm fazla yavaştı, fark edilmedi → 9-11 sn), rakam şeridi
-  0'dan sayar (bir kısmı görünür görünmez, gecikmesiz, ~2.5 sn; ilk sürüm sayfa açılırken bitip görünmüyordu,
-  ikinci sürüm tam görünmeyi beklediği için mobilde 0+ bekliyordu — kullanıcı 0 görmeyi sevmedi), güncel işte
+  sırayla aşağıdan belirir ve aynı anda hızlıca (1,2 sn) 0'dan sayar; düşük değerler belirme sırasında
+  soluk kalıyor. Uzun süreler (2,5 sn), tam görünmeyi beklemek (mobilde 0+ bekledi) ve saymayı tamamen
+  kaldırmak denendi, kullanıcı bu son halde karar kıldı (2026-10-11), güncel işte
   nabız atan yeşil `.live` nokta ("Halen"), bölümler kaydırınca belirir + başlık çizgisi çizilir
   (`.reveal`, script.js bitince sınıfı kaldırır ki kart hover'ı bozulmasın). Hepsi
   `prefers-reduced-motion`'da kapalı. Hareketleri belirgin yap; çok sakin olunca kullanıcı göremiyor.

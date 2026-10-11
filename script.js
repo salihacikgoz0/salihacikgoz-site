@@ -30,15 +30,16 @@ document.querySelectorAll('a[href^="salih-acikgoz-cv.pdf"]').forEach((link) => {
   });
 });
 
-// Rakam şeridi: ekrana gelince 0'dan sayarak artar (metin HTML'de son haliyle durur)
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// Rakam şeridi: belirirken hızlıca sayarak artar (metin HTML'de son haliyle durur)
 if (!reduceMotion && "IntersectionObserver" in window) {
   const countUp = (el) => {
     const { prefix, target, suffix } = el.dataset;
-    const duration = 2500;
+    const duration = 1200;
     const start = performance.now();
     const tick = (now) => {
-      const t = Math.max(0, Math.min((now - start) / duration, 1));
+      const t = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - t, 3);
       el.textContent = prefix + Math.round(target * eased) + suffix;
       if (t < 1) requestAnimationFrame(tick);
@@ -52,9 +53,8 @@ if (!reduceMotion && "IntersectionObserver" in window) {
       countUp(entry.target);
       statObserver.unobserve(entry.target);
     });
-  }, { threshold: 0 }); // rakamın bir kısmı görünür görünmez başla, 0+ hiç beklemesin
+  }, { threshold: 0 }); // bir kısmı görünür görünmez başla, 0+ beklemesin
 
-  // Sayfa açılınca 0'dan başlasın; son değer data-* içinde saklanır
   document.querySelectorAll(".stat-value").forEach((el) => {
     const [, prefix, num, suffix] = el.textContent.match(/^(\D*)(\d+)(\D*)$/) || [];
     if (!num) return;
@@ -68,6 +68,11 @@ if (!reduceMotion && "IntersectionObserver" in window) {
 if (!reduceMotion && "IntersectionObserver" in window) {
   const groups = ".grid, .timeline, .info-cols, .contact-grid, .brands-grid";
   const targets = [];
+  // Rakam şeridi de bölümler gibi: üç rakam sırayla belirir
+  document.querySelectorAll(".stats .stat").forEach((stat, i) => {
+    stat.style.transitionDelay = `${i * 120}ms`;
+    targets.push(stat);
+  });
   document.querySelectorAll(".section").forEach((section) => {
     [...section.children].forEach((child) => {
       if (child.matches(groups)) {
