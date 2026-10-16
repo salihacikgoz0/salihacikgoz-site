@@ -1546,6 +1546,7 @@ body::after {
 .case-stats div { display: flex; flex-direction: column; gap: 2px; }
 .case-stats dt { font-size: 0.72rem; color: var(--text-muted); }
 .case-stats dd { font-size: 1.05rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.cases-hint { display: none; }
 .results-note { margin-top: 14px; font-size: 0.76rem; color: var(--text-muted); opacity: 0.8; }
 .brands-title { margin-top: 48px; margin-bottom: 6px; }
 
@@ -1557,10 +1558,28 @@ body::after {
 .case:nth-child(4) .case-bar { transition-delay: 0.45s; }
 
 @media (max-width: 780px) {
-  .results-figures { grid-template-columns: 1fr 1fr; gap: 10px; }
-  .rf-main { grid-column: 1 / -1; }
-  .rf { padding: 18px; }
-  .cases { grid-template-columns: 1fr; }
+  /* Telefonda: ₺92M üstte, diğer üç rakam tek satırda küçük kartlar (tek kalan kart olmasın) */
+  .results-figures { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .rf-main { grid-column: 1 / -1; padding: 20px; }
+  .rf { padding: 14px 10px; gap: 4px; }
+  .rf:not(.rf-main) .rf-value { font-size: 1.35rem; }
+  .rf:not(.rf-main) .rf-label { font-size: 0.7rem; line-height: 1.3; }
+  /* Vakalar yana kaydırılan şerit: bir kart ekranı kaplar, sıradakinin kenarı görünür */
+  .cases {
+    display: flex;
+    gap: 12px;
+    margin: 24px -20px 0;
+    padding: 0 20px 6px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 20px;
+    scrollbar-width: none;
+  }
+  .cases::-webkit-scrollbar { display: none; }
+  .section.alt > .cases { margin: 24px -20px 0; max-width: none; } /* alt bölüm hizalama kuralını ez, şerit ekran kenarına uzansın */
+  .case { flex: 0 0 86%; scroll-snap-align: start; padding: 20px; }
+  .case h3 { font-size: 1.02rem; }
+  .cases-hint { display: block; margin-top: 10px; font-size: 0.78rem; color: var(--accent); }
   .process { font-size: 0.85rem; flex-direction: column; align-items: flex-start; gap: 8px; }
   .process li + li::before { content: none; }
 }

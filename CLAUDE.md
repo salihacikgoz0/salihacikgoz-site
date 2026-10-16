@@ -48,9 +48,9 @@ görsel dil (2026-10-17)" maddesinde).
    giriş cümlesi ("Son 2 yılda, hiçbirinde CPAS reklamı olmayan markalara sıfırdan kurduğum ve
    yönettiğim reklamların toplamı") → 4 büyük rakam (`.results-figures`, görününce sayar): ₺92M ciro
    (91,95M), 16,4x ortalama ROAS (16,45x, harcamayla ağırlıklı), ₺5,6M yönetilen bütçe (5,59M),
-   68 **aktif** reklam hesabı (üstteki "100+ firma" ile çelişmesin diye "aktif") → süreç 01 Trendyol
+   68 **aktif** reklam hesabı (üstteki "100+ firma" ile çelişmesin diye "aktif") — telefonda ₺92M tam genişlik, diğer üçü tek satırda küçük kartlar (kullanıcı ilk mobil halini beğenmedi: 68 tek kalıyordu, her şey çok uzundu) → süreç 01 Trendyol
    katalog entegrasyonu → 02 Meta CPAS kurulumu → 03 Kampanya yönetimi & optimizasyon → 4 vaka kartı
-   (`.cases`, 2×2; harcama/ciro çubuğu): Kadın Giyim ₺1,67M→₺38,2M 22,9x 60.121 satış ~₺28/satış;
+   (`.cases`, masaüstünde 2×2, telefonda yana kaydırılan şerit + "Diğer vakalar için kaydırın →"; harcama/ciro çubuğu): Kadın Giyim ₺1,67M→₺38,2M 22,9x 60.121 satış ~₺28/satış;
    Ev Tekstili ₺454 bin→₺10,2M 22,5x 9.455; Ayakkabı ₺435 bin→₺8,4M 19,2x 8.878; Mobilya · Küçük
    bütçe ₺50 bin→₺1,3M 25,8x 1.334 → kaynak notu (Meta Reklam Yöneticisi, 2024–2026, ciro = Meta'nın
    atfettiği satış). **Veri:** kullanıcının panel ekran görüntüleri (`vaka-calismasi/`, `.gitignore`'da,
