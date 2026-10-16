@@ -66,7 +66,7 @@ if (!reduceMotion && "IntersectionObserver" in window) {
 
 // Bölümler kaydırdıkça hafifçe aşağıdan belirir; ızgaralardaki kartlar sırayla gelir
 if (!reduceMotion && "IntersectionObserver" in window) {
-  const groups = ".grid, .timeline, .info-cols, .contact-grid, .brands-grid";
+  const groups = ".grid, .timeline, .info-cols, .contact-grid, .brands-grid, .results-figures, .cases";
   const targets = [];
   // Rakam şeridi de bölümler gibi: üç rakam sırayla belirir
   document.querySelectorAll(".stats .stat").forEach((stat, i) => {
@@ -377,4 +377,38 @@ if (localTime) {
   const updateTime = () => { localTime.textContent = fmt.format(new Date()); };
   updateTime();
   setInterval(updateTime, 15000);
+}
+
+// Sonuçlar: büyük rakamlar görününce sayar (ondalık virgüllü), vaka çubukları soldan dolar
+if (!reduceMotion && "IntersectionObserver" in window) {
+  const fmtNum = (v, d) => v.toLocaleString("tr-TR", { minimumFractionDigits: d, maximumFractionDigits: d });
+  const rfObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      rfObserver.unobserve(el);
+      const { count, prefix = "", suffix = "", decimals = "0" } = el.dataset;
+      const target = parseFloat(count), d = parseInt(decimals, 10), final = el.textContent;
+      const start = performance.now(), duration = 1400;
+      const tick = (now) => {
+        const t = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = t < 1 ? prefix + fmtNum(target * eased, d) + suffix : final;
+        if (t < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll(".rf-value[data-count]").forEach((el) => rfObserver.observe(el));
+
+  const cases = document.querySelector(".cases");
+  if (cases) {
+    cases.classList.add("bar-pending");
+    const barObserver = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      cases.classList.remove("bar-pending");
+      barObserver.disconnect();
+    }, { threshold: 0.3 });
+    barObserver.observe(cases);
+  }
 }

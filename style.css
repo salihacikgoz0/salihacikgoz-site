@@ -1434,3 +1434,133 @@ body::after {
 /* Altbilgi: telif altında İstanbul saati */
 .footer-meta { display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; }
 .colophon { font-size: 0.76rem; letter-spacing: 0.02em; opacity: 0.7; font-variant-numeric: tabular-nums; }
+
+/* Rakamlarla Sonuçlar: dört büyük rakam, süreç adımları, vaka kartları */
+.results-figures {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 16px;
+  margin-top: 28px;
+}
+.rf {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 6px;
+  padding: 22px 22px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(160deg, rgba(79, 157, 255, 0.07), rgba(106, 44, 255, 0.03) 60%, rgba(255, 255, 255, 0.01));
+}
+.rf-value {
+  font-size: clamp(1.8rem, 3.6vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+.rf-main {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(106, 44, 255, 0.28), transparent 60%),
+    linear-gradient(160deg, rgba(47, 123, 255, 0.22), rgba(106, 44, 255, 0.10));
+  border-color: rgba(110, 120, 255, 0.4);
+}
+.rf-main .rf-value {
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  background: linear-gradient(110deg, #4f9dff, #7a4dff 40%, #b98bff 50%, #7a4dff 60%, #4f9dff);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: stat-flow 6s linear infinite;
+}
+.rf-label { color: var(--text-muted); font-size: 0.85rem; font-weight: 600; }
+
+.process {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  margin: 22px 0 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+.process li { display: inline-flex; align-items: center; gap: 8px; }
+.process li + li::before { content: "→"; color: #6a7bff; margin-right: 6px; }
+.process span {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #a9c6ff;
+  padding: 3px 7px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, rgba(47, 123, 255, 0.22), rgba(106, 44, 255, 0.22));
+}
+
+.cases {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 4 vaka: 2×2 */
+  gap: 16px;
+  margin-top: 24px;
+}
+.case {
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.case:hover { transform: translateY(-3px); border-color: rgba(106, 123, 255, 0.5); box-shadow: 0 14px 40px -14px rgba(79, 70, 255, 0.45); }
+.case-sector {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.case h3 { font-size: 1.12rem; letter-spacing: -0.01em; margin-bottom: 14px; }
+/* Ciro çubuğu (tam genişlik) içinde harcamanın payı: ne kadar küçük olduğu görünsün */
+.case-bar {
+  position: relative;
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #2f7bff, #6a2cff);
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+.case-spend {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--w);
+  min-width: 6px;
+  background: #ff8a4c;
+  border-radius: 999px 0 0 999px;
+}
+.case-legend { display: flex; align-items: center; gap: 6px; font-size: 0.72rem; color: var(--text-muted); margin-bottom: 16px; }
+.case-legend i { width: 8px; height: 8px; border-radius: 2px; display: inline-block; }
+.case-legend .lg-spend { background: #ff8a4c; }
+.case-legend .lg-rev { background: linear-gradient(90deg, #2f7bff, #6a2cff); margin-left: 8px; }
+.case-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.case-stats div { display: flex; flex-direction: column; gap: 2px; }
+.case-stats dt { font-size: 0.72rem; color: var(--text-muted); }
+.case-stats dd { font-size: 1.05rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.results-note { margin-top: 14px; font-size: 0.76rem; color: var(--text-muted); opacity: 0.8; }
+.brands-title { margin-top: 48px; margin-bottom: 6px; }
+
+/* Çubuk görününce soldan dolar */
+.cases.bar-pending .case-bar { clip-path: inset(0 100% 0 0 round 999px); }
+.case-bar { transition: clip-path 1.2s cubic-bezier(0.2, 0.7, 0.2, 1); clip-path: inset(0 0 0 0 round 999px); }
+.case:nth-child(2) .case-bar { transition-delay: 0.15s; }
+.case:nth-child(3) .case-bar { transition-delay: 0.3s; }
+.case:nth-child(4) .case-bar { transition-delay: 0.45s; }
+
+@media (max-width: 780px) {
+  .results-figures { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .rf-main { grid-column: 1 / -1; }
+  .rf { padding: 18px; }
+  .cases { grid-template-columns: 1fr; }
+  .process { font-size: 0.85rem; flex-direction: column; align-items: flex-start; gap: 8px; }
+  .process li + li::before { content: none; }
+}

@@ -27,7 +27,7 @@ görsel dil (2026-10-17)" maddesinde).
 ## Sayfa yapısı (index.html, sırayla)
 
 1. Header: `logo-mark.png` (SA amblemi) + isim; menü: Hakkımda, Yetkinlikler, Deneyim,
-   Markalar, Eğitim, Projeler, Araçlar, Yazılar, İletişim. Kaydırınca (>40px) yüzen cam hapa
+   Sonuçlar (`#brands`), Eğitim, Projeler, Araçlar, Yazılar, İletişim. Kaydırınca (>40px) yüzen cam hapa
    dönüşür (`.nav.scrolled`), ilerleme çubuğu (`.scroll-progress`) hapın altında; o an bakılan
    bölümün menü bağlantısı degrade alt çizgiyle işaretli (`a.active`, sadece masaüstü).
 2. Hero: unvan, isim, açıklama, butonlar, iletişim satırı + profil fotoğrafı.
@@ -42,7 +42,23 @@ görsel dil (2026-10-17)" maddesinde).
    İş Deneyimi ve Eğitim zaman çizelgesinde nokta yerine kurum logosu (`.timeline-logo`, 44px beyaz kutu,
    mobilde 36px; `images/kurumlar/`): BrotherHustle ve Deniz Egece kendi sitelerinden, üniversiteler
    Vikipedi/Commons'tan; Topkapı ve Anadolu'nun sadece amblemi kesildi (2026-10-11, kullanıcı beğendi).
-6b. Çalıştığım Markalar (`#brands`, `alt`, 2026-10-11): 20 Trendyol mağazası logosu, sabit ızgara
+6b. **Rakamlarla Sonuçlar** (vaka çalışması, 2026-10-17; `#brands` bölümünün üst kısmı, `alt`):
+   giriş cümlesi ("Son 2 yılda, hiçbirinde CPAS reklamı olmayan markalara sıfırdan kurduğum ve
+   yönettiğim reklamların toplamı") → 4 büyük rakam (`.results-figures`, görününce sayar): ₺92M ciro
+   (91,95M), 16,4x ortalama ROAS (16,45x, harcamayla ağırlıklı), ₺5,6M yönetilen bütçe (5,59M),
+   68 **aktif** reklam hesabı (üstteki "100+ firma" ile çelişmesin diye "aktif") → süreç 01 Trendyol
+   katalog entegrasyonu → 02 Meta CPAS kurulumu → 03 Kampanya yönetimi & optimizasyon → 4 vaka kartı
+   (`.cases`, 2×2; harcama/ciro çubuğu): Kadın Giyim ₺1,67M→₺38,2M 22,9x 60.121 satış ~₺28/satış;
+   Ev Tekstili ₺454 bin→₺10,2M 22,5x 9.455; Ayakkabı ₺435 bin→₺8,4M 19,2x 8.878; Mobilya · Küçük
+   bütçe ₺50 bin→₺1,3M 25,8x 1.334 → kaynak notu (Meta Reklam Yöneticisi, 2024–2026, ciro = Meta'nın
+   atfettiği satış). **Veri:** kullanıcının panel ekran görüntüleri (`vaka-calismasi/`, `.gitignore`'da,
+   sadece Windows'ta; marka adları içerir). Tüm veriler Meta'dan, ~2 yıllık toplam (kullanıcı:
+   "1,5-2 yıldır bu işi yapıyorum"). Kartlarda **marka adı yok**, sadece sektör; kadın giyim kartı
+   HiCCUP (logolarda ilk sırada, kullanıcı "dokunmayalım, sorun yok" dedi). "Net Getiri ₺86M"
+   (ciro − harcama) bilerek kullanılmadı: kâr gibi algılanır. Başlık "Rakamlarla Sonuçlar",
+   menüde "Sonuçlar" (kullanıcı sordu, böyle kaldı). Rakamlar güncellenecekse kullanıcıdan yeni
+   panel görüntüsü iste.
+   Altında Çalıştığım Markalar (`.brands-title` "Çalıştığım markalardan bazıları", 2026-10-11): 20 Trendyol mağazası logosu, sabit ızgara
    (`.brands-grid`, masaüstü 10×2, mobil 5×4), baştan renkli, hover'da kalkar; tıklayınca Trendyol
    mağazası açılır, GA4'e `brand_click` (`brand`). Liste cpasturkiye.com'daki "Reklamlarını CPAS
    Türkiye'nin yönettiği mağazalardan bazıları"ndan; logolar `images/markalar/<slug>.webp` (160px).
@@ -216,7 +232,8 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
 
 ## Kaldığımız yer (2026-10-17)
 
-2026-10-17 oturumu (Windows): büyük görsel/hareket yenilemesi yapıldı ve yayınlandı (ayrıntılar
+2026-10-17 oturumu (Windows): büyük görsel/hareket yenilemesi ve vaka çalışması ("Rakamlarla
+Sonuçlar") yapıldı ve yayınlandı (ayrıntılar
 "Hareketler ve görsel dil (2026-10-17)" ve sayfa yapısında). 390px öykünmede ve masaüstünde kontrol
 edildi; kullanıcı gerçek telefonda bakmadı → "telefonda yeni hali nasıl?" diye sor.
 
@@ -228,12 +245,9 @@ mağazası), görseller WebP'ye çevrildi. Ayrıntılar ilgili bölümlerde.
 **Oturum başında:** kısa bir "nerede kalmıştık" özeti ver; aşağıdaki hatırlatmalardan uygun
 olan 1-2 tanesini sor (hepsini birden değil).
 Açık kalanlar:
-- **Hatırlat — vaka çalışması (kullanıcı istedi, 2026-09-30):** oturum başında kullanıcıya "vaka
-  çalışmasını yapalım mı?" diye sor. Konsept anlatıldı ve beğenildi, "şimdi yapmayalım" dedi.
-  Format: sorun → yaptıkların → sonuç (rakamla); marka adı yok ("bir kadın giyim markası" gibi).
-  Kullanıcıdan gerekenler: hangi iş (sektör), başlangıç durumu, yapılanlar, 2-3 rakam (ROAS, satış
-  artışı, CPL, maliyet düşüşü; yaklaşık da olur). Yeri: Projeler bölümü (kartı genişletmek ya da
-  `yazilar/` gibi ayrı sayfa — o zaman kullanıcıya sor).
+- **Vaka çalışması yapıldı (2026-10-17):** "Rakamlarla Sonuçlar" (sayfa yapısı 6b). İleride
+  istenirse: vaka başına ayrıntılı hikâye (neler yapıldı, ne kadar sürede) için kullanıcıdan bilgi al;
+  şimdilik kartlarda sadece rakamlar var.
 - **Ara ara hatırlat — Medium canonical (2026-10-11 kararı):** Kullanıcı artıları/eksileri dinledi,
   "şimdilik Medium'da kalsın" dedi; Medium canonical'ı Medium'da bırakıyor. Her oturumda **sorma**;
   ~ayda bir ya da yeni makale eklenirken tek cümleyle hatırlat ("Medium canonical'ı siteye çevirmeyi
@@ -264,7 +278,7 @@ Açık kalanlar:
 ## Yapılabilecekler
 
 - **Hatırlat — kenara alınan fikirler (2026-10-11, kullanıcı "sonra dönelim" dedi):** hero'da dönen
-  kelime (Meta → Google → TikTok → Yandex; gösterişli, sevmeyebilir), vaka çalışması, İletişim'e sade
+  kelime (Meta → Google → TikTok → Yandex; gösterişli, sevmeyebilir), İletişim'e sade
   WhatsApp bağlantısı, LinkedIn tavsiyelerinden 2-3 referans. Uygun bir anda "kenara aldıklarımıza
   dönelim mi?" diye sor. (Kartlarda ışık ve ilerleme çubuğu 2026-10-17'de yapıldı.)
 
@@ -273,7 +287,6 @@ Açık kalanlar:
   vb.), altında sektör (kadın giyim, ev tekstili, kozmetik vb.). Kullanıcı yeni markalar da
   ekleyecek; hangi markanın hangi gruba girdiğini kullanıcıdan al. Ara ara (birkaç oturumda bir)
   "markaları kategorize etmeye başlayalım mı?" diye sor.
-- Vaka çalışması → yukarıda "Kaldığımız yer"de hatırlatma olarak duruyor.
 - Öne çıkan projelere gerçek görsel eklemek (şimdilik renkli ikon kapakları var).
 - Referans/müşteri yorumları. (Marka logoları yapıldı → "Çalıştığım Markalar". Proje kartlarında
   marka adı yazmama kuralı hâlâ geçerli.)
