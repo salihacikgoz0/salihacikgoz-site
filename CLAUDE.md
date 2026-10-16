@@ -50,7 +50,7 @@ görsel dil (2026-10-17)" maddesinde).
    (91,95M), 16,4x ortalama ROAS (16,45x, harcamayla ağırlıklı), ₺5,6M yönetilen bütçe (5,59M),
    68 **aktif** reklam hesabı (üstteki "100+ firma" ile çelişmesin diye "aktif") — telefonda ₺92M tam genişlik, diğer üçü tek satırda küçük kartlar (kullanıcı ilk mobil halini beğenmedi: 68 tek kalıyordu, her şey çok uzundu) → süreç 01 Trendyol
    katalog entegrasyonu → 02 Meta CPAS kurulumu → 03 Kampanya yönetimi & optimizasyon → 4 vaka kartı
-   (`.cases`, masaüstünde 2×2, telefonda yana kaydırılan şerit + "Diğer vakalar için kaydırın →"; harcama/ciro çubuğu): Kadın Giyim ₺1,67M→₺38,2M 22,9x 60.121 satış ~₺28/satış;
+   (`.cases`, masaüstünde 2×2, telefonda yana kaydırılan şerit + "Diğer vakalar için kaydırın →"; harcama/ciro çubuğu): Kadın Giyim ₺1,67M→₺38,2M 22,9x 60.121 satış ~₺28 reklam/satış;
    Ev Tekstili ₺454 bin→₺10,2M 22,5x 9.455; Ayakkabı ₺435 bin→₺8,4M 19,2x 8.878; Mobilya · Küçük
    bütçe ₺50 bin→₺1,3M 25,8x 1.334 → kaynak notu (Meta Reklam Yöneticisi, 2024–2026, ciro = Meta'nın
    atfettiği satış). **Veri:** kullanıcının panel ekran görüntüleri (`vaka-calismasi/`, `.gitignore`'da,
@@ -60,6 +60,12 @@ görsel dil (2026-10-17)" maddesinde).
    (ciro − harcama) bilerek kullanılmadı: kâr gibi algılanır. Başlık "Rakamlarla Sonuçlar",
    menüde "Sonuçlar" (kullanıcı sordu, böyle kaldı). Rakamlar güncellenecekse kullanıcıdan yeni
    panel görüntüsü iste.
+   **Mobil (kullanıcı telefonda ekran görüntüsüyle iki tur düzeltti, sonunda "daha iyi oldu"):**
+   küçük rakam kartlarında rakamlar üste yaslı (`justify-content: flex-start`), vaka istatistiklerinde
+   rakamlar alta yaslı (`space-between`) — etiket iki satıra düşse de hizalı kalsın; etiket kısa
+   tutuldu ("Reklam/satış", eskiden "Satış başı reklam" iki satıra düşüyordu). Telefonda vaka şeridi
+   ekran kenarına taşar: `.section.alt > *` kuralı margin'leri ezdiği için `.section.alt > .cases`
+   ile yazıldı. Yeni etiket eklerken telefonda tek satıra sığmasına dikkat et.
    Altında Çalıştığım Markalar (`.brands-title` "Çalıştığım markalardan bazıları", 2026-10-11): 20 Trendyol mağazası logosu, sabit ızgara
    (`.brands-grid`, masaüstü 10×2, mobil 5×4), baştan renkli, hover'da kalkar; tıklayınca Trendyol
    mağazası açılır, GA4'e `brand_click` (`brand`). Liste cpasturkiye.com'daki "Reklamlarını CPAS
@@ -234,10 +240,15 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
 
 ## Kaldığımız yer (2026-10-17)
 
-2026-10-17 oturumu (Windows): büyük görsel/hareket yenilemesi ve vaka çalışması ("Rakamlarla
-Sonuçlar") yapıldı ve yayınlandı (ayrıntılar
-"Hareketler ve görsel dil (2026-10-17)" ve sayfa yapısında). 390px öykünmede ve masaüstünde kontrol
-edildi; kullanıcı gerçek telefonda bakmadı → "telefonda yeni hali nasıl?" diye sor.
+2026-10-17 oturumu (Windows, gece 01:20'ye kadar): hepsi yayında, son commit'ler temiz.
+- Büyük görsel/hareket yenilemesi ("Hareketler ve görsel dil (2026-10-17)").
+- Vaka çalışması "Rakamlarla Sonuçlar" (sayfa yapısı 6b) + CV'ye rakamlı CPAS maddesi (PDF tek sayfa).
+- Logo bağlantıları `/` (adreste `#top` kalmıyor).
+- Sonuçlar bölümü kullanıcının telefonunda kontrol edildi ve düzeltildi; sitenin geri kalanının yeni
+  hali 390px öykünmede kontrol edildi, kullanıcı telefonda genel bakmadı → uygun bir anda
+  "telefonda sitenin geri kalanı nasıl?" diye sor.
+- Kullanıcı "sonra devam edelim" dedi; sıradaki iş belirlenmedi. Öneri olarak: vaka kartlarına kısa
+  hikâye (neler yapıldı), kenara alınan fikirler, markaları kategorize etmek.
 
 2026-10-11 oturumunda yapılanlar hepsi yayında (Windows'ta yapıldı, ertesi gün laptopta devam):
 İletişim'e sosyal ikonlar (Instagram, X, Medium, LinkedIn), hero'da dolaşan ışık + ızgara, rakam
