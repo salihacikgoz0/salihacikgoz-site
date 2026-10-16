@@ -3,8 +3,10 @@
 Salih Açıkgöz'ün kişisel sitesi (CV + portfolyo): https://salihacikgoz.com
 Statik HTML/CSS/JS, framework yok. Genel bilgi ve dosya listesi için `README.md`.
 
-Son güncelleme: 2026-10-11 (sosyal medya ikonları, hareketler, firma/okul logoları, Çalıştığım
-Markalar bölümü, WebP görseller).
+Son güncelleme: 2026-10-17 (büyük görsel/hareket yenilemesi: ikonlar, bento, proje kapakları, cam
+rakamlar, yüzen menü, açılış koreografisi, dev SA amblemli altbilgi; ayrıntılar "Hareketler ve
+görsel dil (2026-10-17)" maddesinde).
+Önceki: 2026-10-11 (sosyal medya ikonları, hareketler, firma/okul logoları, Markalar, WebP).
 
 ## Çalışma şekli
 
@@ -25,12 +27,17 @@ Markalar bölümü, WebP görseller).
 ## Sayfa yapısı (index.html, sırayla)
 
 1. Header: `logo-mark.png` (SA amblemi) + isim; menü: Hakkımda, Yetkinlikler, Deneyim,
-   Markalar, Eğitim, Projeler, Araçlar, Yazılar, İletişim.
+   Markalar, Eğitim, Projeler, Araçlar, Yazılar, İletişim. Kaydırınca (>40px) yüzen cam hapa
+   dönüşür (`.nav.scrolled`), ilerleme çubuğu (`.scroll-progress`) hapın altında; o an bakılan
+   bölümün menü bağlantısı degrade alt çizgiyle işaretli (`a.active`, sadece masaüstü).
 2. Hero: unvan, isim, açıklama, butonlar, iletişim satırı + profil fotoğrafı.
 3. Rakam şeridi (`.stats`): 100+ Firmaya Reklam Çalışması · 22+ Sektörde Reklam Deneyimi ·
    %76 Reklam Başarı Oranı (kullanıcının verdiği rakamlar; "reklam çalışması" olarak geçmeli).
-4. Profesyonel Özet
-5. Temel Yetkinlikler (6 kart)
+4. Profesyonel Özet (`.summary`): 5 önemli ifade `.hl` (beyaz, kalın). Kaydırdıkça kelime kelime
+   aydınlanır (`.sw.on`), bir kez yanan sönmez.
+5. Temel Yetkinlikler (6 kart, **bento**: `.bento`, geniş kartlar `.wide` sırayla 1, 4, 5; satırlar
+   geniş+dar / dar+geniş / geniş+dar; geniş kartlarda sağ altta soluk büyük ikon `.card-art`; mobilde
+   tek sütun). Her kartta degradeli kutuda çizgi ikon (`.card-icon`, satır içi SVG).
 6. İş Deneyimi: BrotherHustle (Ara 2024 – Halen), Deniz Egece Enstitü (Eyl 2022 – Eyl 2024).
    İş Deneyimi ve Eğitim zaman çizelgesinde nokta yerine kurum logosu (`.timeline-logo`, 44px beyaz kutu,
    mobilde 36px; `images/kurumlar/`): BrotherHustle ve Deniz Egece kendi sitelerinden, üniversiteler
@@ -44,16 +51,29 @@ Markalar bölümü, WebP görseller).
    (büyük marka, kullanıcı istedi). Kayan şerit (marquee) denendi, kullanıcı sevmedi; gri/kısık logolar
    da istenmedi. Toplam takipçi (~4,96M) cümlesi önerildi, eklenmedi.
 7. Eğitim: zaman çizelgesi (Topkapı YL → Anadolu AÖF ön lisans → Akdeniz lisans), altında
-   ayrı "Sertifikalar" ve "Diller" blokları (`.info-cols`).
-8. Öne Çıkan Projeler: Hazume, CPAS Türkiye, E-Ticaret Marka Danışmanlıkları,
-   Web & Mobil Geliştirme (Deep Cafe, FBSM).
+   ayrı "Sertifikalar" ve "Diller" blokları (`.info-cols`); maddelerde solda degradeli rozet
+   (`.info-badge`: sertifikada madalya ikonu, dillerde "TR"/"EN").
+8. Öne Çıkan Projeler (`.projects-grid`): Hazume, CPAS Türkiye, E-Ticaret Marka Danışmanlıkları,
+   Web & Mobil Geliştirme (Deep Cafe, FBSM). Kartın ikonu üstte degradeli **kapağa** dönüşür
+   (ızgara deseni + parlayan ikon; renk `--c`: Hazume turuncu, CPAS mavi, E-ticaret mor, Web turkuaz).
+   Kapakta resim/marka adı yok.
 9. Araçlar & Teknolojiler: 4 grup — Reklam & Analitik, Yapay Zeka (metin, görsel, video,
    müzik, kodlama), Tasarım & Kreatif, Web & Yazılım. AI araçları kullanıcının seçtikleri; ChatGPT,
    Cursor, Copilot kullanmıyor, ekleme.
-10. Yazılar (`#writing`): Projeler'le aynı stilde görselsiz `.card.post-card` kartları, `grid-2`.
-11. İletişim (düz zemin; 4 kart + altında `.contact-extra` satırı: solda küçük sosyal ikonlar
+10. Yazılar (`#writing`): görselsiz `.card.post-card`, `.posts-list` (tek sütun, dergi listesi):
+    büyük başlık, sağda yuvarlak ok (hover'da -45° döner, degradeyle dolar); mobilde ok yerine
+    "Yazıyı oku →". Yeni makaleler alt alta eklenir.
+11. İletişim (düz zemin; solda ikonlu 4 kart `.contact-card.has-icon` + altında `.contact-extra` satırı: solda küçük sosyal ikonlar
     (`.social-links`: Instagram `salihacikgoz0`, X `SalihAcikgoz0`, Medium `@salihacikgoz`, LinkedIn en sonda — kullanıcı sosyal medyalar başta olsun dedi), sağda sade "Özgeçmiş (PDF) ↓").
     Sosyal hesap eklerken ikon + JSON-LD `sameAs`'e de ekle; tıklamalar `contact_click` (`method`).
+12. Dev SA amblemi (`.big-mark`, `images/big-mark.webp`, `main`'in sonunda): `logo.png`'den Pillow ile
+    üretilmiş kontur (mavi→mor ince kenar, içi çok soluk). İletişim'e `margin-top: -40px` ile biner,
+    alt kısmı altbilgiye sönerek karışır, görününce yükselir. Önce dev "SALİH AÇIKGÖZ" yazısı denendi,
+    kullanıcı "bir tık narsist" buldu → amblem; ilk yerleşim çok boşluk yaratmıştı, sıkılaştırıldı.
+    Görseli yeniden üretirken WebP'yi `exact=True` ile kaydet (yoksa saydam piksellerin rengi siyaha
+    döner, kanalları aynalayınca koyu çizgi çıkıyor).
+13. Altbilgi (`.footer-rich`): üstte degrade çizgi; solda logo + isim, ortada telif + altında
+    "İstanbul · SS:DD" canlı saat (`#localTime`), sağda yuvarlak "yukarı çık" (`.to-top`).
 
 Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı koru. Markalar eklenince
 (2026-10-11) sonrakiler kaydı: Eğitim düz, Projeler `alt`, Araçlar düz, Yazılar `alt`, İletişim düz.
@@ -128,6 +148,23 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
   nabız atan yeşil `.live` nokta ("Halen"), bölümler kaydırınca belirir + başlık çizgisi çizilir
   (`.reveal`, script.js bitince sınıfı kaldırır ki kart hover'ı bozulmasın). Hepsi
   `prefers-reduced-motion`'da kapalı. Hareketleri belirgin yap; çok sakin olunca kullanıcı göremiyor.
+- **Hareketler ve görsel dil (2026-10-17, kullanıcı "baya canlı olsun" dedi, hepsini beğendi):**
+  - Hero açılışı: öğeler bulanıktan netleşerek sırayla gelir, isim harf harf yükselir (`.ch`),
+    unvan (eyebrow) bir kez rastgele harflerden çözülür (`scramble`), foto perde gibi aşağıdan açılır
+    (`photo-curtain`, `backwards` dolgu; `both` olursa 3D eğilmeyi kilitler). Hero'da 3. ışık pembe.
+  - Fareyle (sadece `(hover: hover) and (pointer: fine)`): hero fotoğrafı 3D eğilir + parlama; hero
+    butonları mıknatıslı; kartlarda içte imleci izleyen ışık (`.card::before`) ve dönen degrade kenar
+    (`.card::after`, `@property --spin`, sadece hover'da döner); marka logoları 3D eğilir.
+  - "İletişime Geç" degradeli, ara ara üstünden parlama geçer. Rakamlar cam kartlarda, renkleri akar.
+  - Araç etiketleri grup görününce sırayla zıplar (`tag-pop`, `backwards` dolgu), hover'da grubun rengi.
+  - Bölüm başlıkları: kelimeler maskeden kayarak çıkar (`.section-title .w`).
+  - Zaman çizelgesi çizgisi: firma ekrana girince bir kez mavi→mor çizilir ve **dolu kalır**
+    (`.line-pending`).
+  - Sayfaya %5 film greni (`body::after`, SVG gürültü).
+  - Hepsi `prefers-reduced-motion`'da kapalı. Lighthouse mobil (2026-10-17): Erişilebilirlik,
+    En İyi Uygulamalar, SEO 100.
+  - **Efekt sayısı doygun:** awwwards 2026 kazananlarında ölçülülük öne çıkıyor; kullanıcıya da
+    "bundan sonrası içerikten gelmeli (vaka çalışması)" dendi. Yeni efekt önermeden önce bunu düşün.
 - İş Deneyimi'nde **firma üstte** (h3), pozisyon altta — iki işte unvan aynı olduğu için. CV'de de aynı.
 - Öne çıkan projelerde "CPAS Türkiye" başlığı (cpasturkiye.com değil).
 - E-Ticaret Marka Danışmanlıkları'nda müşteri marka adı (asfamoda, Kozagen vb.) **yazma**.
@@ -177,7 +214,11 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
   `contact_click` olayı (`method` parametresi) olarak gönderir.
 - İçerik değişince `sitemap.xml` içindeki `<lastmod>` tarihini güncelle.
 
-## Kaldığımız yer (2026-10-11)
+## Kaldığımız yer (2026-10-17)
+
+2026-10-17 oturumu (Windows): büyük görsel/hareket yenilemesi yapıldı ve yayınlandı (ayrıntılar
+"Hareketler ve görsel dil (2026-10-17)" ve sayfa yapısında). 390px öykünmede ve masaüstünde kontrol
+edildi; kullanıcı gerçek telefonda bakmadı → "telefonda yeni hali nasıl?" diye sor.
 
 2026-10-11 oturumunda yapılanlar hepsi yayında (Windows'ta yapıldı, ertesi gün laptopta devam):
 İletişim'e sosyal ikonlar (Instagram, X, Medium, LinkedIn), hero'da dolaşan ışık + ızgara, rakam
@@ -222,10 +263,10 @@ Açık kalanlar:
 
 ## Yapılabilecekler
 
-- **Hatırlat — kenara alınan fikirler (2026-10-11, kullanıcı "sonra dönelim" dedi):** kartlarda fareyi
-  takip eden ışık (önerilen), üstte kaydırma ilerleme çubuğu, hero'da dönen kelime (Meta → Google →
-  TikTok → Yandex; gösterişli, sevmeyebilir), vaka çalışması, İletişim'e sade WhatsApp bağlantısı,
-  LinkedIn tavsiyelerinden 2-3 referans. Uygun bir anda "kenara aldıklarımıza dönelim mi?" diye sor.
+- **Hatırlat — kenara alınan fikirler (2026-10-11, kullanıcı "sonra dönelim" dedi):** hero'da dönen
+  kelime (Meta → Google → TikTok → Yandex; gösterişli, sevmeyebilir), vaka çalışması, İletişim'e sade
+  WhatsApp bağlantısı, LinkedIn tavsiyelerinden 2-3 referans. Uygun bir anda "kenara aldıklarımıza
+  dönelim mi?" diye sor. (Kartlarda ışık ve ilerleme çubuğu 2026-10-17'de yapıldı.)
 
 - **Hatırlat — markaları kategorize etmek (2026-10-11, kullanıcı ileride yapmak istiyor):**
   "Çalıştığım Markalar" iki katmanlı gruplansın: önce iş türü (CPAS reklamları, site reklamları
@@ -233,7 +274,7 @@ Açık kalanlar:
   ekleyecek; hangi markanın hangi gruba girdiğini kullanıcıdan al. Ara ara (birkaç oturumda bir)
   "markaları kategorize etmeye başlayalım mı?" diye sor.
 - Vaka çalışması → yukarıda "Kaldığımız yer"de hatırlatma olarak duruyor.
-- Öne çıkan projelere görsel eklemek.
+- Öne çıkan projelere gerçek görsel eklemek (şimdilik renkli ikon kapakları var).
 - Referans/müşteri yorumları. (Marka logoları yapıldı → "Çalıştığım Markalar". Proje kartlarında
   marka adı yazmama kuralı hâlâ geçerli.)
 - İngilizce sürüm (TR/EN geçişi).
@@ -246,3 +287,12 @@ Açık kalanlar:
 - Zemini bir ton açmak (`#131a23`, "site çok mu dark" sorusu üzerine): 2026-10-11'de karşılaştırma
   gösterildi, kullanıcı "böyle kalsın" dedi → `#0b0f14` kalıyor, tekrar önerme.
 - Bölüm başlıklarının üstüne sıra numarası (01, 02 …): 2026-09-30'da denendi, "sarmadı".
+- 2026-10-17'de denenip kaldırılanlar (tekrar önerme):
+  - Sayfa genelinde fareyi takip eden büyük ışık (`cursor-aura`): "çok sevemedim".
+  - Zaman çizelgesi çizgisinin kaydırmaya bağlı dolması (`animation-timeline: view()`): gri kalan
+    kısım, özellikle alttaki eski firma "tamamlanmamış gibi" duruyordu → bir kez çizilip dolu kalıyor.
+  - Özet'te ifadelerin altına fosforlu kalem çizgisi: "dikkat dağıtıyor".
+  - Menü bağlantılarında hover'da harf karışması (scramble): "midemi bulandırdı, gözümü yordu".
+    (Açılışta unvanın bir kez çözülmesi kaldı.)
+  - Sayfa sonunda dev "SALİH AÇIKGÖZ" yazısı: "bir tık narsist" → yerine dev SA amblemi.
+  - Altbilgide colophon ("El yapımı · HTML, CSS, JS · framework yok"): "çok sevmedim".

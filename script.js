@@ -118,3 +118,263 @@ document.querySelectorAll(".brand").forEach((link) => {
     gtag("event", "brand_click", { brand: link.textContent.trim() });
   });
 });
+
+// Kartlarda fareyi takip eden ışık
+if (!reduceMotion && window.matchMedia("(hover: hover)").matches) {
+  document.querySelectorAll(".card, .contact-card").forEach((card) => {
+    card.addEventListener("pointermove", (e) => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty("--mx", `${e.clientX - r.left}px`);
+      card.style.setProperty("--my", `${e.clientY - r.top}px`);
+    });
+  });
+}
+
+// Üstte kaydırma ilerleme çubuğu
+const progress = document.querySelector(".scroll-progress");
+if (progress) {
+  let ticking = false;
+  const update = () => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    progress.style.setProperty("--p", max > 0 ? Math.min(scrollY / max, 1) : 0);
+    ticking = false;
+  };
+  addEventListener("scroll", () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  update();
+}
+
+// İsim harf harf belirsin (ekran okuyucu için aria-label'da düz metin kalır)
+const heroName = document.querySelector(".hero h1");
+if (heroName && !reduceMotion) {
+  const text = heroName.textContent.trim();
+  heroName.setAttribute("aria-label", text);
+  let i = 0;
+  heroName.innerHTML = text.split(" ").map((word) =>
+    `<span class="word" aria-hidden="true">${[...word].map((c) => `<span class="ch" style="--i:${i++}">${c}</span>`).join("")}</span>`
+  ).join(" ");
+}
+
+const finePointer = !reduceMotion && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+// Fotoğraf fareye göre 3D eğilir
+const heroPhoto = document.querySelector(".hero-photo");
+if (heroPhoto && finePointer) {
+  heroPhoto.addEventListener("pointermove", (e) => {
+    const r = heroPhoto.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width;
+    const y = (e.clientY - r.top) / r.height;
+    heroPhoto.classList.add("tilting");
+    heroPhoto.style.setProperty("--ry", `${(x - 0.5) * 14}deg`);
+    heroPhoto.style.setProperty("--rx", `${(0.5 - y) * 10}deg`);
+    heroPhoto.style.setProperty("--gx", `${x * 100}%`);
+    heroPhoto.style.setProperty("--gy", `${y * 100}%`);
+  });
+  heroPhoto.addEventListener("pointerleave", () => {
+    heroPhoto.classList.remove("tilting");
+    heroPhoto.style.setProperty("--rx", "0deg");
+    heroPhoto.style.setProperty("--ry", "0deg");
+  });
+}
+
+// Mıknatıslı butonlar
+if (finePointer) {
+  document.querySelectorAll(".hero-actions .btn").forEach((btn) => {
+    btn.addEventListener("pointermove", (e) => {
+      const r = btn.getBoundingClientRect();
+      const dx = e.clientX - (r.left + r.width / 2);
+      const dy = e.clientY - (r.top + r.height / 2);
+      btn.classList.add("magnet");
+      btn.style.transform = `translate(${dx * 0.25}px, ${dy * 0.35}px)`;
+    });
+    btn.addEventListener("pointerleave", () => {
+      btn.classList.remove("magnet");
+      btn.style.transform = "";
+    });
+  });
+}
+
+// Menüde o an bakılan bölümü işaretle
+if ("IntersectionObserver" in window) {
+  const navMap = new Map();
+  navLinks.querySelectorAll('a[href^="#"]').forEach((a) => {
+    const sec = document.querySelector(a.getAttribute("href"));
+    if (sec) navMap.set(sec, a);
+  });
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      navLinks.querySelectorAll("a.active").forEach((a) => a.classList.remove("active"));
+      navMap.get(entry.target)?.classList.add("active"); // hero'da hiçbiri seçili değil
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  navMap.set(document.getElementById("top"), null);
+  navMap.forEach((a, sec) => sec && navObserver.observe(sec));
+}
+
+// Zaman çizelgesi çizgisi: firma ekrana girince bir kez çizilir
+if (!reduceMotion && "IntersectionObserver" in window) {
+  const lineObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.remove("line-pending");
+      lineObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.25 });
+  document.querySelectorAll(".timeline-item").forEach((item) => {
+    item.classList.add("line-pending");
+    lineObserver.observe(item);
+  });
+}
+
+// Araç etiketleri grup görününce sırayla gelir
+if (!reduceMotion && "IntersectionObserver" in window) {
+  const tagObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.replace("pending", "pop");
+      tagObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll(".tool-group .tags").forEach((tags) => {
+    [...tags.children].forEach((tag, i) => tag.style.setProperty("--i", i));
+    tags.classList.add("pending");
+    tagObserver.observe(tags);
+  });
+}
+
+// Marka logoları fareye göre 3D eğilir
+if (finePointer) {
+  document.querySelectorAll(".brand").forEach((brand) => {
+    brand.addEventListener("pointermove", (e) => {
+      const r = brand.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width;
+      const y = (e.clientY - r.top) / r.height;
+      brand.classList.add("tilting");
+      brand.style.setProperty("--ry", `${(x - 0.5) * 24}deg`);
+      brand.style.setProperty("--rx", `${(0.5 - y) * 24}deg`);
+      brand.style.setProperty("--gx", `${x * 100}%`);
+      brand.style.setProperty("--gy", `${y * 100}%`);
+    });
+    brand.addEventListener("pointerleave", () => brand.classList.remove("tilting"));
+  });
+}
+
+// Menü kaydırınca hapa dönüşür
+const navBar = document.querySelector(".nav");
+if (navBar) {
+  const onScroll = () => navBar.classList.toggle("scrolled", scrollY > 40);
+  addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+}
+
+// Özet: kaydırdıkça kelime kelime aydınlanır; bir kez yanan kelime yanık kalır
+const summary = document.querySelector(".summary");
+if (summary && !reduceMotion) {
+  const wrapWords = (node) => {
+    [...node.childNodes].forEach((child) => {
+      if (child.nodeType === Node.TEXT_NODE) {
+        const frag = document.createDocumentFragment();
+        child.textContent.split(/(\s+)/).forEach((part) => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { frag.append(part); return; }
+          const span = document.createElement("span");
+          span.className = "sw";
+          span.textContent = part;
+          frag.append(span);
+        });
+        child.replaceWith(frag);
+      } else if (child.nodeType === Node.ELEMENT_NODE) {
+        wrapWords(child);
+      }
+    });
+  };
+  wrapWords(summary);
+  const words = [...summary.querySelectorAll(".sw")];
+  summary.classList.add("scrolly");
+  let lit = 0;
+  const updateWords = () => {
+    const r = summary.getBoundingClientRect();
+    // Paragrafın üstü ekranın %85'indeyken başla, altı %55'e gelince bitsin
+    const start = innerHeight * 0.85, end = innerHeight * 0.55;
+    const progress = (start - r.top) / (start - end + r.height);
+    const target = Math.max(0, Math.min(words.length, Math.ceil(progress * words.length)));
+    for (; lit < target; lit++) words[lit].classList.add("on");
+    if (lit >= words.length) removeEventListener("scroll", onWordsScroll);
+  };
+  let wordsTicking = false;
+  const onWordsScroll = () => {
+    if (wordsTicking) return;
+    wordsTicking = true;
+    requestAnimationFrame(() => { updateWords(); wordsTicking = false; });
+  };
+  addEventListener("scroll", onWordsScroll, { passive: true });
+  updateWords();
+}
+
+// Bölüm başlıklarını kelimelere böl (maskeli kayma için); ekran okuyucu düz metni okur
+if (!reduceMotion) {
+  document.querySelectorAll(".section-title").forEach((title) => {
+    const text = title.textContent.trim();
+    title.setAttribute("aria-label", text);
+    title.textContent = "";
+    text.split(/\s+/).forEach((word, i) => {
+      const w = document.createElement("span");
+      w.className = "w";
+      w.setAttribute("aria-hidden", "true");
+      const inner = document.createElement("span");
+      inner.textContent = word;
+      inner.style.setProperty("--i", i);
+      w.append(inner);
+      title.append(w, " ");
+    });
+  });
+}
+
+// Harf karışması: harfler rastgele karakterlerden sırayla çözülür
+const scrambleChars = "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ#%&*+<>/";
+const scramble = (el, duration = 600) => {
+  if (el.dataset.scrambling) return;
+  const original = el.dataset.text || (el.dataset.text = el.textContent);
+  el.dataset.scrambling = "1";
+  const start = performance.now();
+  const tick = (now) => {
+    const t = Math.min((now - start) / duration, 1);
+    const fixed = Math.floor(t * original.length);
+    el.textContent = [...original].map((c, i) =>
+      i < fixed || c === " " ? c : scrambleChars[Math.floor(Math.random() * scrambleChars.length)]
+    ).join("");
+    if (t < 1) requestAnimationFrame(tick);
+    else { el.textContent = original; delete el.dataset.scrambling; }
+  };
+  requestAnimationFrame(tick);
+};
+if (!reduceMotion) {
+  const eyebrow = document.querySelector(".hero .eyebrow");
+  if (eyebrow) {
+    eyebrow.setAttribute("aria-label", eyebrow.textContent);
+    setTimeout(() => scramble(eyebrow, 1100), 100);
+  }
+}
+
+// Dev SA amblemi görününce yükselir
+const bigMark = document.querySelector(".big-mark");
+if (bigMark && !reduceMotion && "IntersectionObserver" in window) {
+  bigMark.classList.add("pending");
+  const markObserver = new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting) return;
+    bigMark.classList.remove("pending");
+    markObserver.disconnect();
+  }, { threshold: 0.2 });
+  markObserver.observe(bigMark);
+}
+
+// Altbilgide İstanbul saati
+const localTime = document.getElementById("localTime");
+if (localTime) {
+  const fmt = new Intl.DateTimeFormat("tr-TR", { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Istanbul" });
+  const updateTime = () => { localTime.textContent = fmt.format(new Date()); };
+  updateTime();
+  setInterval(updateTime, 15000);
+}

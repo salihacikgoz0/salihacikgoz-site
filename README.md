@@ -9,10 +9,10 @@ Framework ya da build adımı olmayan, tek sayfalık statik bir site.
 |---|---|
 | `index.html` | Tüm sayfa içeriği (hero, özet, yetkinlikler, deneyim, çalıştığım markalar, eğitim, projeler, araçlar, yazılar, iletişim); GA4 etiketi head'de |
 | `style.css` | Tüm stiller; renkler `:root` değişkenlerinde, mobil kurallar `@media (max-width: 780px)` altında |
-| `script.js` | Mobil menü aç/kapa; rakam sayacı ve kaydırınca belirme efektleri; GA4 olayları (`contact_click`, `cv_download`, `brand_click`) |
+| `script.js` | Mobil menü aç/kapa; yüzen menü ve aktif bölüm; rakam sayacı, kaydırınca belirme ve hero açılışı; fareyle 3D eğilme / mıknatıslı buton / kart ışığı; Özet'in kaydırdıkça aydınlanması; İstanbul saati; GA4 olayları (`contact_click`, `cv_download`, `brand_click`) |
 | `salih-acikgoz-cv.pdf` | İletişim bölümünden indirilen tek sayfalık CV |
 | `cv/kaynak.html` | CV'nin kaynağı; PDF buradan Chrome ile üretilir (sunucuya yüklenmez) |
-| `images/` | `logo.png` (orijinal logo), `logo-mark.png` (header amblemi), `site-icon-48.png` + `site-icon-192.png` + `apple-touch-icon.png` (site ikonu; kökte yedek `favicon.ico`), `profile.webp` (profil fotoğrafı; `profile.jpg` JSON-LD için), `og-image.jpg` (paylaşım önizlemesi, 1200×630), `markalar/` (çalışılan marka logoları), `kurumlar/` (firma ve okul logoları). Sayfadaki görseller WebP |
+| `images/` | `logo.png` (orijinal logo), `logo-mark.png` (header amblemi), `site-icon-48.png` + `site-icon-192.png` + `apple-touch-icon.png` (site ikonu; kökte yedek `favicon.ico`), `profile.webp` (profil fotoğrafı; `profile.jpg` JSON-LD için), `og-image.jpg` (paylaşım önizlemesi, 1200×630), `markalar/` (çalışılan marka logoları), `kurumlar/` (firma ve okul logoları), `big-mark.webp` (sayfa sonundaki dev SA amblemi; `logo.png`'den üretildi). Sayfadaki görseller WebP |
 | `robots.txt`, `sitemap.xml` | Arama motorları için tarama izni ve site haritası |
 | `yazilar/<slug>/index.html`, `images/yazilar/` | Makaleler (ilki: Şikayetvar'ın Satışlara Etkisi) ve görselleri |
 | `404.html`, `.htaccess` | Olmayan adreslerde gösterilen özel 404 sayfası (reklam raporu esprili) ve sunucu yönlendirmesi |
