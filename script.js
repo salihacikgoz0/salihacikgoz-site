@@ -412,3 +412,15 @@ if (!reduceMotion && "IntersectionObserver" in window) {
     barObserver.observe(cases);
   }
 }
+
+// Logo / yukarı çık: ana sayfadayken yenilemeden başa kay, adres çubuğunda #etiket kalmasın
+if (document.getElementById("top")) {
+  document.querySelectorAll('a[href="/"]').forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      navLinks.classList.remove("open");
+      window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+      history.replaceState(null, "", location.pathname + location.search);
+    });
+  });
+}

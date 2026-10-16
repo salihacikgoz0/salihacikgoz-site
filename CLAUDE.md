@@ -27,7 +27,9 @@ görsel dil (2026-10-17)" maddesinde).
 ## Sayfa yapısı (index.html, sırayla)
 
 1. Header: `logo-mark.png` (SA amblemi) + isim; menü: Hakkımda, Yetkinlikler, Deneyim,
-   Sonuçlar (`#brands`), Eğitim, Projeler, Araçlar, Yazılar, İletişim. Kaydırınca (>40px) yüzen cam hapa
+   Sonuçlar (`#brands`), Eğitim, Projeler, Araçlar, Yazılar, İletişim. Logo, altbilgi logosu ve
+   "yukarı çık" `href="/"`; ana sayfada script.js yenilemeden başa kaydırıp adresten `#etiket`i siler
+   (kullanıcı adreste `#top` görünmesini yanlış anlaşılır buldu, 2026-10-17). Kaydırınca (>40px) yüzen cam hapa
    dönüşür (`.nav.scrolled`), ilerleme çubuğu (`.scroll-progress`) hapın altında; o an bakılan
    bölümün menü bağlantısı degrade alt çizgiyle işaretli (`a.active`, sadece masaüstü).
 2. Hero: unvan, isim, açıklama, butonlar, iletişim satırı + profil fotoğrafı.
