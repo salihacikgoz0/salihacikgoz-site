@@ -112,6 +112,13 @@ html.vt-lang .nav, html.vt-lang .nav-inner { transition: none; }
 html.vt-lang::view-transition-group(site-nav) { animation: none; }
 html.vt-lang::view-transition-old(site-nav) { display: none; }
 html.vt-lang::view-transition-new(site-nav) { animation: none; }
+/* Telefonda menü ayrı katmana alınmaz: Safari yapışkan menüyü kaydırılmamış yerine çizip kaybediyordu.
+   Menü sayfayla birlikte geçer; eski menü daire kaplayana kadar görünür kalır. */
+@media (max-width: 780px) {
+  .nav { view-transition-name: none; }
+  html.vt-lang::view-transition-old(root) { animation-name: vt-recede-soft; }
+}
+@keyframes vt-recede-soft { to { filter: brightness(0.5); } }
 @media (prefers-reduced-motion: reduce) {
   @view-transition { navigation: none; }
 }
