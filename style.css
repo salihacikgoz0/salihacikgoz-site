@@ -107,6 +107,11 @@ html.vt-lang::view-transition-new(root) { animation: vt-circle 0.85s cubic-bezie
   to { clip-path: circle(var(--vt-r, 150vmax) at var(--vt-x, 90%) var(--vt-y, 40px)); }
 }
 @keyframes vt-recede { to { transform: scale(0.92); filter: brightness(0.45); } }
+/* Dil geçişinde menü yerinde sabit: dönüşüm/solma yok, yeni menü hemen görünür (telefonda kayboluyordu) */
+html.vt-lang .nav, html.vt-lang .nav-inner { transition: none; }
+html.vt-lang::view-transition-group(site-nav) { animation: none; }
+html.vt-lang::view-transition-old(site-nav) { display: none; }
+html.vt-lang::view-transition-new(site-nav) { animation: none; }
 @media (prefers-reduced-motion: reduce) {
   @view-transition { navigation: none; }
 }

@@ -475,4 +475,6 @@ if (langJump && langJump.id) {
   const section = document.getElementById(langJump.id);
   const top = section.getBoundingClientRect().top + scrollY + langJump.ratio * section.offsetHeight;
   window.scrollTo({ top, behavior: "instant" });
+  // Menü ilk çizimde hap halinde olsun (yoksa geçişte tam genişlikten hapa dönüşürken kayboluyor gibi görünür)
+  if (navBar) navBar.classList.toggle("scrolled", scrollY > 40);
 }

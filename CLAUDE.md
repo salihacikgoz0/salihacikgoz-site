@@ -129,7 +129,9 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
   `vt-circle`/`vt-recede`, 0,85 sn), eski sayfa arkada küçülüp kararır; makale geçişleri bulanıklıkla kalır.
   Ayar iki sayfanın `<head>`'indeki satır içi script'te (ilk çizimden önce olmalı, script.js'te geç kalıyordu)
   ve `<link rel="expect" href="#page-ready" blocking="render">` + `</body>` öncesi `#page-ready` ile çizim,
-  script.js kaydırmayı yapana kadar bekler. DevTools ekran görüntüsü geçiş katmanını çekmiyor;
+  script.js kaydırmayı yapana kadar bekler. Geçişte menü sabit (`site-nav` grubunda animasyon yok, eskisi gizli) ve yeni
+  sayfada kaydırmadan hemen sonra `.scrolled` verilir — yoksa telefonda tam genişlikten hapa dönüşürken menü
+  kayboluyor gibi görünüyordu (kullanıcı telefonda fark etti). DevTools ekran görüntüsü geçiş katmanını çekmiyor;
   `document.getAnimations()` ile doğrula.
 - 781–1080px arası menü sıkılaşır; 781–940px arası logodaki isim gizlenir (menü sığsın diye).
 
