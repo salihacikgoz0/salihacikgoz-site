@@ -1121,7 +1121,8 @@ body::after {
 @media (max-width: 780px) {
   .bento .wide { grid-column: auto; }
   .bento .wide p { max-width: none; }
-  .card-art { width: 110px; height: 110px; bottom: -20px; right: 10px; opacity: 0.06; }
+  /* Tek sütunda geniş/dar farkı kalmıyor; ikon sadece bazı kartlarda olunca dağınık duruyor */
+  .card-art { display: none; }
   .hero-bg .glow-pink { width: 200px; height: 200px; }
 }
 
