@@ -33,7 +33,7 @@ document.querySelectorAll(".cv-link").forEach((link) => {
 // Dil geçişi (TR ↔ EN): karşı sayfa tam aynı noktada açılsın. O an bakılan bölüm ve bölümün yüzde kaçında
 // olunduğu kaydedilir (metin uzunlukları farklı, piksel tutmaz); GA4'e ölç
 document.querySelectorAll(".lang-switch").forEach((link) => {
-  link.addEventListener("click", () => {
+  link.addEventListener("click", (e) => {
     const current = [...document.querySelectorAll("main section[id]")]
       .filter((s) => s.getBoundingClientRect().top <= 1).pop();
     const b = link.getBoundingClientRect();
@@ -44,6 +44,12 @@ document.querySelectorAll(".lang-switch").forEach((link) => {
     }
     try { sessionStorage.setItem("langJump", JSON.stringify(jump)); } catch (e) {}
     document.documentElement.classList.add("vt-lang"); // eski sayfa: dairesel geçişte arkada küçülür
+    // Anahtarın dolgusu önce karşı dile kaysın, sonra sayfa değişsin (yeni sekmede açma hariç)
+    if (!reduceMotion && !e.metaKey && !e.ctrlKey && !e.shiftKey && e.button === 0) {
+      e.preventDefault();
+      link.classList.add("switching");
+      setTimeout(() => { location.href = link.href; }, 280);
+    }
     if (typeof gtag !== "function") return;
     gtag("event", "lang_switch", { to: link.getAttribute("hreflang") });
   });
@@ -75,7 +81,11 @@ if (langJump) {
   setTimeout(clear, 2000);
 }
 // Geri tuşuyla önbellekten dönülürse eski sayfadaki işaret kalmasın
-addEventListener("pageshow", (e) => { if (e.persisted) document.documentElement.classList.remove("vt-lang"); });
+addEventListener("pageshow", (e) => {
+  if (!e.persisted) return;
+  document.documentElement.classList.remove("vt-lang");
+  document.querySelectorAll(".lang-switch.switching").forEach((l) => l.classList.remove("switching"));
+});
 
 // Rakam şeridi: belirirken hızlıca sayarak artar (metin HTML'de son haliyle durur)
 if (!calm && "IntersectionObserver" in window) {

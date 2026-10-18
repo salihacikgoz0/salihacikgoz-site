@@ -120,7 +120,11 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
   "(Turkey's leading e-commerce marketplaces)" diye tanıtılıyor (kullanıcı isimler açıkça geçsin dedi).
 - Geçiş efekti (2026-10-18, kullanıcı "efektli" istedi): `@view-transition { navigation: auto; }` — eski sayfa
   bulanıklaşıp söner, yenisi netleşir; `.nav` `view-transition-name: site-nav` ile yerinde kalır (tüm site içi
-  geçişlerde, makaleler dahil). Hapta 🌐 ikonu, hover'da döner. Firefox'ta efekt yok, normal geçiş.
+  geçişlerde, makaleler dahil). Firefox'ta efekt yok, normal geçiş.
+- **Anahtar `[ TR | EN ]`** (2026-10-18, önce 🌐+"EN" hapıydı; kullanıcı "daha havalı" istedi): iki seçenek yan yana,
+  seçili dilin altında logo degradeli dolgu (`.lang-switch::before`; EN sayfada `.ls-right`). Hover'da dolgu
+  karşı dile 5px uzanır; basınca `.switching` ile karşıya kayar (0,3 sn), 280 ms sonra sayfa değişir (yeni
+  sekmede açma hariç). Bayrak önerilmedi (dil ≠ ülke).
 - **Dil değişince aynı nokta:** tıklayınca bölüm + bölüm içi oran `sessionStorage` (`langJump`) ile aktarılır,
   karşı sayfa ilk çizimden önce tam oraya kayar (adreste `#` yok; `#bölüm` denendi, başlık ekranın tepesine
   yapışıyordu — kullanıcı "başlık kayıyor" dedi). Böyle gelinince kaydırma animasyonları kapalı (`calm`
