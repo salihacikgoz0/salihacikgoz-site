@@ -38,7 +38,7 @@ görsel dil (2026-10-17)" maddesinde).
 4. Profesyonel Özet (`.summary`): 5 önemli ifade `.hl` (beyaz, kalın). Kaydırdıkça kelime kelime
    aydınlanır (`.sw.on`), bir kez yanan sönmez.
 5. Temel Yetkinlikler (6 kart, **bento**: `.bento`, geniş kartlar `.wide` sırayla 1, 4, 5; satırlar
-   geniş+dar / dar+geniş / geniş+dar; geniş kartlarda sağ altta soluk büyük ikon `.card-art`, mobilde gizli — tek sütunda sadece bazılarında olunca kötü duruyordu, 2026-10-18; mobilde
+   geniş+dar / dar+geniş / geniş+dar; geniş kartlarda sağ altta soluk büyük ikon `.card-art`, telefonda dar kartlarda da var (tek sütunda sadece bazılarında olunca kötü duruyordu, 2026-10-18), masaüstünde sadece geniş kartlarda; mobilde
    tek sütun). Her kartta degradeli kutuda çizgi ikon (`.card-icon`, satır içi SVG).
 6. İş Deneyimi: BrotherHustle (Ara 2024 – Halen), Deniz Egece Enstitü (Eyl 2022 – Eyl 2024).
    İş Deneyimi ve Eğitim zaman çizelgesinde nokta yerine kurum logosu (`.timeline-logo`, 44px beyaz kutu,
