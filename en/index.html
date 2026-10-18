@@ -9,6 +9,20 @@
 <link rel="icon" type="image/png" href="../images/site-icon-48.png" sizes="48x48">
 <link rel="icon" type="image/png" href="../images/site-icon-192.png" sizes="192x192">
 <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+<!-- Dil geçişi (TR ↔ EN): dairesel açılım ilk çizimden önce ayarlanır; script kaydırmayı bitirene kadar çizim bekler -->
+<link rel="expect" href="#page-ready" blocking="render">
+<script>
+  try {
+    var j = JSON.parse(sessionStorage.getItem("langJump"));
+    if (j && Date.now() - j.t < 10000) {
+      var h = document.documentElement, r = Math.hypot(Math.max(j.x, innerWidth - j.x), Math.max(j.y, innerHeight - j.y));
+      h.style.setProperty("--vt-x", j.x + "px");
+      h.style.setProperty("--vt-y", j.y + "px");
+      h.style.setProperty("--vt-r", Math.ceil(r) + "px");
+      h.classList.add("vt-lang");
+    }
+  } catch (e) {}
+</script>
 <link rel="stylesheet" href="../style.css?v=dev">
 <link rel="canonical" href="https://salihacikgoz.com/en/">
 <link rel="alternate" hreflang="tr" href="https://salihacikgoz.com/">
@@ -596,5 +610,6 @@
 </footer>
 
 <script src="../script.js?v=dev"></script>
+<div id="page-ready" hidden></div>
 </body>
 </html>

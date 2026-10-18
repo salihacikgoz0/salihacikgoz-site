@@ -118,6 +118,19 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
   `cv_download` olayı `lang` parametresiyle (tr/en) gider.
 - Kurum adları özgün: "Deniz Egece Enstitü", "CPAS Türkiye". Trendyol/Hepsiburada hero'da isimleriyle
   "(Turkey's leading e-commerce marketplaces)" diye tanıtılıyor (kullanıcı isimler açıkça geçsin dedi).
+- Geçiş efekti (2026-10-18, kullanıcı "efektli" istedi): `@view-transition { navigation: auto; }` — eski sayfa
+  bulanıklaşıp söner, yenisi netleşir; `.nav` `view-transition-name: site-nav` ile yerinde kalır (tüm site içi
+  geçişlerde, makaleler dahil). Hapta 🌐 ikonu, hover'da döner. Firefox'ta efekt yok, normal geçiş.
+- **Dil değişince aynı nokta:** tıklayınca bölüm + bölüm içi oran `sessionStorage` (`langJump`) ile aktarılır,
+  karşı sayfa ilk çizimden önce tam oraya kayar (adreste `#` yok; `#bölüm` denendi, başlık ekranın tepesine
+  yapışıyordu — kullanıcı "başlık kayıyor" dedi). Böyle gelinince kaydırma animasyonları kapalı (`calm`
+  bayrağı = `reduceMotion || langJump`); fare efektleri açık kalır.
+- **Dairesel açılım (dil geçişine özel):** yeni sayfa 🌐 düğmesinden büyüyen daireyle açılır (`html.vt-lang`,
+  `vt-circle`/`vt-recede`, 0,85 sn), eski sayfa arkada küçülüp kararır; makale geçişleri bulanıklıkla kalır.
+  Ayar iki sayfanın `<head>`'indeki satır içi script'te (ilk çizimden önce olmalı, script.js'te geç kalıyordu)
+  ve `<link rel="expect" href="#page-ready" blocking="render">` + `</body>` öncesi `#page-ready` ile çizim,
+  script.js kaydırmayı yapana kadar bekler. DevTools ekran görüntüsü geçiş katmanını çekmiyor;
+  `document.getAnimations()` ile doğrula.
 - 781–1080px arası menü sıkılaşır; 781–940px arası logodaki isim gizlenir (menü sığsın diye).
 
 ## Yazılar (makaleler)

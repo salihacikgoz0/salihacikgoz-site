@@ -30,9 +30,20 @@ document.querySelectorAll(".cv-link").forEach((link) => {
   });
 });
 
-// GA4: dil geçişini ölç (TR ↔ EN)
+// Dil geçişi (TR ↔ EN): karşı sayfa tam aynı noktada açılsın. O an bakılan bölüm ve bölümün yüzde kaçında
+// olunduğu kaydedilir (metin uzunlukları farklı, piksel tutmaz); GA4'e ölç
 document.querySelectorAll(".lang-switch").forEach((link) => {
   link.addEventListener("click", () => {
+    const current = [...document.querySelectorAll("main section[id]")]
+      .filter((s) => s.getBoundingClientRect().top <= 1).pop();
+    const b = link.getBoundingClientRect();
+    const jump = { x: b.left + b.width / 2, y: b.top + b.height / 2, t: Date.now() };
+    if (current && scrollY > 0) {
+      const r = current.getBoundingClientRect();
+      Object.assign(jump, { id: current.id, ratio: -r.top / r.height });
+    }
+    try { sessionStorage.setItem("langJump", JSON.stringify(jump)); } catch (e) {}
+    document.documentElement.classList.add("vt-lang"); // eski sayfa: dairesel geçişte arkada küçülür
     if (typeof gtag !== "function") return;
     gtag("event", "lang_switch", { to: link.getAttribute("hreflang") });
   });
@@ -43,8 +54,31 @@ const numLocale = document.documentElement.lang === "en" ? "en-US" : "tr-TR";
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+// Dil geçişiyle gelindiyse: kaydırmaya bağlı belirme animasyonları oynamasın (sayfa hazır halde gelsin)
+let langJump = null;
+try {
+  langJump = JSON.parse(sessionStorage.getItem("langJump"));
+  sessionStorage.removeItem("langJump");
+} catch (e) {}
+if (langJump && Date.now() - langJump.t > 10000) langJump = null;
+if (langJump && langJump.id && !document.getElementById(langJump.id)) delete langJump.id;
+const calm = reduceMotion || !!(langJump && langJump.id);
+
+// Dil geçişi: daire ayarı <head>'deki satır içi script'te (ilk çizimden önce); bitince işaret kaldırılır
+if (langJump) {
+  const root = document.documentElement;
+  const clear = () => root.classList.remove("vt-lang");
+  addEventListener("pagereveal", (e) => {
+    if (e.viewTransition) e.viewTransition.finished.then(clear, clear);
+    else clear();
+  }, { once: true });
+  setTimeout(clear, 2000);
+}
+// Geri tuşuyla önbellekten dönülürse eski sayfadaki işaret kalmasın
+addEventListener("pageshow", (e) => { if (e.persisted) document.documentElement.classList.remove("vt-lang"); });
+
 // Rakam şeridi: belirirken hızlıca sayarak artar (metin HTML'de son haliyle durur)
-if (!reduceMotion && "IntersectionObserver" in window) {
+if (!calm && "IntersectionObserver" in window) {
   const countUp = (el) => {
     const { prefix, target, suffix } = el.dataset;
     const duration = 1200;
@@ -76,7 +110,7 @@ if (!reduceMotion && "IntersectionObserver" in window) {
 }
 
 // Bölümler kaydırdıkça hafifçe aşağıdan belirir; ızgaralardaki kartlar sırayla gelir
-if (!reduceMotion && "IntersectionObserver" in window) {
+if (!calm && "IntersectionObserver" in window) {
   const groups = ".grid, .timeline, .info-cols, .contact-grid, .brands-grid, .results-figures, .cases";
   const targets = [];
   // Rakam şeridi de bölümler gibi: üç rakam sırayla belirir
@@ -158,7 +192,7 @@ if (progress) {
 
 // İsim harf harf belirsin (ekran okuyucu için aria-label'da düz metin kalır)
 const heroName = document.querySelector(".hero h1");
-if (heroName && !reduceMotion) {
+if (heroName && !calm) {
   const text = heroName.textContent.trim();
   heroName.setAttribute("aria-label", text);
   let i = 0;
@@ -225,7 +259,7 @@ if ("IntersectionObserver" in window) {
 }
 
 // Zaman çizelgesi çizgisi: firma ekrana girince bir kez çizilir
-if (!reduceMotion && "IntersectionObserver" in window) {
+if (!calm && "IntersectionObserver" in window) {
   const lineObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
@@ -240,7 +274,7 @@ if (!reduceMotion && "IntersectionObserver" in window) {
 }
 
 // Araç etiketleri grup görününce sırayla gelir
-if (!reduceMotion && "IntersectionObserver" in window) {
+if (!calm && "IntersectionObserver" in window) {
   const tagObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
@@ -282,7 +316,7 @@ if (navBar) {
 
 // Özet: kaydırdıkça kelime kelime aydınlanır; bir kez yanan kelime yanık kalır
 const summary = document.querySelector(".summary");
-if (summary && !reduceMotion) {
+if (summary && !calm) {
   const wrapWords = (node) => {
     [...node.childNodes].forEach((child) => {
       if (child.nodeType === Node.TEXT_NODE) {
@@ -325,7 +359,7 @@ if (summary && !reduceMotion) {
 }
 
 // Bölüm başlıklarını kelimelere böl (maskeli kayma için); ekran okuyucu düz metni okur
-if (!reduceMotion) {
+if (!calm) {
   document.querySelectorAll(".section-title").forEach((title) => {
     const text = title.textContent.trim();
     title.setAttribute("aria-label", text);
@@ -361,7 +395,7 @@ const scramble = (el, duration = 600) => {
   };
   requestAnimationFrame(tick);
 };
-if (!reduceMotion) {
+if (!calm) {
   const eyebrow = document.querySelector(".hero .eyebrow");
   if (eyebrow) {
     eyebrow.setAttribute("aria-label", eyebrow.textContent);
@@ -371,7 +405,7 @@ if (!reduceMotion) {
 
 // Dev SA amblemi görününce yükselir
 const bigMark = document.querySelector(".big-mark");
-if (bigMark && !reduceMotion && "IntersectionObserver" in window) {
+if (bigMark && !calm && "IntersectionObserver" in window) {
   bigMark.classList.add("pending");
   const markObserver = new IntersectionObserver(([entry]) => {
     if (!entry.isIntersecting) return;
@@ -391,7 +425,7 @@ if (localTime) {
 }
 
 // Sonuçlar: büyük rakamlar görününce sayar (ondalık ayracı sayfanın diline göre), vaka çubukları soldan dolar
-if (!reduceMotion && "IntersectionObserver" in window) {
+if (!calm && "IntersectionObserver" in window) {
   const fmtNum = (v, d) => v.toLocaleString(numLocale, { minimumFractionDigits: d, maximumFractionDigits: d });
   const rfObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -434,4 +468,11 @@ if (document.getElementById("top")) {
       history.replaceState(null, "", location.pathname + location.search);
     });
   });
+}
+
+// Dil geçişiyle gelindiyse kaldığı noktaya anında kaydır (ilk çizimden önce; geçiş efekti bu hali gösterir)
+if (langJump && langJump.id) {
+  const section = document.getElementById(langJump.id);
+  const top = section.getBoundingClientRect().top + scrollY + langJump.ratio * section.offsetHeight;
+  window.scrollTo({ top, behavior: "instant" });
 }
