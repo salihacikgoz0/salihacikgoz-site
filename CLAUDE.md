@@ -131,7 +131,10 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
   ve `<link rel="expect" href="#page-ready" blocking="render">` + `</body>` öncesi `#page-ready` ile çizim,
   script.js kaydırmayı yapana kadar bekler. Geçişte menü sabit (`site-nav` grubunda animasyon yok, eskisi gizli) ve yeni
   sayfada kaydırmadan hemen sonra `.scrolled` verilir — yoksa telefonda tam genişlikten hapa dönüşürken menü
-  kayboluyor gibi görünüyordu (kullanıcı telefonda fark etti). DevTools ekran görüntüsü geçiş katmanını çekmiyor;
+  kayboluyor gibi görünüyordu (kullanıcı telefonda fark etti). Bu yetmedi: **telefonda (≤780px) menü ayrı katmana
+  hiç alınmaz** (`view-transition-name: none`), sayfayla birlikte geçer; eski sayfa orada küçülmez, sadece kararır
+  (`vt-recede-soft`). Muhtemelen Safari yapışkan menüyü kaydırılmamış yerine çiziyordu; Windows Chrome'da
+  tekrarlanamadı. Kullanıcı telefonda "şuan oldu" dedi (2026-10-18). Masaüstünde menü sabit kalıyor. DevTools ekran görüntüsü geçiş katmanını çekmiyor;
   `document.getAnimations()` ile doğrula.
 - 781–1080px arası menü sıkılaşır; 781–940px arası logodaki isim gizlenir (menü sığsın diye).
 
