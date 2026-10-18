@@ -3,7 +3,7 @@
 Salih Açıkgöz'ün kişisel sitesi (CV + portfolyo): https://salihacikgoz.com
 Statik HTML/CSS/JS, framework yok. Genel bilgi ve dosya listesi için `README.md`.
 
-Son güncelleme: 2026-10-17 (büyük görsel/hareket yenilemesi: ikonlar, bento, proje kapakları, cam
+Son güncelleme: 2026-10-18 (İngilizce sürüm `/en/`). Önceki: 2026-10-17 (büyük görsel/hareket yenilemesi: ikonlar, bento, proje kapakları, cam
 rakamlar, yüzen menü, açılış koreografisi, dev SA amblemli altbilgi; ayrıntılar "Hareketler ve
 görsel dil (2026-10-17)" maddesinde).
 Önceki: 2026-10-11 (sosyal medya ikonları, hareketler, firma/okul logoları, Markalar, WebP).
@@ -101,6 +101,21 @@ görsel dil (2026-10-17)" maddesinde).
 
 Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı koru. Markalar eklenince
 (2026-10-11) sonrakiler kaydı: Eğitim düz, Projeler `alt`, Araçlar düz, Yazılar `alt`, İletişim düz.
+
+## İngilizce sürüm (`/en/`, 2026-10-18)
+
+- `en/index.html` = ana sayfanın birebir İngilizce kopyası (aynı yapı, aynı `style.css`/`script.js`; yerel
+  adresler `../` ile başlar). Menünün sağında `.lang-switch` hapı (TR sayfada "EN", EN sayfada "TR");
+  telefonda hamburgerin solunda. GA4'e `lang_switch` (`to`). İki sayfada da `hreflang` (tr, en, x-default=tr),
+  `og:locale:alternate`; `sitemap.xml`'de iki adres `xhtml:link` ile bağlı.
+- **Ana sayfada metin/rakam değişince `en/index.html`'i de güncelle** (JSON-LD dahil). İlk sürüm bir Python
+  değiştirme listesiyle TR'den üretildi; artık iki dosya ayrı, elle senkron tutulur.
+- Rakamlar EN'de İngilizce yazımla: 16.4x, ₺5.6M, ₺454K, 60,121, 76% (₺ kalıyor). `script.js` sayı biçimini
+  `<html lang>`'e göre seçer (`numLocale`). Logo/yukarı çık kaydırması `.logo, .footer-brand, .to-top` ile.
+- Makale ve CV Türkçe; EN'de "(in Turkish)" / "CV (PDF, Turkish)" yazıyor. İngilizce CV henüz yok.
+- Kurum adları özgün: "Deniz Egece Enstitü", "CPAS Türkiye". Trendyol/Hepsiburada hero'da isimleriyle
+  "(Turkey's leading e-commerce marketplaces)" diye tanıtılıyor (kullanıcı isimler açıkça geçsin dedi).
+- 781–1080px arası menü sıkılaşır; 781–940px arası logodaki isim gizlenir (menü sığsın diye).
 
 ## Yazılar (makaleler)
 
@@ -303,7 +318,7 @@ Açık kalanlar:
 - Öne çıkan projelere gerçek görsel eklemek (şimdilik renkli ikon kapakları var).
 - Referans/müşteri yorumları. (Marka logoları yapıldı → "Çalıştığım Markalar". Proje kartlarında
   marka adı yazmama kuralı hâlâ geçerli.)
-- İngilizce sürüm (TR/EN geçişi).
+- İngilizce CV (EN sayfası şimdilik Türkçe PDF'e bağlanıyor).
 
 ## Denenip beğenilmeyenler
 

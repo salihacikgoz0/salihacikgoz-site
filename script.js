@@ -23,12 +23,23 @@ document.querySelectorAll('a[href^="mailto:"], a[href^="tel:"], a[href*="linkedi
 });
 
 // GA4: CV indirmelerini ölç
-document.querySelectorAll('a[href^="salih-acikgoz-cv.pdf"]').forEach((link) => {
+document.querySelectorAll('a[href*="salih-acikgoz-cv.pdf"]').forEach((link) => {
   link.addEventListener("click", () => {
     if (typeof gtag !== "function") return;
     gtag("event", "cv_download");
   });
 });
+
+// GA4: dil geçişini ölç (TR ↔ EN)
+document.querySelectorAll(".lang-switch").forEach((link) => {
+  link.addEventListener("click", () => {
+    if (typeof gtag !== "function") return;
+    gtag("event", "lang_switch", { to: link.getAttribute("hreflang") });
+  });
+});
+
+// Sayı biçimi sayfanın diline göre (TR: 16,4 · EN: 16.4)
+const numLocale = document.documentElement.lang === "en" ? "en-US" : "tr-TR";
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -379,9 +390,9 @@ if (localTime) {
   setInterval(updateTime, 15000);
 }
 
-// Sonuçlar: büyük rakamlar görününce sayar (ondalık virgüllü), vaka çubukları soldan dolar
+// Sonuçlar: büyük rakamlar görününce sayar (ondalık ayracı sayfanın diline göre), vaka çubukları soldan dolar
 if (!reduceMotion && "IntersectionObserver" in window) {
-  const fmtNum = (v, d) => v.toLocaleString("tr-TR", { minimumFractionDigits: d, maximumFractionDigits: d });
+  const fmtNum = (v, d) => v.toLocaleString(numLocale, { minimumFractionDigits: d, maximumFractionDigits: d });
   const rfObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
@@ -413,9 +424,9 @@ if (!reduceMotion && "IntersectionObserver" in window) {
   }
 }
 
-// Logo / yukarı çık: ana sayfadayken yenilemeden başa kay, adres çubuğunda #etiket kalmasın
+// Logo / yukarı çık: ana sayfadayken (TR ya da EN) yenilemeden başa kay, adres çubuğunda #etiket kalmasın
 if (document.getElementById("top")) {
-  document.querySelectorAll('a[href="/"]').forEach((link) => {
+  document.querySelectorAll(".logo, .footer-brand, .to-top").forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
       navLinks.classList.remove("open");
