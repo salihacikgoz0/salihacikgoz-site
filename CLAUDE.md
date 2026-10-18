@@ -112,7 +112,10 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
   değiştirme listesiyle TR'den üretildi; artık iki dosya ayrı, elle senkron tutulur.
 - Rakamlar EN'de İngilizce yazımla: 16.4x, ₺5.6M, ₺454K, 60,121, 76% (₺ kalıyor). `script.js` sayı biçimini
   `<html lang>`'e göre seçer (`numLocale`). Logo/yukarı çık kaydırması `.logo, .footer-brand, .to-top` ile.
-- Makale ve CV Türkçe; EN'de "(in Turkish)" / "CV (PDF, Turkish)" yazıyor. İngilizce CV henüz yok.
+- Makale Türkçe; EN kartında "(in Turkish)" yazıyor.
+- **İngilizce CV:** kaynak `cv/kaynak-en.html` → `salih-acikgoz-cv-en.pdf` (EN sayfası buna bağlı; üretim ve tek sayfa
+  kuralı Türkçeyle aynı, komutta dosya adlarını değiştir). CV bilgisi değişince **iki CV'yi de** güncelle.
+  `cv_download` olayı `lang` parametresiyle (tr/en) gider.
 - Kurum adları özgün: "Deniz Egece Enstitü", "CPAS Türkiye". Trendyol/Hepsiburada hero'da isimleriyle
   "(Turkey's leading e-commerce marketplaces)" diye tanıtılıyor (kullanıcı isimler açıkça geçsin dedi).
 - 781–1080px arası menü sıkılaşır; 781–940px arası logodaki isim gizlenir (menü sığsın diye).
@@ -318,7 +321,6 @@ Açık kalanlar:
 - Öne çıkan projelere gerçek görsel eklemek (şimdilik renkli ikon kapakları var).
 - Referans/müşteri yorumları. (Marka logoları yapıldı → "Çalıştığım Markalar". Proje kartlarında
   marka adı yazmama kuralı hâlâ geçerli.)
-- İngilizce CV (EN sayfası şimdilik Türkçe PDF'e bağlanıyor).
 
 ## Denenip beğenilmeyenler
 

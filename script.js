@@ -22,11 +22,11 @@ document.querySelectorAll('a[href^="mailto:"], a[href^="tel:"], a[href*="linkedi
   });
 });
 
-// GA4: CV indirmelerini ölç
-document.querySelectorAll('a[href*="salih-acikgoz-cv.pdf"]').forEach((link) => {
+// GA4: CV indirmelerini ölç (TR ve EN CV; hangisi olduğu `lang` ile)
+document.querySelectorAll(".cv-link").forEach((link) => {
   link.addEventListener("click", () => {
     if (typeof gtag !== "function") return;
-    gtag("event", "cv_download");
+    gtag("event", "cv_download", { lang: document.documentElement.lang });
   });
 });
 
