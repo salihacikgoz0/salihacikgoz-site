@@ -284,9 +284,8 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
 - Büyük görsel/hareket yenilemesi ("Hareketler ve görsel dil (2026-10-17)").
 - Vaka çalışması "Rakamlarla Sonuçlar" (sayfa yapısı 6b) + CV'ye rakamlı CPAS maddesi (PDF tek sayfa).
 - Logo bağlantıları `/` (adreste `#top` kalmıyor).
-- Sonuçlar bölümü kullanıcının telefonunda kontrol edildi ve düzeltildi; sitenin geri kalanının yeni
-  hali 390px öykünmede kontrol edildi, kullanıcı telefonda genel bakmadı → uygun bir anda
-  "telefonda sitenin geri kalanı nasıl?" diye sor.
+- Sonuçlar bölümü kullanıcının telefonunda kontrol edildi ve düzeltildi; sitenin geri kalanına da
+  kullanıcı telefonda baktı, "her şey güzel" dedi (2026-10-21).
 - Kullanıcı "sonra devam edelim" dedi; sıradaki iş belirlenmedi. Öneri olarak: vaka kartlarına kısa
   hikâye (neler yapıldı), kenara alınan fikirler, markaları kategorize etmek.
 
@@ -318,8 +317,7 @@ Açık kalanlar:
 - **Windows'ta `gh` girişi yapılmadı:** `"/c/Program Files/GitHub CLI/gh.exe" auth login --web`
   (kullanıcı `!` ile çalıştırmalı). O zamana kadar yayını canlı siteyi yoklayarak doğrula.
 - Mobil görünüm 2026-09-30'da kullanıcı tarafından telefonda kontrol edildi, sorun yok.
-  2026-10-11 değişiklikleri (Markalar 5×4 ızgara, mobil zaman çizelgesi logoları) 390px öykünmede
-  kontrol edildi; kullanıcı telefonda tam bakmadı → "telefonda her şey yerinde mi?" diye sor.
+  2026-10-21'de kullanıcı tüm siteye (2026-10-17/18 değişiklikleri dahil) telefonda baktı, sorun yok.
 - **Chrome DevTools MCP** (Windows'ta çalışıyor): gerçek tarayıcıda ölçüm/ekran görüntüsü için
   `new_page` / `evaluate_script` / `emulate` (mobil: `390x844x3,mobile,touch`). Headless
   `--virtual-time-budget` animasyon zamanlamasında güvenilmez, kullanma.
