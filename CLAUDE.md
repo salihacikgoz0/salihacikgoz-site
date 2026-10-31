@@ -278,6 +278,17 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
   `contact_click` olayı (`method` parametresi) olarak gönderir.
 - İçerik değişince `sitemap.xml` içindeki `<lastmod>` tarihini güncelle.
 
+## Alt alan adı projeleri (2026-10-31)
+
+Kullanıcı kendi kullanacağı projeleri `*.salihacikgoz.com` altında, **indekslenmeden ve ayrı depolarda** yayınlıyor.
+Ana siteye bağlantı verilmez, `sitemap.xml`'e eklenmez.
+- Barındırma: **Cloudflare Pages** (Natro değil; Natro paketi 1 site, Node yok). DNS zaten Cloudflare'de;
+  Pages > Custom domains ile bağlanır. Natro'da alt alan adı açınca Cloudflare'e A kaydı düşüyor, Pages'le çakışır → silinmeli.
+- Cloudflare hesabı: `salihacikgoz.kurumsal@gmail.com` (wrangler bu bilgisayarda giriş yapmış).
+- Giriş gereken projelerde Cloudflare Access **kullanılmıyor** (Zero Trust kart istedi, kullanıcı istemedi).
+- **Skyler** (`skyler.salihacikgoz.com`, klasör `Desktop\Skyler White`): kişisel muhasebe paneli (kart ekstreleri,
+  borç/alacak). Kendi `CLAUDE.md` ve `README.md`'si var; orada çalışırken onları oku.
+
 ## Kaldığımız yer (2026-10-17)
 
 2026-10-17 oturumu (Windows, gece 01:20'ye kadar): hepsi yayında, son commit'ler temiz.
