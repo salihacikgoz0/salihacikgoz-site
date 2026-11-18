@@ -8,3 +8,6 @@ Profile.pdf
 
 # Vaka çalışması ham verileri (reklam paneli ekran görüntüleri, marka adları; sadece yerelde)
 vaka-calismasi/
+
+# API anahtarları (Jale vb.; sadece yerelde, GitHub Secrets ayrı)
+.env

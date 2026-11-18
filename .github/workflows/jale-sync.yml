@@ -1,0 +1,54 @@
+name: Reklam verilerini güncelle (Jale)
+
+# Her gün İstanbul saatiyle 06:00'da Jale API'sinden verileri çeker; rakamlar değiştiyse
+# commit atar ve yayın iş akışını tetikler. Loglar herkese açık: betik marka adı yazdırmaz.
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: jale-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Testler
+        run: python3 sync/test_jale_sync.py
+
+      - name: Jale'den çek ve sayfaları güncelle
+        env:
+          JALE_API_KEY: ${{ secrets.JALE_API_KEY }}
+          JALE_BASE_URL: ${{ secrets.JALE_BASE_URL }}
+        run: python3 sync/jale_sync.py
+
+      - name: Değiştiyse commit at ve yayınla
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git add sync/reklam-verileri.json index.html en/index.html
+          if git diff --cached --quiet; then
+            echo "Değişiklik yok."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: reklam verileri güncellendi (Jale)"
+          git push
+          # GITHUB_TOKEN ile atılan push yayını kendiliğinden tetiklemez; elle başlatılır
+          gh workflow run deploy.yml --ref main

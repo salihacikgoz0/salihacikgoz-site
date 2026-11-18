@@ -58,8 +58,19 @@ görsel dil (2026-10-17)" maddesinde).
    "1,5-2 yıldır bu işi yapıyorum"). Kartlarda **marka adı yok**, sadece sektör; kadın giyim kartı
    HiCCUP (logolarda ilk sırada, kullanıcı "dokunmayalım, sorun yok" dedi). "Net Getiri ₺86M"
    (ciro − harcama) bilerek kullanılmadı: kâr gibi algılanır. Başlık "Rakamlarla Sonuçlar",
-   menüde "Sonuçlar" (kullanıcı sordu, böyle kaldı). Rakamlar güncellenecekse kullanıcıdan yeni
-   panel görüntüsü iste.
+   menüde "Sonuçlar" (kullanıcı sordu, böyle kaldı).
+   **Dinamik güncelleme (2026-11-18, Jale API):** üstteki 4 rakam artık otomatik; **elle değiştirme**.
+   Jale = kullanıcının CPAS müşterilerini takip ettiği panel (`jale.cpasturkiye.com`, partner API:
+   `/customers`, `/products?customerId&from&to` (en çok 366 gün, sayfalı), `/insights?type=findings|actions|signals`;
+   başlık `X-API-Key`; istek sınırı var → 429 + `Retry-After`). Jale verisi ~Ekim 2026'dan başlıyor, eski geçmiş yok.
+   Kural (kullanıcı): **sadece ekle, asla silme**. Başlangıç = ekran görüntüsü toplamları (17 Ekim 2026'ya kadar,
+   `sync/reklam-verileri.json` > `baseline`); sonrası müşteri×ay kovaları olarak üstüne eklenir, API'den kaybolan
+   müşteri/ay korunur, son 7 günü kapsayan aylar yeniden çekilir (Meta atıf düzeltmesi), aktif hesap sayısı
+   hiç düşmez (`accountsHigh`). Betik `sync/jale_sync.py`, testler `python3 sync/test_jale_sync.py`; her gün 06:00
+   (İstanbul) `.github/workflows/jale-sync.yml` çalışır, değişince commit + `deploy.yml` tetikler. `sync/` deploy'a gitmez.
+   **Repo herkese açık:** veri dosyasına/loglara marka adı yazma, müşteri kimlikleri sha256 ile karmalı.
+   Anahtar: GitHub Secrets `JALE_API_KEY`, `JALE_BASE_URL`; Mac'te `.env` (gitignore'da). Vaka kartları hâlâ elle.
+   Senkron commit attığı için çalışmaya başlamadan önce `git pull` yap.
    **Mobil (kullanıcı telefonda ekran görüntüsüyle iki tur düzeltti, sonunda "daha iyi oldu"):**
    küçük rakam kartlarında rakamlar üste yaslı (`justify-content: flex-start`), vaka istatistiklerinde
    rakamlar alta yaslı (`space-between`) — etiket iki satıra düşse de hizalı kalsın; etiket kısa
@@ -321,8 +332,8 @@ Açık kalanlar:
 - Kullanıcı yeni makale yazdıkça gönderecek; düzen için "Yazılar (makaleler)" bölümüne bak.
 - **Google arama ikonu:** 2026-10-10'da sonuçta hâlâ eski ikon (beyaz dairede kaybolan beyaz "S")
   çıkıyordu; canlı ikonlar doğruydu, Google önbelleği eskiydi. İkonlar `site-icon-*` adlarına taşındı,
-  kullanıcı ana sayfa için yeniden dizine ekleme istedi. ~2026-10-24'te kullanıcıya sor; kontrol için
-  `https://www.google.com/s2/favicons?domain=salihacikgoz.com&sz=64` koyu zeminli mi bak.
+  kullanıcı ana sayfa için yeniden dizine ekleme istedi. **Çözüldü (2026-11-18):** kullanıcı Google'da
+  yeni ikonun çıktığını doğruladı; tekrar sorma.
 - **Kullanıcı yapacak (GA4):** `contact_click`'i önemli etkinlik olarak işaretlemek ve `method`
   için "İletişim yöntemi" özel boyutu oluşturmak (Yönetici > Etkinlikler / Özel tanımlar).
 - **Windows'ta `gh` girişi yapılmadı:** `"/c/Program Files/GitHub CLI/gh.exe" auth login --web`
