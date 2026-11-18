@@ -372,6 +372,12 @@ Açık kalanlar:
 - Zemini bir ton açmak (`#131a23`, "site çok mu dark" sorusu üzerine): 2026-10-11'de karşılaştırma
   gösterildi, kullanıcı "böyle kalsın" dedi → `#0b0f14` kalıyor, tekrar önerme.
 - Bölüm başlıklarının üstüne sıra numarası (01, 02 …): 2026-09-30'da denendi, "sarmadı".
+- Komple yeniden tasarım (2026-11-18, `frontend-design` skill'iyle; skill `~/.claude/skills/frontend-design/`'da
+  kurulu): mürekkep laciverti zemin (#14123A), Bricolage Grotesque (dar genişlik, sıkı harf aralığı) + Instrument Sans,
+  solda yapışkan bölüm başlıkları, dev ₺ ciro rakamı, sakin/canlı/yok hareket seçici. Kullanıcı: "çok dağınık,
+  yazılar iç içe girmiş gibi" → tamamen geri alındı. Yama yedeği: `~/Documents/Projeler/tasarim-denemeleri/2026-11-18-lacivert-redesign.patch`.
+  Kullanıcı tasarıma "sonra bakalım" dedi. Tekrar denenirse: sıkı harf aralığı/dar yazı genişliği ve yapışkan yan
+  başlık sütunu kullanma; değişiklikleri parça parça (önce tek bölüm) göster. Mac'te Chrome yok, ekran görüntüsü alamıyorum.
 - 2026-10-17'de denenip kaldırılanlar (tekrar önerme):
   - Sayfa genelinde fareyi takip eden büyük ışık (`cursor-aura`): "çok sevemedim".
   - Zaman çizelgesi çizgisinin kaydırmaya bağlı dolması (`animation-timeline: view()`): gri kalan
