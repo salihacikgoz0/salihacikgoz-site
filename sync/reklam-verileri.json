@@ -6,8 +6,781 @@
   "accounts": 68,
   "source": "Meta Reklam Yöneticisi ekran görüntüleri (2024 – 17 Ekim 2026)"
  },
- "months": {},
- "finalMonths": [],
+ "months": {
+  "1dc4a3ee4803": {
+   "2026-10": {
+    "spend": 4081.94,
+    "revenue": 0,
+    "purchases": 0
+   },
+   "2026-11": {
+    "spend": 4866.3,
+    "revenue": 40245,
+    "purchases": 10
+   }
+  },
+  "5516e0f36568": {
+   "2026-10": {
+    "spend": 0,
+    "revenue": 0,
+    "purchases": 0
+   }
+  },
+  "aff2a60d7057": {
+   "2026-10": {
+    "spend": 12769.13,
+    "revenue": 79970.08,
+    "purchases": 72
+   },
+   "2026-11": {
+    "spend": 34234.42,
+    "revenue": 352756.69,
+    "purchases": 441
+   }
+  },
+  "189add819c4a": {
+   "2026-10": {
+    "spend": 3041.36,
+    "revenue": 26412.15,
+    "purchases": 34
+   }
+  },
+  "c6d2a7539096": {
+   "2026-10": {
+    "spend": 4328.5,
+    "revenue": 0,
+    "purchases": 0
+   },
+   "2026-11": {
+    "spend": 0,
+    "revenue": 0,
+    "purchases": 0
+   }
+  },
+  "01dee3b49d98": {
+   "2026-10": {
+    "spend": 6739.05,
+    "revenue": 38792.36,
+    "purchases": 119
+   },
+   "2026-11": {
+    "spend": 8870.51,
+    "revenue": 64240.22,
+    "purchases": 199
+   }
+  },
+  "b6850606e855": {
+   "2026-10": {
+    "spend": 3257.3,
+    "revenue": 1998,
+    "purchases": 2
+   },
+   "2026-11": {
+    "spend": 2644.6,
+    "revenue": 6726.6,
+    "purchases": 8
+   }
+  },
+  "cfe37b61df49": {
+   "2026-10": {
+    "spend": 0,
+    "revenue": 0,
+    "purchases": 0
+   },
+   "2026-11": {
+    "spend": 16.89,
+    "revenue": 0,
+    "purchases": 0
+   }
+  },
+  "03db358f0a29": {
+   "2026-10": {
+    "spend": 5475.86,
+    "revenue": 27378,
+    "purchases": 22
+   },
+   "2026-11": {
+    "spend": 14684.05,
+    "revenue": 14384,
+    "purchases": 16
+   }
+  },
+  "823e89806f81": {
+   "2026-10": {
+    "spend": 12095.45,
+    "revenue": 40347.2,
+    "purchases": 87
+   },
+   "2026-11": {
+    "spend": 13140.08,
+    "revenue": 55698.32,
+    "purchases": 116
+   }
+  },
+  "3fc3b49bc9da": {
+   "2026-10": {
+    "spend": 7002.91,
+    "revenue": 38174.08,
+    "purchases": 80
+   },
+   "2026-11": {
+    "spend": 8406.72,
+    "revenue": 48764.98,
+    "purchases": 109
+   }
+  },
+  "00ad4bac5b22": {
+   "2026-10": {
+    "spend": 6783.09,
+    "revenue": 7075.54,
+    "purchases": 15
+   },
+   "2026-11": {
+    "spend": 10702.43,
+    "revenue": 27602.63,
+    "purchases": 46
+   }
+  },
+  "ea8cbf3c8ef7": {
+   "2026-10": {
+    "spend": 5678.46,
+    "revenue": 101693.2,
+    "purchases": 82
+   },
+   "2026-11": {
+    "spend": 26860.99,
+    "revenue": 230858.62,
+    "purchases": 309
+   }
+  },
+  "f7f364338f6a": {
+   "2026-10": {
+    "spend": 10058.7,
+    "revenue": 17102,
+    "purchases": 6
+   },
+   "2026-11": {
+    "spend": 14709.89,
+    "revenue": 75533.16,
+    "purchases": 13
+   }
+  },
+  "da7f552c179e": {
+   "2026-10": {
+    "spend": 73743.43,
+    "revenue": 1224116.4,
+    "purchases": 1230
+   },
+   "2026-11": {
+    "spend": 90274.37,
+    "revenue": 2363891.42,
+    "purchases": 2531
+   }
+  },
+  "1690dd59a42d": {
+   "2026-10": {
+    "spend": 3149.37,
+    "revenue": 27642.2,
+    "purchases": 16
+   },
+   "2026-11": {
+    "spend": 7423.29,
+    "revenue": 10276.43,
+    "purchases": 5
+   }
+  },
+  "197471dfe74f": {
+   "2026-10": {
+    "spend": 187.36,
+    "revenue": 0,
+    "purchases": 0
+   },
+   "2026-11": {
+    "spend": 1225.7,
+    "revenue": 11766.81,
+    "purchases": 14
+   }
+  },
+  "aea845ef56e1": {
+   "2026-10": {
+    "spend": 168291.35,
+    "revenue": 3741757.78,
+    "purchases": 4852
+   },
+   "2026-11": {
+    "spend": 246803.9,
+    "revenue": 5858075.65,
+    "purchases": 8551
+   }
+  },
+  "24af7596d023": {
+   "2026-10": {
+    "spend": 343.76,
+    "revenue": 0,
+    "purchases": 0
+   }
+  },
+  "beb1ca1f7332": {
+   "2026-10": {
+    "spend": 0,
+    "revenue": 0,
+    "purchases": 0
+   },
+   "2026-11": {
+    "spend": 1892.88,
+    "revenue": 63747.42,
+    "purchases": 418
+   }
+  },
+  "d99e8780dc32": {
+   "2026-10": {
+    "spend": 0,
+    "revenue": 0,
+    "purchases": 0
+   }
+  },
+  "b99dc1d9a0cb": {
+   "2026-10": {
+    "spend": 7139.99,
+    "revenue": 0,
+    "purchases": 0
+   },
+   "2026-11": {
+    "spend": 5115.8,
+    "revenue": 0,
+    "purchases": 0
+   }
+  },
+  "7e06dffc15e7": {
+   "2026-10": {
+    "spend": 450.76,
+    "revenue": 7086.34,
+    "purchases": 15
+   },
+   "2026-11": {
+    "spend": 257.87,
+    "revenue": 0,
+    "purchases": 0
+   }
+  },
+  "d670d0596cf4": {
+   "2026-10": {
+    "spend": 2019.68,
+    "revenue": 0,
+    "purchases": 0
+   },
+   "2026-11": {
+    "spend": 0,
+    "revenue": 0,
+    "purchases": 0
+   }
+  },
+  "f3be599050b5": {
+   "2026-10": {
+    "spend": 7004.47,
+    "revenue": 83810.34,
+    "purchases": 139
+   },
+   "2026-11": {
+    "spend": 6630.52,
+    "revenue": 82572.69,
+    "purchases": 148
+   }
+  },
+  "d1d31bcc2968": {
+   "2026-10": {
+    "spend": 965.22,
+    "revenue": 4995.57,
+    "purchases": 22
+   },
+   "2026-11": {
+    "spend": 13146.09,
+    "revenue": 220963.16,
+    "purchases": 778
+   }
+  },
+  "e1cc2612b0a7": {
+   "2026-10": {
+    "spend": 27375.16,
+    "revenue": 420636.38,
+    "purchases": 403
+   },
+   "2026-11": {
+    "spend": 34367.73,
+    "revenue": 526869.71,
+    "purchases": 759
+   }
+  },
+  "530fd6a926b5": {
+   "2026-10": {
+    "spend": 55866.37,
+    "revenue": 368651.03,
+    "purchases": 271
+   },
+   "2026-11": {
+    "spend": 40395.5,
+    "revenue": 509561.8,
+    "purchases": 511
+   }
+  },
+  "897f479a524c": {
+   "2026-10": {
+    "spend": 14258.91,
+    "revenue": 11830,
+    "purchases": 11
+   },
+   "2026-11": {
+    "spend": 16061.78,
+    "revenue": 31628.27,
+    "purchases": 33
+   }
+  },
+  "7c1710662fc2": {
+   "2026-10": {
+    "spend": 5406.42,
+    "revenue": 8536.2,
+    "purchases": 20
+   }
+  },
+  "8d9c135316db": {
+   "2026-10": {
+    "spend": 5109.08,
+    "revenue": 4206.3,
+    "purchases": 7
+   }
+  },
+  "3ee6e99a03cd": {
+   "2026-10": {
+    "spend": 14519.28,
+    "revenue": 412165.22,
+    "purchases": 422
+   },
+   "2026-11": {
+    "spend": 24034.61,
+    "revenue": 603691.77,
+    "purchases": 697
+   }
+  },
+  "db5997be8932": {
+   "2026-10": {
+    "spend": 2329.61,
+    "revenue": 1810,
+    "purchases": 1
+   },
+   "2026-11": {
+    "spend": 8489.18,
+    "revenue": 3600,
+    "purchases": 2
+   }
+  },
+  "f67fd0180c25": {
+   "2026-10": {
+    "spend": 27182.01,
+    "revenue": 199779.99,
+    "purchases": 555
+   },
+   "2026-11": {
+    "spend": 33260.08,
+    "revenue": 339966.64,
+    "purchases": 1001
+   }
+  },
+  "bc4ee18dad74": {
+   "2026-10": {
+    "spend": 14711.43,
+    "revenue": 56074.5,
+    "purchases": 107
+   }
+  },
+  "b0cb018d801f": {
+   "2026-10": {
+    "spend": 0,
+    "revenue": 1777.3,
+    "purchases": 6
+   },
+   "2026-11": {
+    "spend": 1732.8,
+    "revenue": 10834.25,
+    "purchases": 74
+   }
+  },
+  "7efa5719218a": {
+   "2026-10": {
+    "spend": 131.11,
+    "revenue": 4899.5,
+    "purchases": 5
+   },
+   "2026-11": {
+    "spend": 1956.53,
+    "revenue": 85259.83,
+    "purchases": 86
+   }
+  },
+  "ef875e5928d7": {
+   "2026-10": {
+    "spend": 12971.95,
+    "revenue": 12774.78,
+    "purchases": 22
+   },
+   "2026-11": {
+    "spend": 6106.55,
+    "revenue": 39577.85,
+    "purchases": 83
+   }
+  },
+  "7902cc48360c": {
+   "2026-10": {
+    "spend": 16806.63,
+    "revenue": 295129.03,
+    "purchases": 618
+   },
+   "2026-11": {
+    "spend": 20627.99,
+    "revenue": 465890.31,
+    "purchases": 1066
+   }
+  },
+  "ccdf11274b3f": {
+   "2026-10": {
+    "spend": 32893.56,
+    "revenue": 294787.73,
+    "purchases": 348
+   },
+   "2026-11": {
+    "spend": 38236.66,
+    "revenue": 331964.36,
+    "purchases": 394
+   }
+  },
+  "b0c607080174": {
+   "2026-10": {
+    "spend": 9979.81,
+    "revenue": 109533.85,
+    "purchases": 188
+   },
+   "2026-11": {
+    "spend": 12619.48,
+    "revenue": 307870.57,
+    "purchases": 576
+   }
+  },
+  "4792c4880b4e": {
+   "2026-10": {
+    "spend": 23830.91,
+    "revenue": 392636.0,
+    "purchases": 382
+   },
+   "2026-11": {
+    "spend": 9306.23,
+    "revenue": 464998.68,
+    "purchases": 472
+   }
+  },
+  "c1fc5fb3495a": {
+   "2026-10": {
+    "spend": 274.3,
+    "revenue": 0,
+    "purchases": 0
+   },
+   "2026-11": {
+    "spend": 5241.75,
+    "revenue": 15537.58,
+    "purchases": 13
+   }
+  },
+  "56de8a596d4e": {
+   "2026-10": {
+    "spend": 12906.68,
+    "revenue": 526659.1,
+    "purchases": 533
+   },
+   "2026-11": {
+    "spend": 8105.27,
+    "revenue": 246805.8,
+    "purchases": 247
+   }
+  },
+  "4651d5e1516b": {
+   "2026-10": {
+    "spend": 6274.36,
+    "revenue": 4189.2,
+    "purchases": 9
+   },
+   "2026-11": {
+    "spend": 4232.63,
+    "revenue": 873,
+    "purchases": 2
+   }
+  },
+  "532151dd642a": {
+   "2026-10": {
+    "spend": 3194.47,
+    "revenue": 2400,
+    "purchases": 2
+   },
+   "2026-11": {
+    "spend": 6245.46,
+    "revenue": 2400,
+    "purchases": 2
+   }
+  },
+  "87c43e4b27f3": {
+   "2026-10": {
+    "spend": 8643.49,
+    "revenue": 27896.2,
+    "purchases": 20
+   },
+   "2026-11": {
+    "spend": 3120.5,
+    "revenue": 3494.7,
+    "purchases": 3
+   }
+  },
+  "9391c9c2dfd5": {
+   "2026-10": {
+    "spend": 13448.77,
+    "revenue": 60147.38,
+    "purchases": 100
+   },
+   "2026-11": {
+    "spend": 33641.56,
+    "revenue": 112192.24,
+    "purchases": 214
+   }
+  },
+  "480d05142476": {
+   "2026-10": {
+    "spend": 4077.09,
+    "revenue": 6398,
+    "purchases": 2
+   },
+   "2026-11": {
+    "spend": 633.67,
+    "revenue": 425,
+    "purchases": 1
+   }
+  },
+  "ffc5bac7fb6e": {
+   "2026-10": {
+    "spend": 158.37,
+    "revenue": 0,
+    "purchases": 0
+   }
+  },
+  "6e1f2050724f": {
+   "2026-10": {
+    "spend": 2733.03,
+    "revenue": 8962.3,
+    "purchases": 11
+   },
+   "2026-11": {
+    "spend": 5507.64,
+    "revenue": 13307.35,
+    "purchases": 16
+   }
+  },
+  "852942301b9c": {
+   "2026-10": {
+    "spend": 18578.87,
+    "revenue": 1071333.38,
+    "purchases": 1483
+   },
+   "2026-11": {
+    "spend": 33752.36,
+    "revenue": 948360.68,
+    "purchases": 2307
+   }
+  },
+  "ceeb0d1cdc17": {
+   "2026-10": {
+    "spend": 63910.94,
+    "revenue": 1071024.69,
+    "purchases": 822
+   },
+   "2026-11": {
+    "spend": 204933.71,
+    "revenue": 1922597.19,
+    "purchases": 1735
+   }
+  },
+  "d8fd753208aa": {
+   "2026-10": {
+    "spend": 1825.02,
+    "revenue": 9057.1,
+    "purchases": 18
+   }
+  },
+  "5137d12303ea": {
+   "2026-10": {
+    "spend": 6799.83,
+    "revenue": 69962.91,
+    "purchases": 103
+   },
+   "2026-11": {
+    "spend": 9540.1,
+    "revenue": 97357.71,
+    "purchases": 159
+   }
+  },
+  "4e49e344fe3d": {
+   "2026-10": {
+    "spend": 17914.67,
+    "revenue": 311845.86,
+    "purchases": 402
+   },
+   "2026-11": {
+    "spend": 21995.77,
+    "revenue": 388579.65,
+    "purchases": 511
+   }
+  },
+  "8aa7a148a018": {
+   "2026-10": {
+    "spend": 3125.96,
+    "revenue": 4370.42,
+    "purchases": 4
+   },
+   "2026-11": {
+    "spend": 0,
+    "revenue": 0,
+    "purchases": 0
+   }
+  },
+  "0da045ec23df": {
+   "2026-10": {
+    "spend": 3722.27,
+    "revenue": 0,
+    "purchases": 0
+   },
+   "2026-11": {
+    "spend": 0,
+    "revenue": 0,
+    "purchases": 0
+   }
+  },
+  "871ef0294024": {
+   "2026-11": {
+    "spend": 926.73,
+    "revenue": 0,
+    "purchases": 0
+   }
+  },
+  "0e1be49ec301": {
+   "2026-11": {
+    "spend": 1089.22,
+    "revenue": 96251.46,
+    "purchases": 39
+   }
+  },
+  "12160eb28945": {
+   "2026-11": {
+    "spend": 353.6,
+    "revenue": 5895,
+    "purchases": 5
+   }
+  },
+  "83bf105ac6ef": {
+   "2026-11": {
+    "spend": 7186.07,
+    "revenue": 18878.62,
+    "purchases": 30
+   }
+  },
+  "3cbe359b0185": {
+   "2026-11": {
+    "spend": 3731.27,
+    "revenue": 9518.06,
+    "purchases": 25
+   }
+  },
+  "31a014fb82b7": {
+   "2026-11": {
+    "spend": 2351.16,
+    "revenue": 11046.43,
+    "purchases": 5
+   }
+  },
+  "c677b99d366a": {
+   "2026-11": {
+    "spend": 6620.33,
+    "revenue": 81826.73,
+    "purchases": 249
+   }
+  },
+  "c9cfdfd7c135": {
+   "2026-11": {
+    "spend": 0,
+    "revenue": 2288.55,
+    "purchases": 6
+   }
+  },
+  "16dad9d112cf": {
+   "2026-11": {
+    "spend": 960.13,
+    "revenue": 0,
+    "purchases": 0
+   }
+  },
+  "0b59e5ce5a95": {
+   "2026-11": {
+    "spend": 1941.17,
+    "revenue": 2175.82,
+    "purchases": 2
+   }
+  },
+  "af885b94b9f1": {
+   "2026-11": {
+    "spend": 69354.24,
+    "revenue": 436272.56,
+    "purchases": 426
+   }
+  },
+  "82d9e8d35f26": {
+   "2026-11": {
+    "spend": 3455.48,
+    "revenue": 5850,
+    "purchases": 6
+   }
+  },
+  "7716f5fd49a0": {
+   "2026-11": {
+    "spend": 5352.65,
+    "revenue": 0,
+    "purchases": 0
+   }
+  },
+  "22a5289ec5ef": {
+   "2026-11": {
+    "spend": 1017.82,
+    "revenue": 0,
+    "purchases": 0
+   }
+  },
+  "eebd5b8a8e82": {
+   "2026-11": {
+    "spend": 3108.67,
+    "revenue": 6120,
+    "purchases": 4
+   }
+  },
+  "0a4290a085f7": {
+   "2026-11": {
+    "spend": 563.15,
+    "revenue": 4402.3,
+    "purchases": 7
+   }
+  },
+  "b9efbae8f210": {
+   "2026-11": {
+    "spend": 3870.83,
+    "revenue": 6044.73,
+    "purchases": 13
+   }
+  }
+ },
+ "finalMonths": [
+  "2026-10"
+ ],
  "accountsHigh": 68,
- "syncedThrough": null
+ "syncedThrough": "2026-11-17"
 }
