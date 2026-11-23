@@ -1,6 +1,7 @@
 """jale_sync için birim testleri (ağa çıkmaz). Çalıştırma: python3 sync/test_jale_sync.py"""
 import datetime as dt
 import sys
+import json
 import unittest
 from pathlib import Path
 
@@ -104,8 +105,9 @@ class RenderTest(unittest.TestCase):
         with self.assertRaises(RuntimeError):
             js.render_page(PAGE.replace("rf-value", "x", 1), self.TOTALS, "tr")
 
-    def test_baseline_alone_leaves_current_pages_unchanged(self):
-        totals = js.compute_totals(base_state())
+    def test_saved_state_matches_current_pages(self):
+        state = json.loads(js.STATE_FILE.read_text(encoding="utf-8"))
+        totals = js.compute_totals(state)
         for lang, path in js.PAGES.items():
             html = path.read_text(encoding="utf-8")
             self.assertEqual(js.render_page(html, totals, lang), html, lang)
