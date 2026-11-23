@@ -11,3 +11,6 @@ vaka-calismasi/
 
 # API anahtarları (Jale vb.; sadece yerelde, GitHub Secrets ayrı)
 .env
+
+# senior-frontend skill'inin tarayıcı kontrol çıktıları
+.ui-check/

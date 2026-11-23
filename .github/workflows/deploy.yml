@@ -32,6 +32,7 @@ jobs:
             **/.git*
             **/.git*/**
             **/.github/**
+            **/.claude/**
             **/*.md
             cv/**
             sync/**
