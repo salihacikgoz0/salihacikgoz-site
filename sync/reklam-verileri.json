@@ -810,5 +810,43 @@
   "2026-10"
  ],
  "accountsHigh": 68,
- "syncedThrough": "2026-11-24"
+ "syncedThrough": "2026-11-24",
+ "cases": [
+  {
+   "key": "aea845ef56e1",
+   "sector": "Kadın Giyim",
+   "baseline": {
+    "spend": 1670000,
+    "revenue": 38243000,
+    "purchases": 60121
+   }
+  },
+  {
+   "key": "da7f552c179e",
+   "sector": "Ev Tekstili",
+   "baseline": {
+    "spend": 454000,
+    "revenue": 10215000,
+    "purchases": 9455
+   }
+  },
+  {
+   "key": null,
+   "sector": "Ayakkabı (çalışma bitti, sabit)",
+   "baseline": {
+    "spend": 435000,
+    "revenue": 8352000,
+    "purchases": 8878
+   }
+  },
+  {
+   "key": "3ee6e99a03cd",
+   "sector": "Mobilya · Küçük bütçe",
+   "baseline": {
+    "spend": 50000,
+    "revenue": 1290000,
+    "purchases": 1334
+   }
+  }
+ ]
 }

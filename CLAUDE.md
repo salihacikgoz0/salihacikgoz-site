@@ -69,7 +69,13 @@ görsel dil (2026-10-17)" maddesinde).
    hiç düşmez (`accountsHigh`). Betik `sync/jale_sync.py`, testler `python3 sync/test_jale_sync.py`; her gün 06:00
    (İstanbul) `.github/workflows/jale-sync.yml` çalışır, değişince commit + `deploy.yml` tetikler. `sync/` deploy'a gitmez.
    **Repo herkese açık:** veri dosyasına/loglara marka adı yazma, müşteri kimlikleri sha256 ile karmalı.
-   Anahtar: GitHub Secrets `JALE_API_KEY`, `JALE_BASE_URL`; Mac'te `.env` (gitignore'da). Vaka kartları hâlâ elle.
+   Anahtar: GitHub Secrets `JALE_API_KEY`, `JALE_BASE_URL`; Mac'te `.env` (gitignore'da).
+   **Vaka kartları da Jale'ye bağlı (2026-11-25, `sync/vakalar.py`, testler `python3 sync/test_vakalar.py`):** veri dosyasında
+   `cases` = sayfa sırasıyla kartlar, her biri `key` (karmalı müşteri kimliği) + `baseline` (ekran görüntüsü toplamı;
+   ciro = harcama × ROAS). Her gün baseline + o müşterinin aylık kovaları yazılır: başlık, çubuk, ROAS, satış, reklam/satış.
+   `key: null` = sabit kart (Ayakkabı, çalışma bitti). Kart ekleme/sıra değiştirmede `cases` listesini de güncelle, yoksa
+   senkron "kart sayısı" hatasıyla durur. Kartlar zaten kategori liderleri (Jale'de kategori alanı var, 2026-11-25'te kontrol edildi).
+   Aday vakalar (Meta geçmiş toplamları gelince): ev aksesuarı (Home Design kategorisi), Elektronik (5 haftada 37x).
    Jale'de müşterinin `targetRoas`'ı = markanın **Trendyol içi reklamlarının ortalama ROAS'ı** (kullanıcı, 2026-11-24);
    "CPAS, markanın kendi Trendyol reklamlarından verimli" karşılaştırması için kullanılabilir. `/products` uzun aralıkta
    (90 gün) zaman aşımına uğradı (2026-11-24); kısa aralıkla dene.

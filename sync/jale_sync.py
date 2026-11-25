@@ -1,4 +1,4 @@
-"""Jale API'sinden CPAS reklam verilerini çekip "Rakamlarla Sonuçlar" rakamlarını günceller.
+"""Jale API'sinden CPAS reklam verilerini çekip "Rakamlarla Sonuçlar" rakamlarını ve vaka kartlarını (vakalar.py) günceller.
 
 Kural: veri sadece EKLENİR, hiçbir zaman silinmez.
 - Başlangıç değeri (baseline): 17 Ekim 2026'ya kadarki Meta ekran görüntüsü toplamları, sabit.
@@ -21,6 +21,8 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
+
+import vakalar
 
 ROOT = Path(__file__).resolve().parent.parent
 STATE_FILE = ROOT / "sync" / "reklam-verileri.json"
@@ -217,8 +219,12 @@ def main():
     totals = compute_totals(new_state)
 
     STATE_FILE.write_text(json.dumps(new_state, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    cases = vakalar.case_totals(new_state.get("cases", []), new_state["months"])
     for lang, path in PAGES.items():
-        path.write_text(render_page(path.read_text(encoding="utf-8"), totals, lang), encoding="utf-8")
+        html = render_page(path.read_text(encoding="utf-8"), totals, lang)
+        if cases:
+            html = vakalar.render_cases(html, cases, lang)
+        path.write_text(html, encoding="utf-8")
 
     print(json.dumps({k: round(v, 2) if isinstance(v, float) else v for k, v in totals.items()},
                      ensure_ascii=False))
