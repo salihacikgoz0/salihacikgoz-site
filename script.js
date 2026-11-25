@@ -174,6 +174,26 @@ document.querySelectorAll(".brand").forEach((link) => {
   });
 });
 
+// Markalar: sektör filtresi. Seçilen sektörün logoları kalır, diğerleri gizlenir.
+const brandFilters = document.querySelectorAll(".brand-filter");
+const brandItems = document.querySelectorAll(".brands-grid > li[data-sector]");
+brandFilters.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const sector = btn.dataset.filter;
+    brandFilters.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+    brandItems.forEach((li) => {
+      const show = !sector || li.dataset.sector === sector;
+      li.hidden = !show;
+      li.classList.remove("filter-in");
+      if (show && !reduceMotion) {
+        void li.offsetWidth; // animasyonu yeniden başlat
+        li.classList.add("filter-in");
+      }
+    });
+    if (typeof gtag === "function") gtag("event", "brand_filter", { sector: sector || "all" });
+  });
+});
+
 // Kartlarda fareyi takip eden ışık
 if (!reduceMotion && window.matchMedia("(hover: hover)").matches) {
   document.querySelectorAll(".card, .contact-card").forEach((card) => {

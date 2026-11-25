@@ -322,84 +322,93 @@
     <p class="results-note">Source: Meta Ads Manager data from the accounts I manage, 2024–2026. Revenue is the sales Meta attributes to the ads. ROAS = revenue ÷ ad spend.</p>
     <h3 class="tags-title brands-title">Some of the brands I've worked with</h3>
     <p class="section-text">Click a logo to visit the brand's Trendyol store.</p>
+    <div class="brand-filters" role="group" aria-label="Filter by sector">
+      <button type="button" class="brand-filter" data-filter="" aria-pressed="true">All<small>20</small></button>
+      <button type="button" class="brand-filter" data-filter="giyim" aria-pressed="false">Fashion &amp; Footwear<small>7</small></button>
+      <button type="button" class="brand-filter" data-filter="ev" aria-pressed="false">Home &amp; Living<small>3</small></button>
+      <button type="button" class="brand-filter" data-filter="elektronik" aria-pressed="false">Electronics<small>3</small></button>
+      <button type="button" class="brand-filter" data-filter="kozmetik" aria-pressed="false">Beauty &amp; Care<small>3</small></button>
+      <button type="button" class="brand-filter" data-filter="temizlik" aria-pressed="false">Cleaning<small>2</small></button>
+      <button type="button" class="brand-filter" data-filter="bebek" aria-pressed="false">Baby &amp; Toys<small>2</small></button>
+    </div>
     <ul class="brands-grid">
-        <li><a href="https://www.trendyol.com/magaza/hiccup-m-938209" target="_blank" rel="noopener" class="brand" title="Hiccup">
+        <li data-sector="giyim"><a href="https://www.trendyol.com/magaza/hiccup-m-938209" target="_blank" rel="noopener" class="brand" title="Hiccup">
           <img src="../images/markalar/hiccup.webp?v=dev" alt="" width="64" height="64" loading="lazy">
           <span>Hiccup</span>
         </a></li>
-        <li><a href="https://www.trendyol.com/magaza/diversey-m-876564" target="_blank" rel="noopener" class="brand" title="Diversey">
+        <li data-sector="temizlik"><a href="https://www.trendyol.com/magaza/diversey-m-876564" target="_blank" rel="noopener" class="brand" title="Diversey">
           <img src="../images/markalar/diversey.webp?v=dev" alt="" width="64" height="64" loading="lazy">
           <span>Diversey</span>
         </a></li>
-        <li><a href="https://www.trendyol.com/magaza/melenihome-m-119640" target="_blank" rel="noopener" class="brand" title="Meleni Home">
+        <li data-sector="ev"><a href="https://www.trendyol.com/magaza/melenihome-m-119640" target="_blank" rel="noopener" class="brand" title="Meleni Home">
           <img src="../images/markalar/meleni-home.webp?v=dev" alt="" width="64" height="64" loading="lazy">
           <span>Meleni Home</span>
         </a></li>
-        <li><a href="https://www.trendyol.com/magaza/formeya-m-323918" target="_blank" rel="noopener" class="brand" title="Formeya">
+        <li data-sector="ev"><a href="https://www.trendyol.com/magaza/formeya-m-323918" target="_blank" rel="noopener" class="brand" title="Formeya">
           <img src="../images/markalar/formeya.webp?v=dev" alt="" width="64" height="64" loading="lazy">
           <span>Formeya</span>
         </a></li>
-        <li><a href="https://www.trendyol.com/magaza/meleni-baby-kids-m-702172" target="_blank" rel="noopener" class="brand" title="Meleni Baby &amp; Kids">
+        <li data-sector="bebek"><a href="https://www.trendyol.com/magaza/meleni-baby-kids-m-702172" target="_blank" rel="noopener" class="brand" title="Meleni Baby &amp; Kids">
           <img src="../images/markalar/meleni-baby-kids.webp?v=dev" alt="" width="64" height="64" loading="lazy">
           <span>Meleni Baby &amp; Kids</span>
         </a></li>
-        <li><a href="https://www.trendyol.com/magaza/banega-m-669402" target="_blank" rel="noopener" class="brand" title="Banega">
+        <li data-sector="giyim"><a href="https://www.trendyol.com/magaza/banega-m-669402" target="_blank" rel="noopener" class="brand" title="Banega">
           <img src="../images/markalar/banega.webp?v=dev" alt="" width="64" height="64" loading="lazy">
           <span>Banega</span>
         </a></li>
-        <li><a href="https://www.trendyol.com/magaza/cleanshe-m-842949" target="_blank" rel="noopener" class="brand" title="CleanShe">
+        <li data-sector="temizlik"><a href="https://www.trendyol.com/magaza/cleanshe-m-842949" target="_blank" rel="noopener" class="brand" title="CleanShe">
           <img src="../images/markalar/cleanshe.webp?v=dev" alt="" width="64" height="64" loading="lazy">
           <span>CleanShe</span>
         </a></li>
-        <li><a href="https://www.trendyol.com/magaza/deppo-trend-m-178956" target="_blank" rel="noopener" class="brand" title="Deppo Trend">
+        <li data-sector="elektronik"><a href="https://www.trendyol.com/magaza/deppo-trend-m-178956" target="_blank" rel="noopener" class="brand" title="Deppo Trend">
           <img src="../images/markalar/deppo-trend.webp?v=dev" alt="" width="64" height="64" loading="lazy">
           <span>Deppo Trend</span>
         </a></li>
-        <li><a href="https://www.trendyol.com/magaza/sozzytoys-m-403377" target="_blank" rel="noopener" class="brand" title="SozzyToys">
+        <li data-sector="bebek"><a href="https://www.trendyol.com/magaza/sozzytoys-m-403377" target="_blank" rel="noopener" class="brand" title="SozzyToys">
           <img src="../images/markalar/sozzytoys.webp?v=dev" alt="" width="64" height="64" loading="lazy">
           <span>SozzyToys</span>
         </a></li>
-        <li><a href="https://www.trendyol.com/sr?mid=178052&amp;os=1&amp;sst=BEST_SELLER" target="_blank" rel="noopener" class="brand" title="Nordmende Sports">
+        <li data-sector="giyim"><a href="https://www.trendyol.com/sr?mid=178052&amp;os=1&amp;sst=BEST_SELLER" target="_blank" rel="noopener" class="brand" title="Nordmende Sports">
           <img src="../images/markalar/nordmende-sports.webp?v=dev" alt="" width="64" height="64" loading="lazy">
           <span>Nordmende Sports</span>
         </a></li>
-        <li><a href="https://www.trendyol.com/magaza/asfa-moda-m-118520" target="_blank" rel="noopener" class="brand" title="Asfa Moda">
+        <li data-sector="giyim"><a href="https://www.trendyol.com/magaza/asfa-moda-m-118520" target="_blank" rel="noopener" class="brand" title="Asfa Moda">
           <img src="../images/markalar/asfa-moda.webp?v=dev" alt="" width="64" height="64" loading="lazy">
           <span>Asfa Moda</span>
         </a></li>
-        <li><a href="https://www.trendyol.com/magaza/aga-konsept-m-439952" target="_blank" rel="noopener" class="brand" title="AGA Konsept">
+        <li data-sector="ev"><a href="https://www.trendyol.com/magaza/aga-konsept-m-439952" target="_blank" rel="noopener" class="brand" title="AGA Konsept">
           <img src="../images/markalar/aga-konsept.webp?v=dev" alt="" width="64" height="64" loading="lazy">
           <span>AGA Konsept</span>
         </a></li>
-        <li><a href="https://www.trendyol.com/magaza/history-and-future-m-1072178" target="_blank" rel="noopener" class="brand" title="History And Future">
+        <li data-sector="kozmetik"><a href="https://www.trendyol.com/magaza/history-and-future-m-1072178" target="_blank" rel="noopener" class="brand" title="History And Future">
           <img src="../images/markalar/history-and-future.webp?v=dev" alt="" width="64" height="64" loading="lazy">
           <span>History And Future</span>
         </a></li>
-        <li><a href="https://www.trendyol.com/magaza/by-kotan-shoes-m-657182" target="_blank" rel="noopener" class="brand" title="BY Kotan Shoes">
+        <li data-sector="giyim"><a href="https://www.trendyol.com/magaza/by-kotan-shoes-m-657182" target="_blank" rel="noopener" class="brand" title="BY Kotan Shoes">
           <img src="../images/markalar/by-kotan-shoes.webp?v=dev" alt="" width="64" height="64" loading="lazy">
           <span>BY Kotan Shoes</span>
         </a></li>
-        <li><a href="https://www.trendyol.com/magaza/seamoda-buyuk-beden-giyim-m-107604" target="_blank" rel="noopener" class="brand" title="Seamoda Büyük Beden Giyim">
+        <li data-sector="giyim"><a href="https://www.trendyol.com/magaza/seamoda-buyuk-beden-giyim-m-107604" target="_blank" rel="noopener" class="brand" title="Seamoda Büyük Beden Giyim">
           <img src="../images/markalar/seamoda.webp?v=dev" alt="" width="64" height="64" loading="lazy">
           <span>Seamoda Büyük Beden Giyim</span>
         </a></li>
-        <li><a href="https://www.trendyol.com/magaza/anatoptan-m-105172" target="_blank" rel="noopener" class="brand" title="Anatoptan">
+        <li data-sector="elektronik"><a href="https://www.trendyol.com/magaza/anatoptan-m-105172" target="_blank" rel="noopener" class="brand" title="Anatoptan">
           <img src="../images/markalar/anatoptan.webp?v=dev" alt="" width="64" height="64" loading="lazy">
           <span>Anatoptan</span>
         </a></li>
-        <li><a href="https://www.trendyol.com/magaza/hairvia-m-1259022" target="_blank" rel="noopener" class="brand" title="HairVia">
+        <li data-sector="kozmetik"><a href="https://www.trendyol.com/magaza/hairvia-m-1259022" target="_blank" rel="noopener" class="brand" title="HairVia">
           <img src="../images/markalar/hairvia.webp?v=dev" alt="" width="64" height="64" loading="lazy">
           <span>HairVia</span>
         </a></li>
-        <li><a href="https://www.trendyol.com/magaza/chiconom-m-1244322" target="_blank" rel="noopener" class="brand" title="chiconom">
+        <li data-sector="elektronik"><a href="https://www.trendyol.com/magaza/chiconom-m-1244322" target="_blank" rel="noopener" class="brand" title="chiconom">
           <img src="../images/markalar/chiconom.webp?v=dev" alt="" width="64" height="64" loading="lazy">
           <span>chiconom</span>
         </a></li>
-        <li><a href="https://www.trendyol.com/magaza/heianmono-m-1071733" target="_blank" rel="noopener" class="brand" title="HEİANMONO">
+        <li data-sector="giyim"><a href="https://www.trendyol.com/magaza/heianmono-m-1071733" target="_blank" rel="noopener" class="brand" title="HEİANMONO">
           <img src="../images/markalar/heianmono.webp?v=dev" alt="" width="64" height="64" loading="lazy">
           <span>HEİANMONO</span>
         </a></li>
-        <li><a href="https://www.trendyol.com/magaza/celluragen-m-1197967" target="_blank" rel="noopener" class="brand" title="Celluragen">
+        <li data-sector="kozmetik"><a href="https://www.trendyol.com/magaza/celluragen-m-1197967" target="_blank" rel="noopener" class="brand" title="Celluragen">
           <img src="../images/markalar/celluragen.webp?v=dev" alt="" width="64" height="64" loading="lazy">
           <span>Celluragen</span>
         </a></li>

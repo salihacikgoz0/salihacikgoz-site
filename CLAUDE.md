@@ -11,14 +11,15 @@ görsel dil (2026-10-17)" maddesinde).
 ## Çalışma şekli
 
 - Kullanıcıyla Türkçe konuş.
-- Değişiklikten sonra sayfayı `open -a Safari index.html` ile aç; kullanıcı kontrol edip
+- Değişiklikten sonra sayfayı **Brave**'de aç (kullanıcı Brave kullanıyor, 2026-11-25; Safari'de açma):
+  `python3 -m http.server 8765` + `open -a "Brave Browser" http://127.0.0.1:8765/#bölüm`; kullanıcı kontrol edip
   "pushla" deyince commit + push yap. Push'tan sonra `gh run watch` ile FTP yayınını
   bekle, sonra `curl https://salihacikgoz.com/...` ile canlıda doğrula ve sonucu bildir.
 - Commit mesajları: `feat:` / `fix:` / `docs:` + Türkçe açıklama.
 - Proje iki bilgisayarda çalışılıyor:
-  - **Mac:** sayfayı `open -a Safari index.html` ile aç. Headless ekran görüntüsü alınamıyor
+  - **Mac:** sayfayı `open -a "Brave Browser" <adres>` ile aç. Headless ekran görüntüsü alınamıyor
     (Chrome yok, Brave headless çalışmıyor); kullanıcıdan ekran görüntüsü iste, mobil için
-    Safari > Duyarlı Tasarım Modu (Opt+Cmd+R) öner. Görsel kırpma için `sips` kullan.
+    Brave'de Geliştirici Araçları (Opt+Cmd+I) > cihaz araç çubuğu (Cmd+Shift+M) öner; eski CSS görünürse Cmd+Shift+R. Görsel kırpma için `sips` kullan.
   - **Windows:** sayfayı `start index.html` ile aç. Chrome headless çalışıyor:
     `chrome.exe --headless=new --hide-scrollbars --window-size=1280,760 --screenshot=<png> file:///...`
     (dar genişlikte headless mobil görüntü güvenilir değil, taşma varmış gibi görünür).
@@ -102,7 +103,11 @@ görsel dil (2026-10-17)" maddesinde).
    Türkiye'nin yönettiği mağazalardan bazıları"ndan; logolar `images/markalar/<slug>.webp` (160px).
    Sıra: Trendyol takipçi sayısı (çoktan aza; API `apigw.trendyol.com/discovery-sellerstore-gateway-service/api/follow/?sellerId=<id>`,
    sadece trendyol.com sayfasından fetch edilebilir), **istisna: Diversey her zaman 2. sırada**
-   (büyük marka, kullanıcı istedi). Kayan şerit (marquee) denendi, kullanıcı sevmedi; gri/kısık logolar
+   (büyük marka, kullanıcı istedi). **Sektör filtresi (2026-11-25):** ızgaranın üstünde hap düğmeler (`.brand-filters` > `.brand-filter[data-filter]`, HTML'de sabit,
+   TR+EN), her `li`'de `data-sector` (giyim, ev, elektronik, kozmetik, temizlik, bebek; Jale kategorilerinden, Jale'de olmayanlar tahmin).
+   Varsayılan "Tümü" = eski ızgara. GA4 `brand_filter` (`sector`). Yeni marka eklerken `data-sector` ver ve hap sayısını güncelle.
+   Denenip seçilmeyenler: sektör başlıklı gruplar, logo altında ad+sektör etiketi ("çok karıştı").
+   Kayan şerit (marquee) denendi, kullanıcı sevmedi; gri/kısık logolar
    da istenmedi. Toplam takipçi (~4,96M) cümlesi önerildi, eklenmedi.
 7. Eğitim: zaman çizelgesi (Topkapı YL → Anadolu AÖF ön lisans → Akdeniz lisans), altında
    ayrı "Sertifikalar" ve "Diller" blokları (`.info-cols`); maddelerde solda degradeli rozet

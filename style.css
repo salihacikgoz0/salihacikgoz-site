@@ -937,6 +937,33 @@ html.vt-lang::view-transition-new(site-nav) { animation: none; }
   .brands-grid { grid-template-columns: repeat(5, 1fr); gap: 10px; }
 }
 
+/* Markalar: sektör filtresi (Jale kategorilerinden, 2026-11-25). Varsayılan "Tümü" = bugünkü ızgara */
+.brand-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.brand-filters + .brands-grid { margin-top: 18px; }
+.brand-filter {
+  font: inherit;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 7px 14px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.brand-filter:hover { color: var(--text); border-color: rgba(79, 157, 255, 0.5); }
+.brand-filter:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.brand-filter[aria-pressed="true"] { color: #fff; border-color: transparent; background: linear-gradient(135deg, #2f7bff, #6a2cff); }
+.brand-filter small { opacity: 0.6; margin-left: 5px; }
+.brands-grid > li[hidden] { display: none; }
+.brands-grid > li.filter-in { animation: filter-in 0.35s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+@keyframes filter-in { from { opacity: 0; transform: scale(0.85); } }
+@media (max-width: 780px) {
+  .brand-filters { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-right: -16px; padding-right: 16px; }
+  .brand-filters::-webkit-scrollbar { display: none; }
+  .brand-filter { flex: none; font-size: 0.76rem; padding: 6px 12px; }
+}
+
 /* Kart ikonları: logo degradesinde küçük çizgi ikon, üstüne gelince hafifçe döner */
 .card-icon {
   display: inline-flex;
