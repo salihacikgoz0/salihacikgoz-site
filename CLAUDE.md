@@ -3,7 +3,7 @@
 Salih Açıkgöz'ün kişisel sitesi (CV + portfolyo): https://salihacikgoz.com
 Statik HTML/CSS/JS, framework yok. Genel bilgi ve dosya listesi için `README.md`.
 
-Son güncelleme: 2026-10-18 (İngilizce sürüm `/en/`). Önceki: 2026-10-17 (büyük görsel/hareket yenilemesi: ikonlar, bento, proje kapakları, cam
+Son güncelleme: 2026-11-25 (vaka hikâyeleri, 2. makale, Yazılar ikonlu satırlar). Önceki: 2026-10-18 (İngilizce sürüm `/en/`). Önceki: 2026-10-17 (büyük görsel/hareket yenilemesi: ikonlar, bento, proje kapakları, cam
 rakamlar, yüzen menü, açılış koreografisi, dev SA amblemli altbilgi; ayrıntılar "Hareketler ve
 görsel dil (2026-10-17)" maddesinde).
 Önceki: 2026-10-11 (sosyal medya ikonları, hareketler, firma/okul logoları, Markalar, WebP).
@@ -108,13 +108,11 @@ görsel dil (2026-10-17)" maddesinde).
 9. Araçlar & Teknolojiler: 4 grup — Reklam & Analitik, Yapay Zeka (metin, görsel, video,
    müzik, kodlama), Tasarım & Kreatif, Web & Yazılım. AI araçları kullanıcının seçtikleri; ChatGPT,
    Cursor, Copilot kullanmıyor, ekleme.
-10. Yazılar (`#writing`, 2026-11-25 yenilendi, kullanıcı seçti): **en yeni makale** `.post-featured` kartında, solda kendi
-    koyu infografiğinden küçük kapak (`images/yazilar/*-kapak.webp`, 720×405; krem çizimli kapak sevilmemişti, koyu
-    infografik uyuyor), sağda yuvarlak ok; eskiler altında `.post-rows` > `.post-row` ince satırlar (tarih · başlık+etiket · ok).
-    Yeni makale gelince öne çıkan karta o geçer, eskisi satıra iner (TR+EN). Eski düzen (aşağıdaki) artık yok:
-    Eskiden: görselsiz `.card.post-card`, `.posts-list` (tek sütun, dergi listesi):
-    büyük başlık, sağda yuvarlak ok (hover'da -45° döner, degradeyle dolar); mobilde ok yerine
-    "Yazıyı oku →". Yeni makaleler alt alta eklenir.
+10. Yazılar (`#writing`, 2026-11-25): her makale **aynı kompakt kart** (`.post-tile`), masaüstünde **yan yana 2'li ızgara** (tam genişlik alt alta satırlar "tüm ekranı kaplıyor" bulundu), en yeni solda: üstte solda **ikon kutusu** (`.post-icon`, 48px, yanında meta + başlık, sağda ok; altında 2 satır açıklama; `.card-icon` gibi degradeli,
+    satır içi SVG; TV yazısında TV+telefon, Şikayetvar'da ünlemli konuşma balonu; resimli kapaklar "büyük" bulundu), ortada meta + başlık + tek satır açıklama (kullanıcı iki kez "çok büyük" dedi, küçük tut; açıklamayı sonra geri istedi), sağda yuvarlak ok
+    (`.post-arrow`, ok SVG maske — metin "→" dairede yamuk duruyordu). Mobilde 44px ikon + başlık, açıklama/ok gizli.
+    Denenip beğenilmeyenler: "öne çıkan büyük kart + ince satırlar" (biri fotolu biri fotosuz), büyük kapaklı yan yana 2 kart
+    ("çok büyük"), solda küçük resimli kapak (yine "büyük"). Yeni makale = yeni `.post-tile` + konusuna uygun çizgi ikon (TR+EN).
 11. İletişim (düz zemin; solda ikonlu 4 kart `.contact-card.has-icon` + altında `.contact-extra` satırı: solda küçük sosyal ikonlar
     (`.social-links`: Instagram `salihacikgoz0`, X `SalihAcikgoz0`, Medium `@salihacikgoz`, LinkedIn en sonda — kullanıcı sosyal medyalar başta olsun dedi), sağda sade "Özgeçmiş (PDF) ↓").
     Sosyal hesap eklerken ikon + JSON-LD `sameAs`'e de ekle; tıklamalar `contact_click` (`method`).
@@ -182,8 +180,8 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
   (`images/yazilar/tv-*.webp`), og = ilk görselden kırpma. Kaynakça `.article-sources` (küçük yazı).
   Medium görselleri RSS'teki adreste `max/2000` ve `curl -L` ile iner. Mac'te Pillow yok, `sips` WebP yazamıyor:
   geçici bir venv'e `pip install pillow` kurup çevir.
-- Kullanıcının tercihi: ana sayfada makale kartı **görselsiz** (büyük krem çizimli kart sitenin
-  havasını bozdu). Makale içinde çizimler koyu çerçevede, hafif kısık (`brightness .88`) duruyor.
+- Kullanıcının tercihi: ana sayfada makale kartında **resim yok**, sadece ikon kutusu (sayfa yapısı madde 10;
+  krem çizimli kart ve küçük resimli kapaklar denendi, beğenilmedi). Makale içinde çizimler koyu çerçevede, hafif kısık (`brightness .88`) duruyor.
   Tablolar resim değil gerçek HTML tablo. Okuma süresi ("4 dk") kaldırıldı, kullanıcı istemedi — ekleme.
 - Yeni makale eklerken: sayfa + ana sayfaya kart + `sitemap.xml` + BlogPosting JSON-LD + og görseli
   (1200×630). Medium'da da yayınlıysa canonical konusunu hatırlat (kullanıcı şimdilik Medium'da
@@ -321,6 +319,15 @@ Ana siteye bağlantı verilmez, `sitemap.xml`'e eklenmez.
 - Giriş gereken projelerde Cloudflare Access **kullanılmıyor** (Zero Trust kart istedi, kullanıcı istemedi).
 - **Skyler** (`skyler.salihacikgoz.com`, klasör `Desktop\Skyler White`): kişisel muhasebe paneli (kart ekstreleri,
   borç/alacak). Kendi `CLAUDE.md` ve `README.md`'si var; orada çalışırken onları oku.
+
+## Kaldığımız yer (2026-11-25, Mac)
+
+**Yayında (commit `c87cf0d`):** vaka kartlarına hikâye notları, TV reklamları makalesi, sitemap.
+**Yayında (2026-11-25):** Yazılar bölümü ikon kutulu kompakt kartlar, masaüstünde yan yana 2'li ızgara (`gap: 28px`, kullanıcı "çok daha güzel" dedi); ikon SVG'lerinde `width/height=24` var (Safari eski CSS'i önbellekten gösterince ikon tüm ekranı kaplamıştı).
+Sonra: Search Console'da `/yazilar/tv-reklamlari-kime-calisiyor/` için "Dizine eklenmesini iste" hatırlat.
+Medium canonical 2026-11-25'te hatırlatıldı, yakında tekrar etme.
+Açık: Ayakkabı kartını Windows'taki `vaka-calismasi/` görüntüsüyle doğrula; 5. vaka (ev aksesuarı, Meta toplamları bekleniyor).
+Kullanıcı Jale rakamlarının anlık olup olmadığını sordu: günlük 06:00 senkron, anlık gerekmez dendi.
 
 ## Kaldığımız yer (2026-10-17)
 
