@@ -70,6 +70,19 @@ görsel dil (2026-10-17)" maddesinde).
    (İstanbul) `.github/workflows/jale-sync.yml` çalışır, değişince commit + `deploy.yml` tetikler. `sync/` deploy'a gitmez.
    **Repo herkese açık:** veri dosyasına/loglara marka adı yazma, müşteri kimlikleri sha256 ile karmalı.
    Anahtar: GitHub Secrets `JALE_API_KEY`, `JALE_BASE_URL`; Mac'te `.env` (gitignore'da). Vaka kartları hâlâ elle.
+   Jale'de müşterinin `targetRoas`'ı = markanın **Trendyol içi reklamlarının ortalama ROAS'ı** (kullanıcı, 2026-11-24);
+   "CPAS, markanın kendi Trendyol reklamlarından verimli" karşılaştırması için kullanılabilir. `/products` uzun aralıkta
+   (90 gün) zaman aşımına uğradı (2026-11-24); kısa aralıkla dene.
+   **Vaka hikâyeleri (2026-11-24/25):** her kartın en altında `.case-story`: **tek cümle**, benzer uzunlukta, sol kenarı
+   degradeli soluk not kutusu, `margin-top: auto` ile kartlarda alta hizalı (ilk sürüm çizgili düz yazıydı, kullanıcı
+   "dağınık" buldu). Rakam kalabalığı yok (kullanıcı "20x falan karışık" dedi). "Sıfırdan kurduk" kartlarda tekrar etmez,
+   giriş cümlesi zaten söylüyor. Hikâyeyi kullanıcı anlatır, ben sadeleştiririm; TR+EN birlikte.
+   Ev Tekstili "~3 kat verimli" = 22,5x / hedef 8x. **Ayakkabı** kartı (2026-11-25): iki aday
+   markadan, 19,2x'in Trendyol ortalamasının (13x) üstünde kaldığı marka seçildi (diğerinin ortalaması 27x, vaka olamazdı).
+   Cümle: en iyi 7 günlük ROAS 33,6x = ortalamanın 2 katından fazla; marka çalışmayı bıraktığı için geçmiş zaman.
+   Windows'taki `vaka-calismasi/` görüntüsüyle bir kez doğrula. Kullanıcı 5. vaka olarak
+   bir ev aksesuarı markası da istiyor: Meta'dan harcama/ciro/satış/tarih toplamları gelince eklenir (5 kartta 2×2 düzenini
+   yeniden düşün). Marka adlarını repoya yazma, sohbette kullanıcıyla konuş.
    Senkron commit attığı için çalışmaya başlamadan önce `git pull` yap.
    **Mobil (kullanıcı telefonda ekran görüntüsüyle iki tur düzeltti, sonunda "daha iyi oldu"):**
    küçük rakam kartlarında rakamlar üste yaslı (`justify-content: flex-start`), vaka istatistiklerinde
@@ -95,7 +108,11 @@ görsel dil (2026-10-17)" maddesinde).
 9. Araçlar & Teknolojiler: 4 grup — Reklam & Analitik, Yapay Zeka (metin, görsel, video,
    müzik, kodlama), Tasarım & Kreatif, Web & Yazılım. AI araçları kullanıcının seçtikleri; ChatGPT,
    Cursor, Copilot kullanmıyor, ekleme.
-10. Yazılar (`#writing`): görselsiz `.card.post-card`, `.posts-list` (tek sütun, dergi listesi):
+10. Yazılar (`#writing`, 2026-11-25 yenilendi, kullanıcı seçti): **en yeni makale** `.post-featured` kartında, solda kendi
+    koyu infografiğinden küçük kapak (`images/yazilar/*-kapak.webp`, 720×405; krem çizimli kapak sevilmemişti, koyu
+    infografik uyuyor), sağda yuvarlak ok; eskiler altında `.post-rows` > `.post-row` ince satırlar (tarih · başlık+etiket · ok).
+    Yeni makale gelince öne çıkan karta o geçer, eskisi satıra iner (TR+EN). Eski düzen (aşağıdaki) artık yok:
+    Eskiden: görselsiz `.card.post-card`, `.posts-list` (tek sütun, dergi listesi):
     büyük başlık, sağda yuvarlak ok (hover'da -45° döner, degradeyle dolar); mobilde ok yerine
     "Yazıyı oku →". Yeni makaleler alt alta eklenir.
 11. İletişim (düz zemin; solda ikonlu 4 kart `.contact-card.has-icon` + altında `.contact-extra` satırı: solda küçük sosyal ikonlar
@@ -160,6 +177,11 @@ Bölüm zeminleri sırayla düz / `alt` değişir; bölüm eklerken sıralamayı
   `images/yazilar/` altında, WebP (~1200px, kalite 82); og görseli JPEG kalır.
 - İlk makale: "Şikayetvar'ın Satışlara Etkisi" (Medium'dan taşındı, 10 Nisan 2025). Medium RSS'i
   (`medium.com/feed/@salihacikgoz`) tam metni verir; Medium sayfası doğrudan 403 döner.
+- İkinci makale: "TV Reklamları Aslında Kime Çalışıyor?" (`/yazilar/tv-reklamlari-kime-calisiyor/`, Medium'da
+  24 Kasım 2026; siteye 2026-11-25 eklendi). Medium alt başlığı `.article-lead` olarak h1 altında; 6 koyu infografik
+  (`images/yazilar/tv-*.webp`), og = ilk görselden kırpma. Kaynakça `.article-sources` (küçük yazı).
+  Medium görselleri RSS'teki adreste `max/2000` ve `curl -L` ile iner. Mac'te Pillow yok, `sips` WebP yazamıyor:
+  geçici bir venv'e `pip install pillow` kurup çevir.
 - Kullanıcının tercihi: ana sayfada makale kartı **görselsiz** (büyük krem çizimli kart sitenin
   havasını bozdu). Makale içinde çizimler koyu çerçevede, hafif kısık (`brightness .88`) duruyor.
   Tablolar resim değil gerçek HTML tablo. Okuma süresi ("4 dk") kaldırıldı, kullanıcı istemedi — ekleme.
