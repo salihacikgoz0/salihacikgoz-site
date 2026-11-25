@@ -331,14 +331,20 @@ Ana siteye bağlantı verilmez, `sitemap.xml`'e eklenmez.
 - **Skyler** (`skyler.salihacikgoz.com`, klasör `Desktop\Skyler White`): kişisel muhasebe paneli (kart ekstreleri,
   borç/alacak). Kendi `CLAUDE.md` ve `README.md`'si var; orada çalışırken onları oku.
 
-## Kaldığımız yer (2026-11-25, Mac)
+## Kaldığımız yer (2026-11-25 akşam, Mac → evde Windows'ta devam)
 
-**Yayında (commit `c87cf0d`):** vaka kartlarına hikâye notları, TV reklamları makalesi, sitemap.
-**Yayında (2026-11-25):** Yazılar bölümü ikon kutulu kompakt kartlar, masaüstünde yan yana 2'li ızgara (`gap: 28px`, kullanıcı "çok daha güzel" dedi); ikon SVG'lerinde `width/height=24` var (Safari eski CSS'i önbellekten gösterince ikon tüm ekranı kaplamıştı).
-Sonra: Search Console'da `/yazilar/tv-reklamlari-kime-calisiyor/` için "Dizine eklenmesini iste" hatırlat.
-Medium canonical 2026-11-25'te hatırlatıldı, yakında tekrar etme.
-Açık: Ayakkabı kartını Windows'taki `vaka-calismasi/` görüntüsüyle doğrula; 5. vaka (ev aksesuarı, Meta toplamları bekleniyor).
-Kullanıcı Jale rakamlarının anlık olup olmadığını sordu: günlük 06:00 senkron, anlık gerekmez dendi.
+Hepsi yayında: Yazılar 2'li kompakt kartlar; vaka kartları Jale'ye bağlı (`sync/vakalar.py`); Markalar'da sektör filtresi +
+küçük ⓘ bilgi notu ("Logoya tıklayarak…"). Önizleme artık Brave'de (Windows'ta da Brave varsa onu kullan).
+**Uygulanan öneri listesi (kullanıcı "adım adım" dedi):**
+1. CPAS vs Trendyol içi ROAS karşılaştırması → **yapılmadı**: 14,9x vs 14,5x (55 marka, 5 haftalık Jale), fark yok; sadece 17/55
+   markada CPAS önde. Kullanıcıya "göstermeyelim" denildi. Vaka kartlarındaki marka bazlı karşılaştırma yeterli.
+2. Yeni vakalar (ev aksesuarı ~25x, Elektronik ~37x) → kullanıcıdan Meta toplamları (harcama, ciro, satış, tarih) bekleniyor.
+3. Markaları kategorize → **yapıldı** (filtre hapları).
+4. **Sıradaki:** İletişim'e sade WhatsApp bağlantısı + LinkedIn tavsiyelerinden 2-3 referans (kullanıcıdan metinleri al).
+5. Projelere gerçek görsel (ör. Hazume ekran görüntüsü).
+Kullanıcı yapacak: Search Console'da `/yazilar/tv-reklamlari-kime-calisiyor/` için "Dizine eklenmesini iste".
+Natro FTP bazen zaman aşımına düşüyor (2026-11-25 bir kez): `gh run rerun <id>` ya da yeni commit ile yeniden yayınla.
+`help/` klasörü kullanıcının ekran görüntüleri için (commit etme).
 
 ## Kaldığımız yer (2026-10-17)
 
