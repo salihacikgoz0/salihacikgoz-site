@@ -97,14 +97,14 @@ görsel dil (2026-10-17)" maddesinde).
    tutuldu ("Reklam/satış", eskiden "Satış başı reklam" iki satıra düşüyordu). Telefonda vaka şeridi
    ekran kenarına taşar: `.section.alt > *` kuralı margin'leri ezdiği için `.section.alt > .cases`
    ile yazıldı. Yeni etiket eklerken telefonda tek satıra sığmasına dikkat et.
-   Altında Çalıştığım Markalar (`.brands-title` "Çalıştığım markalardan bazıları", 2026-10-11): 20 Trendyol mağazası logosu, sabit ızgara
-   (`.brands-grid`, masaüstü 10×2, mobil 5×4), baştan renkli, hover'da kalkar; tıklayınca Trendyol
+   Altında Çalıştığım Markalar (`.brands-title` "Çalıştığım markalardan bazıları", 2026-10-11): 50 Trendyol mağazası logosu (2026-11-26: 20 → 50), sabit ızgara
+   (`.brands-grid`, masaüstü 10×5, mobil 5×10), baştan renkli, hover'da kalkar; tıklayınca Trendyol
    mağazası açılır, GA4'e `brand_click` (`brand`). Liste cpasturkiye.com'daki "Reklamlarını CPAS
-   Türkiye'nin yönettiği mağazalardan bazıları"ndan; logolar `images/markalar/<slug>.webp` (160px).
+   Türkiye'nin yönettiği mağazalardan bazıları"ndan (site Next.js'e geçti; liste artık `https://cpasturkiye.com/api/settings` > `references`, logolar `/api/logo?file=…&w=160`; takipçi sayısı tarayıcıda trendyol.com sekmesinden fetch ile); logolar `images/markalar/<slug>.webp` (160px).
    Sıra: Trendyol takipçi sayısı (çoktan aza; API `apigw.trendyol.com/discovery-sellerstore-gateway-service/api/follow/?sellerId=<id>`,
    sadece trendyol.com sayfasından fetch edilebilir), **istisna: Diversey her zaman 2. sırada**
    (büyük marka, kullanıcı istedi). **Sektör filtresi (2026-11-25):** ızgaranın üstünde hap düğmeler (`.brand-filters` > `.brand-filter[data-filter]`, HTML'de sabit,
-   TR+EN), her `li`'de `data-sector` (giyim, ev, elektronik, kozmetik, temizlik, bebek; Jale kategorilerinden, Jale'de olmayanlar tahmin).
+   TR+EN), her `li`'de `data-sector` (giyim, ev, elektronik, kozmetik, temizlik, bebek, evcil; Jale kategorilerinden, Jale'de olmayanlar tahmin).
    Varsayılan "Tümü" = eski ızgara. GA4 `brand_filter` (`sector`). Yeni marka eklerken `data-sector` ver ve hap sayısını güncelle.
    Denenip seçilmeyenler: sektör başlıklı gruplar, logo altında ad+sektör etiketi ("çok karıştı").
    Kayan şerit (marquee) denendi, kullanıcı sevmedi; gri/kısık logolar
