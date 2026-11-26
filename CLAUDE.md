@@ -97,16 +97,17 @@ görsel dil (2026-10-17)" maddesinde).
    tutuldu ("Reklam/satış", eskiden "Satış başı reklam" iki satıra düşüyordu). Telefonda vaka şeridi
    ekran kenarına taşar: `.section.alt > *` kuralı margin'leri ezdiği için `.section.alt > .cases`
    ile yazıldı. Yeni etiket eklerken telefonda tek satıra sığmasına dikkat et.
-   Altında Çalıştığım Markalar (`.brands-title` "Çalıştığım markalardan bazıları", 2026-10-11): 50 Trendyol mağazası logosu (2026-11-26: 20 → 50), sabit ızgara
-   (`.brands-grid`, masaüstü 10×5, mobil 5×10), baştan renkli, hover'da kalkar; tıklayınca Trendyol
+   Altında Çalıştığım Markalar (`.brands-title` "Çalıştığım markalardan bazıları", 2026-10-11): 89 Trendyol mağazası logosu (2026-11-26: 20 → 50 → 89), sabit ızgara
+   (`.brands-grid`, masaüstü 10 sütun, mobil 5 sütun), **yuvarlak** logolar (2026-11-26, tek tip görünsün diye), baştan renkli, hover'da kalkar;
+   **açılışta ilk 20 (telefonda 15) logo**, gerisi `.brands-more` "Tümünü gör (50)" ile açılır (`.open`), sektör seçilince o sektörün hepsi (`.filtered`); GA4 `brands_more`; tıklayınca Trendyol
    mağazası açılır, GA4'e `brand_click` (`brand`). Liste cpasturkiye.com'daki "Reklamlarını CPAS
-   Türkiye'nin yönettiği mağazalardan bazıları"ndan (site Next.js'e geçti; liste artık `https://cpasturkiye.com/api/settings` > `references`, logolar `/api/logo?file=…&w=160`; takipçi sayısı tarayıcıda trendyol.com sekmesinden fetch ile); logolar `images/markalar/<slug>.webp` (160px).
+   Türkiye'nin yönettiği mağazalardan bazıları"ndan + **Jale'deki ACTIVE ve PAUSED müşteriler** (ONBOARDING hariç; kullanıcı: "hepsini ben yönetiyorum, iki taraftan toplayalım"; Jale'de mağaza kimliği yok, Trendyol aramasıyla eşleştirildi, logo = mağaza sayfasındaki `header.icon`, `cdn.dsmcdn.com/seller-store/uploads/<id>/…`; Gen Farma (cinsel sağlık) bilerek eklenmedi) (site Next.js'e geçti; liste artık `https://cpasturkiye.com/api/settings` > `references`, logolar `/api/logo?file=…&w=160`; takipçi sayısı tarayıcıda trendyol.com sekmesinden fetch ile); logolar `images/markalar/<slug>.webp` (160px).
    Sıra: Trendyol takipçi sayısı (çoktan aza; API `apigw.trendyol.com/discovery-sellerstore-gateway-service/api/follow/?sellerId=<id>`,
    sadece trendyol.com sayfasından fetch edilebilir), **istisna: Diversey her zaman 2. sırada**
-   (büyük marka, kullanıcı istedi). **Sektör filtresi (2026-11-25):** ızgaranın üstünde hap düğmeler (`.brand-filters` > `.brand-filter[data-filter]`, HTML'de sabit,
-   TR+EN), her `li`'de `data-sector` (giyim, ev, elektronik, kozmetik, temizlik, bebek, evcil; Jale kategorilerinden, Jale'de olmayanlar tahmin).
+   (büyük marka, kullanıcı istedi). **Sektör filtresi (2026-11-25; 2026-11-26'dan beri kayan seçici):** tek kutu içinde sekmeler, degrade dolgu (`.brand-filter-ind`) seçilene kayar, kısa etiketler (Moda, Bakım & Sağlık, Anne-Bebek, Gıda, Evcil Hayvan, Otomotiv) tek satır (`.brand-filters` > `.brand-filter[data-filter]`, HTML'de sabit,
+   TR+EN), her `li`'de `data-sector` (giyim [etiket "Moda", takı dahil], ev, elektronik, kozmetik [etiket "Bakım & Sağlık"], bebek, gida, temizlik, evcil, otomotiv; "Diğer" sekmesi **olmasın**, her firmaya gerçek kategorisi verilir (kullanıcı, 2026-11-26); Jale kategorilerinden, Jale'de olmayanlar tahmin).
    Varsayılan "Tümü" = eski ızgara. GA4 `brand_filter` (`sector`). Yeni marka eklerken `data-sector` ver ve hap sayısını güncelle.
-   Denenip seçilmeyenler: sektör başlıklı gruplar, logo altında ad+sektör etiketi ("çok karıştı").
+   Denenip seçilmeyenler (2026-11-26 deneme sayfasında A/B/C ve 4 filtre stili gösterildi, kullanıcı A+B + kayan seçici seçti): iki katmanlı büyük/küçük logo düzeni, ikonlu haplar, alt çizgili sekmeler; sektör başlıklı gruplar, logo altında ad+sektör etiketi ("çok karıştı").
    Kayan şerit (marquee) denendi, kullanıcı sevmedi; gri/kısık logolar
    da istenmedi. Toplam takipçi (~4,96M) cümlesi önerildi, eklenmedi.
 7. Eğitim: zaman çizelgesi (Topkapı YL → Anadolu AÖF ön lisans → Akdeniz lisans), altında

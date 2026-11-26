@@ -174,24 +174,51 @@ document.querySelectorAll(".brand").forEach((link) => {
   });
 });
 
-// Markalar: sektör filtresi. Seçilen sektörün logoları kalır, diğerleri gizlenir.
+// Markalar: sektör filtresi (kayan seçici) + "Tümünü gör".
+// Açılışta ilk 20 logo (telefonda 15) görünür; sektör seçilince o sektörün hepsi görünür.
 const brandFilters = document.querySelectorAll(".brand-filter");
 const brandItems = document.querySelectorAll(".brands-grid > li[data-sector]");
+const brandGrid = document.querySelector(".brands-grid");
+const brandInd = document.querySelector(".brand-filter-ind");
+const brandMore = document.querySelector(".brands-more");
+
+const placeBrandInd = () => {
+  const active = document.querySelector('.brand-filter[aria-pressed="true"]');
+  if (!brandInd || !active) return;
+  brandInd.style.width = `${active.offsetWidth}px`;
+  brandInd.style.transform = `translateX(${active.offsetLeft}px)`;
+};
+const popIn = (li) => {
+  li.classList.remove("filter-in");
+  if (reduceMotion) return;
+  void li.offsetWidth; // animasyonu yeniden başlat
+  li.classList.add("filter-in");
+};
+
 brandFilters.forEach((btn) => {
   btn.addEventListener("click", () => {
     const sector = btn.dataset.filter;
     brandFilters.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+    placeBrandInd();
     brandItems.forEach((li) => {
-      const show = !sector || li.dataset.sector === sector;
-      li.hidden = !show;
-      li.classList.remove("filter-in");
-      if (show && !reduceMotion) {
-        void li.offsetWidth; // animasyonu yeniden başlat
-        li.classList.add("filter-in");
-      }
+      li.hidden = Boolean(sector) && li.dataset.sector !== sector;
+      if (!li.hidden) popIn(li);
     });
+    brandGrid?.classList.toggle("filtered", Boolean(sector));
+    if (brandMore) brandMore.hidden = Boolean(sector);
     if (typeof gtag === "function") gtag("event", "brand_filter", { sector: sector || "all" });
   });
+});
+placeBrandInd();
+window.addEventListener("resize", placeBrandInd);
+document.fonts?.ready.then(placeBrandInd);
+
+brandMore?.addEventListener("click", () => {
+  const isOpen = brandGrid.classList.toggle("open");
+  brandMore.setAttribute("aria-expanded", String(isOpen));
+  brandMore.querySelector("span").textContent = isOpen ? brandMore.dataset.less : brandMore.dataset.more;
+  if (isOpen) brandItems.forEach(popIn);
+  if (typeof gtag === "function") gtag("event", "brands_more", { open: isOpen });
 });
 
 // Kartlarda fareyi takip eden ışık
