@@ -332,6 +332,25 @@ Ana siteye bağlantı verilmez, `sitemap.xml`'e eklenmez.
 - **Skyler** (`skyler.salihacikgoz.com`, klasör `Desktop\Skyler White`): kişisel muhasebe paneli (kart ekstreleri,
   borç/alacak). Kendi `CLAUDE.md` ve `README.md`'si var; orada çalışırken onları oku.
 
+## Kaldığımız yer (2026-11-26, Mac)
+
+Hepsi yayında. Bu oturumda "Çalıştığım markalar" baştan ele alındı (ayrıntı: sayfa yapısı 6b, Markalar):
+- Liste 20 → 50 (cpasturkiye.com `/api/settings`) → **89** (Jale'deki ACTIVE + PAUSED müşteriler eklendi).
+- Takipçiye göre sıra, Hiccup 1., Diversey 2. (kullanıcı: Diversey istisnası kalsın).
+- Tasarım: yuvarlak logolar, açılışta 20 (telefonda 15) + "Tümünü gör" çizgili ayraç, masaüstünde kayan sektör seçici,
+  telefonda alt çizgili sekmeler. Hepsi yerel deneme sayfasında (`marka-denemeleri.html`, `.git/info/exclude`'da) seçenek
+  seçenek, **her biri ayrı sekmede** gösterilerek seçildi — kullanıcı bu çalışma şeklini seviyor, tasarım işlerinde böyle devam et.
+  Telefondan bakması için sadece deneme dosyalarını ayrı klasörden `--bind 0.0.0.0` ile sun (repo kökünü ağa açma, `.env` var).
+- Sektörler her firmanın Trendyol'da sattığı ürünlere bakılarak verildi; "Diğer" yok (Evcil Hayvan, Otomotiv ayrı sekme).
+**Açık kalanlar (markalar):** 8 firmanın Trendyol mağazası bulunamadı (Asua, Emir Koleksiyon, Favori Watches, Minimal Kolye,
+BM Beauty, Hubb Home, Saatçi Tevfik, İMA AVM) → kullanıcıdan mağaza bağlantısı bekleniyor. "Raşelkori Eşarpbone" =
+"Rachel Corrie Eşarp & Şal" mı, sorulacak. Gen Farma (cinsel sağlık) eklenmedi, kullanıcı karar verecek.
+cpasturkiye.com'da SEPETTENEVAR bağlantısı Ruxene mağazasına gidiyor (kullanıcı orada düzeltecek; bizde doğru: `-m-108928`).
+**Sıradaki öneri listesi** (kullanıcıya sunuldu, seçim bekleniyor): 1) İletişim'e WhatsApp + LinkedIn referansları (önerilen),
+2) projelere gerçek görsel (Hazume), 3) yeni vaka kartları (Meta toplamları bekleniyor).
+**Dil:** kullanıcıya her yanıt **Türkçe** olmalı (tablolar, seçenekler dahil); bu oturumda birkaç kez İngilizceye kayıldı,
+kullanıcı "İngilizce yazdığı için anlayamıyorum" dedi.
+
 ## Kaldığımız yer (2026-11-25 akşam, Mac → evde Windows'ta devam)
 
 Hepsi yayında: Yazılar 2'li kompakt kartlar; vaka kartları Jale'ye bağlı (`sync/vakalar.py`); Markalar'da sektör filtresi +

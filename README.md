@@ -75,4 +75,5 @@ sunucuya tamamen çıkmadan istenmez (aksi halde yarım dosya Cloudflare'de 7 g�
 
 - **Google Search Console:** site ekli, `sitemap.xml` gönderildi.
 - **Google Analytics (GA4):** `G-B23FWT14V4`. Özel olaylar: `contact_click` (`method`: email /
-  phone / linkedin / instagram / x / medium), `cv_download` ve `brand_click` (`brand`: marka adı).
+  phone / linkedin / instagram / x / medium), `cv_download`, `brand_click` (`brand`: marka adı),
+  `brand_filter` (`sector`) ve `brands_more` (`open`: "Tümünü gör" açıldı mı).
