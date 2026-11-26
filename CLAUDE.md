@@ -3,7 +3,7 @@
 Salih Açıkgöz'ün kişisel sitesi (CV + portfolyo): https://salihacikgoz.com
 Statik HTML/CSS/JS, framework yok. Genel bilgi ve dosya listesi için `README.md`.
 
-Son güncelleme: 2026-11-25 (vaka hikâyeleri, 2. makale, Yazılar ikonlu satırlar). Önceki: 2026-10-18 (İngilizce sürüm `/en/`). Önceki: 2026-10-17 (büyük görsel/hareket yenilemesi: ikonlar, bento, proje kapakları, cam
+Son güncelleme: 2026-11-26 (Çalıştığım markalar: 89 marka, yuvarlak logolar, sektör seçici, Jale + cpasturkiye kaynakları). Önceki: 2026-11-25 (vaka hikâyeleri, 2. makale, Yazılar ikonlu satırlar). Önceki: 2026-10-18 (İngilizce sürüm `/en/`). Önceki: 2026-10-17 (büyük görsel/hareket yenilemesi: ikonlar, bento, proje kapakları, cam
 rakamlar, yüzen menü, açılış koreografisi, dev SA amblemli altbilgi; ayrıntılar "Hareketler ve
 görsel dil (2026-10-17)" maddesinde).
 Önceki: 2026-10-11 (sosyal medya ikonları, hareketler, firma/okul logoları, Markalar, WebP).
