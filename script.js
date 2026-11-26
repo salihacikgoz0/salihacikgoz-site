@@ -200,6 +200,11 @@ brandFilters.forEach((btn) => {
     const sector = btn.dataset.filter;
     brandFilters.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
     placeBrandInd();
+    // Sekmeler sığmıyorsa (telefon) seçileni ortaya kaydır
+    const bar = btn.parentElement;
+    if (bar.scrollWidth > bar.clientWidth) {
+      bar.scrollTo({ left: btn.offsetLeft - (bar.clientWidth - btn.offsetWidth) / 2, behavior: reduceMotion ? "auto" : "smooth" });
+    }
     brandItems.forEach((li) => {
       li.hidden = Boolean(sector) && li.dataset.sector !== sector;
       if (!li.hidden) popIn(li);

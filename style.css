@@ -1050,9 +1050,22 @@ html.vt-lang::view-transition-new(site-nav) { animation: none; }
 .brands-more[aria-expanded="true"] i { transform: rotate(-135deg) translate(-2px, 0); }
 .brands-more[hidden] { display: none; }
 @media (max-width: 780px) {
-  .brand-filters { display: flex; overflow-x: auto; scrollbar-width: none; }
-  .brand-filters::-webkit-scrollbar { display: none; }
-  .brand-filter { font-size: 0.76rem; padding: 6px 12px; }
+  /* Telefonda alt çizgili sekmeler (2026-11-26, kullanıcı 4 seçenekten seçti): kutu/dolgu yok,
+     seçilinin altında degrade çizgi kayar, sağ kenar sönerek devamı olduğunu gösterir */
+  .brand-filters {
+    display: flex;
+    gap: 22px;
+    padding: 0 40px 0 0;
+    border: 0;
+    border-bottom: 1px solid var(--border);
+    border-radius: 0;
+    background: none;
+    -webkit-mask: linear-gradient(90deg, #000 calc(100% - 48px), transparent);
+    mask: linear-gradient(90deg, #000 calc(100% - 48px), transparent);
+  }
+  .brand-filter { font-size: 0.86rem; padding: 9px 0 11px; border-radius: 0; }
+  .brand-filter[aria-pressed="true"] { color: var(--text); font-weight: 600; }
+  .brand-filter-ind { top: auto; bottom: 0; height: 2px; border-radius: 2px; box-shadow: none; }
   .brands-grid:not(.open):not(.filtered) > li:nth-child(n+16) { display: none; }
 }
 
